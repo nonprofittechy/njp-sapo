@@ -347,6 +347,7 @@
 		<hd:text name="Other party name first TE" askAutomatically="false">
 			<hd:defMergeProps unansweredText="the abuser"/>
 			<hd:prompt>First name</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="50"/>
 		</hd:text>
 		<hd:text name="Other party name last TE">
 			<hd:prompt>Last name/s</hd:prompt>
@@ -4701,6 +4702,7 @@ Who is the order protecting?</hd:prompt>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="User relationship to teen survivor MC">
 			<hd:prompt>«Text spacer CO»«.b»What is your relationship to the minor survivor?«.be»</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="50"/>
 			<hd:options defMergeText="Parent/Guardian/Guardian ad Litem/Next friend">
 				<hd:option name="parent">
 					<hd:prompt>Parent</hd:prompt>
@@ -4713,6 +4715,33 @@ Who is the order protecting?</hd:prompt>
 				</hd:option>
 				<hd:option name="next friend">
 					<hd:prompt>Next friend (someone over 18, chosen by the teenager to pursue their interests)</hd:prompt>
+				</hd:option>
+			</hd:options>
+			<hd:singleSelection other="true"/>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="User relationship to vulnerable adult MC">
+			<hd:prompt>«Text spacer CO»I am the vulnerable adult&apos;s</hd:prompt>
+			<hd:options>
+				<hd:option name="parent">
+					<hd:prompt>Parent</hd:prompt>
+				</hd:option>
+				<hd:option name="guardian">
+					<hd:prompt>Guardian</hd:prompt>
+				</hd:option>
+				<hd:option name="gal">
+					<hd:prompt>Guardian ad litem</hd:prompt>
+				</hd:option>
+				<hd:option name="sibling">
+					<hd:prompt>Sibling</hd:prompt>
+				</hd:option>
+				<hd:option name="grandparent">
+					<hd:prompt>Grandparent</hd:prompt>
+				</hd:option>
+				<hd:option name="child">
+					<hd:prompt>Child</hd:prompt>
+				</hd:option>
+				<hd:option name="friend">
+					<hd:prompt>Friend</hd:prompt>
 				</hd:option>
 			</hd:options>
 			<hd:singleSelection other="true"/>
@@ -4831,8 +4860,26 @@ Who is the order protecting?</hd:prompt>
 			</hd:options>
 			<hd:singleSelection style="dropDownList"/>
 		</hd:multipleChoice>
+		<hd:multipleChoice name="Vulnerable adult vulnerability MS">
+			<hd:prompt>«Text spacer CO»Why is the vulnerable adult not able to file this petition on their own behalf?</hd:prompt>
+			<hd:options>
+				<hd:option name="age">
+					<hd:prompt>Age</hd:prompt>
+				</hd:option>
+				<hd:option name="disability">
+					<hd:prompt>Disability</hd:prompt>
+				</hd:option>
+				<hd:option name="health">
+					<hd:prompt>Health</hd:prompt>
+				</hd:option>
+				<hd:option name="inaccessibility">
+					<hd:prompt>They cannot access the court</hd:prompt>
+				</hd:option>
+			</hd:options>
+			<hd:multipleSelection noneOfTheAbove="true"/>
+		</hd:multipleChoice>
 		<hd:multipleChoice name="Who protecting MC">
-			<hd:prompt>Who do you need to protect with this order?</hd:prompt>
+			<hd:prompt>«Text spacer CO»Who do you need to protect with this order?</hd:prompt>
 			<hd:options defMergeText="you/the minor/the vulnerable adult">
 				<hd:option name="self">
 					<hd:prompt>Myself</hd:prompt>
@@ -6444,11 +6491,9 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="Has eligible survivor CO" resultType="trueFalse">
-			<hd:script>VALUE(Protect teen from dating violence TF)
-OR VALUE(Interview for self TF) 
-OR VALUE(Order protects children TF) 
-
-</hd:script>
+			<hd:script>Who protecting MC = &quot;self&quot; OR
+( Who protecting MC = &quot;minor&quot;) OR 
+(Who protecting MC = &quot;vulnerable adult&quot; AND NOT (VALUE(Vulnerable adult vulnerability MS) = OTHER( Vulnerable adult vulnerability MS)))</hd:script>
 		</hd:computation>
 		<hd:computation name="Has/have the child/children lived CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
@@ -6503,8 +6548,7 @@ IF NOT ANSWERED (Run once flag TF)
 END IF
 
 Set answer set flags CO
-Build all available children repeat and MS CO
-Build selected children repeat and MS CO
+
 SET User role MC TO &quot;Petitioner&quot;
 
 ASK NONE
@@ -6513,11 +6557,7 @@ ASK Safety Planning
 ASK Can I get a SAPO
 IF NOT Has eligible survivor CO 
 	OR No eligible harm selected CO 
-	OR Dating violence and abuser under 16 CO 
-	OR Teenager is too old for next friend CO 
-	OR No eligible relationship user for teen survivor CO
 	OR User is too young CO
-	OR No eligible relationship survivor and abuser CO
 	ASK Gentle exit
 	// ASSEMBLE &quot;DVPO - Wrong Interview.rtf /nw /stw&quot;	
 ELSE // Don&apos;t need gentle exit
@@ -6879,10 +6919,11 @@ END REPEAT</hd:script>
 Protect teen from dating violence TF OR NOT Order protects children TF</hd:script>
 		</hd:computation>
 		<hd:computation name="No eligible harm selected CO" resultType="trueFalse">
-			<hd:script>FALSE
-IF VALUE(Harm type MS) = OTHER(Harm type MS)
-	TRUE
-END IF</hd:script>
+			<hd:script>NOT VALUE(Respondent sexually assaulted petitioner TF)
+
+//IF VALUE(Harm type MS) = OTHER(Harm type MS)
+//	TRUE
+//END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="No eligible relationship survivor and abuser CO" resultType="trueFalse">
 			<hd:script>IF VALUE(Protect teen from dating violence TF)
@@ -9621,14 +9662,7 @@ TRUE
 </hd:script>
 		</hd:computation>
 		<hd:computation name="User is too young CO" resultType="trueFalse">
-			<hd:script>FALSE
-IF VALUE(Interview for self TF)
-	IF 	VALUE(User age range MC) = &quot;under 16&quot;
-		TRUE
-	ELSE
-		FALSE
-	END IF
-END IF</hd:script>
+			<hd:script>VALUE(User age range MC) = &quot;under 16&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="User left county to flee CO" resultType="trueFalse">
 			<hd:script>FALSE
@@ -10037,6 +10071,9 @@ ELSE
 END IF
 </hd:script>
 		</hd:computation>
+		<hd:dialogElement name="Adult is not vulnerable DE">
+			<hd:caption>«Text spacer CO»«.b»Sorry.«.be» You can only get a SAPO for an adult who is vulnerable for one the reasons listed above. If the adult is not vulnerable, they must file their own SAPO.</hd:caption>
+		</hd:dialogElement>
 		<hd:dialogElement name="Can I get a SAPO intro DE">
 			<hd:caption>«.i»You can get a SAPO to protect yourself, a minor, or a vulnerable adult to protect them from sexual assault against someone who is «.b»not«.be» related to you. If the abuser is related to you or the person who needs the order, you can get a DVPO instead.«.ie»</hd:caption>
 		</hd:dialogElement>
@@ -10351,11 +10388,15 @@ To search for «.w &quot;http://www.domesticviolenceinforeferral.org/domestic-vi
 			<hd:caption>This dialog is for testing purposes only, showing how dynamic pieces of potential next steps can be rendered in XML for consumption by LHI processes.  You can edit these, but present code will just re-set them to defaults.
 </hd:caption>
 		</hd:dialogElement>
+		<hd:dialogElement name="Need parent guardian of respondent name DE">
+			<hd:caption>«Text spacer CO»«.b»Who is the abuser&apos;s responsible adult?«.be»
+Because «Other party name first TE» is under 18, you need to tell the court the name of their parent or guardian.</hd:caption>
+		</hd:dialogElement>
 		<hd:dialogElement name="Need reason to order weapons surrender DE">
 			<hd:caption>«Text spacer CO»«.i»You are asking the judge to order «Other party name first TE» to turn in weapons and not get any more. To support this request, you must answer yes to at least one of the questions on this page and describe what happened or could happen.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="No eligible harm selected DE">
-			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». The legal definition of domestic violence is very narrow. If «Other party name first TE» did not harm or threaten «Survivor any CO» in one of the ways listed, you cannot get a domestic violence protection order. Consider whether any controlling behavior might be stalking.  Stalking can qualify for a DVPO between intimate partners or family/household members.«.pm»«Text spacer CO»Lots of emotionally abusive or controlling behavior is domestic violence, but does not qualify for a DVPO.«.ie»</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». The legal definition of sexual assault is narrow. If «Other party name first TE» did not have sexual contact or sexually penetrate the survivor without consent, you cannot get a SAPO.</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="No eligible relationship survivor and abuser DE">
 			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». «Other party name first TE» must be related to «Survivor for relationship CO» in one of the ways listed to get a domestic violence protection order.«.ie»</hd:caption>
@@ -10766,44 +10807,65 @@ You should not use this interview for one of the reasons below:</hd:caption>
 			<hd:contents>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Can I get a SAPO intro DE"/>
-				<hd:item name="Who protecting MC"/>
 				<hd:item name="User age range MC"/>
-				<hd:item name="Teen age NU"/>
-				<hd:item name="User relationship to teen survivor MC"/>
 				<hd:item name="User is too young DE"/>
+				<hd:item name="Who protecting MC"/>
+				<hd:item name="Teen age NU"/>
+				<hd:item name="Vulnerable adult vulnerability MS"/>
+				<hd:item name="Adult is not vulnerable DE"/>
+				<hd:item name="User relationship to vulnerable adult MC"/>
+				<hd:item name="User relationship to teen survivor MC"/>
 				<hd:item name="No eligible relationship user for teen survivor DE"/>
 				<hd:item name="Other party name first DE"/>
 				<hd:item name="Other party name first TE"/>
 				<hd:item name="Other party age range MC"/>
+				<hd:item name="Need parent guardian of respondent name DE"/>
 				<hd:item name="Respondent parent or guardian TE"/>
 				<hd:item name="Respondent sexually assaulted petitioner TF"/>
 				<hd:item name="Harm type MS"/>
+				<hd:item name="No eligible harm selected DE"/>
 			</hd:contents>
 			<hd:resource>
 				<hd:plainText>«Text spacer CO»«.b»What is domestic violence?«.be»«Text spacer CO»It is a pattern of physically and/or emotionally abusive behavior used to control someone with whom the abuser has an intimate or family relationship.«.pm»«.pm»«.b»How does the law define domestic violence?«.be»«Text spacer CO»Washington law says domestic violence happens when someone does one of these:«Text spacer CO» •	Hits, assaults (including sexual assault), or harms you physically in any way«Text spacer CO» •	Causes you to fear immediate physical harm or assault«Text spacer CO» •	Stalks you«.pm»«.pm»«.b»The person causing the harm or threatening you must be one of these:«.be»«Text spacer CO» •	A family member «Text spacer CO» •	A spouse or domestic partner«Text spacer CO» •	A former spouse or former domestic partner«Text spacer CO» •	Someone you have or had a dating relationship with«Text spacer CO» •	Someone you have a child with«Text spacer CO» •	A roommate or former roommate«.pm»«Text spacer CO»«.b»What are some examples of things that can cause fear of immediate harm?«.be»«Text spacer CO» •	Restraining your freedom of movement«Text spacer CO» •	Stalking you «Text spacer CO» •	Destroying your property «Text spacer CO» •	Making verbal threats to hurt you «Text spacer CO» •	Making threats by text or social media«.pm»«Text spacer CO»«.b»What is stalking?«.be»«Text spacer CO»State law defines “stalking” a few ways. «.b»Stalking as a crime«.be» happens when all these are true:«Text spacer CO» •	Someone intentionally is harassing or following you.«Text spacer CO» •	You fear that they want to hurt you or someone else, or someone’s property. Your fear must be reasonable under the circumstances. «Text spacer CO» •	The stalker either«Text spacer CO»«.tc»«.tc»1. Means to frighten, intimidate, or harass you OR«Text spacer CO»«.tc»«.tc» 2.  Knows or should know you feel that way even if they did not mean for you to feel that way.«.b» «Text spacer CO»If this describes your situation, call the police.«.be»«.pm»«.pm»«.b»Stalking can also mean «.b»cyberstalking «.be»(stalking you online).«.be»«Text spacer CO»«.b»State law creating stalking protection orders«.be» says stalking is repeated «Text spacer CO» •	tries to contact«Text spacer CO» •	monitoring«Text spacer CO» •	tracking«Text spacer CO» •	keeping under observation«Text spacer CO»•	following you«Text spacer CO»-and causing you to feel intimidated, scared or threatened. </hd:plainText>
 			</hd:resource>
 			<hd:script>REQUIRE ALL
 HIDE ALL
+SHOW Vertical Spacing 50
+SHOW Can I get a SAPO intro DE
 
-SHOW Who protecting MC 
+
 SHOW User age range MC
-
-IF ANSWERED(Who protecting MC) AND Who protecting MC  != &quot;self&quot;
-	SHOW Teen age NU
-END IF
 
 IF ANSWERED( User age range MC)
 	IF User age range MC = &quot;under 16&quot;
 		SHOW User is too young DE
 	ELSE
+		SHOW Who protecting MC 	
+		IF ANSWERED(Who protecting MC) AND Who protecting MC  = &quot;minor&quot;
+			SHOW Teen age NU
+			SHOW User relationship to teen survivor MC
+		END IF	
+		IF ANSWERED(Who protecting MC) AND Who protecting MC  = &quot;vulnerable adult&quot;
+			SHOW Vulnerable adult vulnerability MS
+			IF ANSWERED( Vulnerable adult vulnerability MS ) AND (Vulnerable adult vulnerability MS = OTHER( Vulnerable adult vulnerability MS ))
+				SHOW Adult is not vulnerable DE				
+			ELSE IF ANSWERED( Vulnerable adult vulnerability MS)
+				SHOW User relationship to vulnerable adult MC
+			END IF
+		END IF	
 		SHOW Other party name first DE
 		SHOW Other party name first TE
 		SHOW Other party age range MC
 		IF ANSWERED(Other party age range MC) AND Other party age range MC != &quot;18+&quot;
-			 SHOW Respondent parent or guardian TE
+			SHOW Need parent guardian of respondent name DE
+			SHOW Respondent parent or guardian TE
 		END IF
+		
 		SHOW Respondent sexually assaulted petitioner TF
 		SHOW Harm type MS
+		IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF
+			SHOW No eligible harm selected DE
+		END IF
 	END IF
 END IF</hd:script>
 		</hd:dialog>
