@@ -159,6 +159,10 @@
 		<hd:text name="Helper name first TE">
 			<hd:prompt>Your first name</hd:prompt>
 		</hd:text>
+		<hd:text name="Helper name full TE">
+			<hd:prompt>Full name of person helping «IF Protect minor CO»the minor«ELSE»the vulnerable adult«END IF»</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="50"/>
+		</hd:text>
 		<hd:text name="Helper name last TE">
 			<hd:prompt>Last name/s</hd:prompt>
 		</hd:text>
@@ -462,7 +466,8 @@
 			<hd:prompt>Name</hd:prompt>
 		</hd:text>
 		<hd:text name="Respondent parent or guardian TE">
-			<hd:prompt>Name of «Other party name first TE»&apos;s parent or guardian</hd:prompt>
+			<hd:prompt>Full name of «Other party name first TE»&apos;s parent or guardian</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="50"/>
 		</hd:text>
 		<hd:text name="Restraints distance TE">
 			<hd:prompt>«Text spacer CO»«.b»How far away should «Other party name first TE» stay from these places?«.be»«.pm»«.i»(Example: 1,000 feet)«.ie»</hd:prompt>
@@ -533,6 +538,14 @@
 		<hd:text name="Temporary protection requested justification TE">
 			<hd:prompt>«.b»Why do you need an order right away, before «Other party name first TE» gets notified?«.be»«.pm»«.i»(Explain why this is an emergency and how «Survivor any CO» would be harmed without an immediate order.«.pm»Just write a«.b» short explanation«.be» here. You will tell the full story over the next few pages.)«.ie»</hd:prompt>
 			<hd:multiLine height="3"/>
+		</hd:text>
+		<hd:text name="Transfer school current school address TE">
+			<hd:prompt>«.b»«IF Protect self CO»What is the address of the school you attend with «Other party name first TE»?«ELSE»What is the address of the school «User name first TE» attends with «Other party name first TE»?«END IF»«.be»</hd:prompt>
+			<hd:multiLine height="2"/>
+		</hd:text>
+		<hd:text name="Transfer school current school name TE">
+			<hd:prompt>«.b»«IF Protect self CO»What is the name of the school you attend with «Other party name first TE»?«ELSE»What is the name of the school «User name first TE» attends with «Other party name first TE»?«END IF»«.be»</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="50"/>
 		</hd:text>
 		<hd:text name="User DL number TE" askAutomatically="false" warnIfUnanswered="false">
 			<hd:prompt>«Text spacer CO»Driver&apos;s License or State ID number«.pm»«.i»(Leave blank if none or unknown)«.ie»</hd:prompt>
@@ -727,10 +740,6 @@
 			<hd:prompt>«Text spacer CO»«.b»Describe medical treatment «You/teen survivor name received CO» and for what«.be»«.pm»«.i»(If any treatment was needed because of the domestic violence)«.ie»</hd:prompt>
 			<hd:multiLine height="7"/>
 		</hd:text>
-		<hd:text name="Why do you need a DVPO most recent TE">
-			<hd:prompt>«.pm»«.b»Please describe «Other party name first TE»&apos;s «.i»most recent«.ie» violent act, fear or threat of violence«.be»«.pm»«.i»Give the approximate date if you can, or at least the month (or season) and year. If the most recent episode of abuse happened a while ago, explain why you are filing now.«.ie»</hd:prompt>
-			<hd:multiLine height="7"/>
-		</hd:text>
 		<hd:text name="Why do you need a DVPO older acts TE">
 			<hd:prompt>«Text spacer CO»«IF Protect teen from dating violence TF»«.b»Describe the past incidents where «Teen survivor name first TE» experienced violence, where «Teen survivor name first TE» was afraid of injury or where «Other party name first TE» threatened to harm or kill «Teen survivor name first TE».«.be»«ELSE IF Track one child only CO»«.b»Describe the past incidents where «Selected child name first TE» experienced violence, where «Selected child name first TE» was afraid of injury or where «Other party name first TE» threatened to harm or kill «Selected child name first TE».«.be»«ELSE IF Track children only CO»«.b»Describe the past incidents where the children experienced violence, where the children were afraid of injury or where «Other party name first TE» threatened to harm or kill the children.«.be»«ELSE»«.b»Describe the past incidents where you experienced violence, where you were afraid of injury or where «Other party name first TE» threatened to harm or kill you.«.be»«END IF»«.pm»«.i»(Again, be specific and descriptive)«.ie»</hd:prompt>
 			<hd:multiLine height="7"/>
@@ -742,6 +751,10 @@
 		<hd:text name="Why do you need a DVPO suicide TE">
 			<hd:prompt>«.pm»«.b»Describe any threats of suicide or suicidal behavior by «Other party name first TE»«.be»</hd:prompt>
 			<hd:multiLine height="7"/>
+		</hd:text>
+		<hd:text name="Why do you need a SAPO TE">
+			<hd:prompt>«.pm»«.b»Please describe any nonconsensual sexual conduct or nonconsensual sexual penetration, and the approximate date(s)«.be»</hd:prompt>
+			<hd:multiLine height="12"/>
 		</hd:text>
 		<hd:number name="Child counter NU" askAutomatically="false" saveAnswer="false" warnIfUnanswered="false">
 			<hd:annotation>Used to retrieve counter asociated with child in the spreadsheet for child&apos;s residence.</hd:annotation>
@@ -804,7 +817,7 @@
 		<hd:number name="Other people children lived with count NU" askAutomatically="false">
 			<hd:prompt>«Text spacer CO»«.b»You said «The child/ren minors only did not always live CO» with you or «Other party name first TE». How many other people took care of them in the last five years (without you or «Other party name first TE» in the home)?«.be»«.pm»«.i»(Only count the main caretakers, not people who just happened to live in the same home.)«.ie»</hd:prompt>
 		</hd:number>
-		<hd:number name="Teen age NU" maximum="16">
+		<hd:number name="Teen age NU" maximum="17">
 			<hd:prompt>How old is the minor?</hd:prompt>
 		</hd:number>
 		<hd:number name="User height feet NU" maximum="9">
@@ -1071,7 +1084,11 @@
 			<hd:prompt>«Text spacer CO»«IF VALUE(User age range MC) = &quot;16-17&quot;»«.b»Do you have any children you want to protect?«.be»«ELSE»«.b»Do you want this order to protect any children under age 18?«.be»«.pm»«.i»(You can protect children in your family or household)«.ie»«END IF»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other cases TF">
-			<hd:prompt>«Other cases prompt CO»</hd:prompt>
+			<hd:prompt>«IF NOT Protect self CO»
+«.b»Are there any other court cases involving «Other party name first TE» and «User name first TE»?
+«ELSE»
+«.b»Are there any other court cases involving you and «Other party name first TE»?
+«END IF»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other cases involving children TF" askAutomatically="false">
 			<hd:prompt>«Text spacer CO»«.b»Do you know of any other court cases involving «Joint minor children first names list with or CO»?«.be»
@@ -1175,7 +1192,7 @@
 		<hd:trueFalse name="Respondent sexually assaulted petitioner TF">
 			<hd:prompt>«Text spacer CO»The abuser sexually assaulted «Survivor any CO» in that:
 
-1. The abuser had sexual contact with «Survivor any CO» without consent, or
+1. The abuser had sexual conduct with «Survivor any CO» without consent, or
 2. The abuser sexually penetrated «Survivor any CO» without consent.</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Restraints custody of pet TF">
@@ -1222,6 +1239,9 @@
 		</hd:trueFalse>
 		<hd:trueFalse name="Restraints physically harm TF">
 			<hd:prompt>«.b»Physically harm, assault, sexually assault, threaten, harass or stalk «Survivor for restraints first person CO»«.be»</hd:prompt>
+		</hd:trueFalse>
+		<hd:trueFalse name="Restraints transfer school TF">
+			<hd:prompt>Order «Other party name first TE» to transfer to a new school</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Restraints treatment TF">
 			<hd:prompt>«.b»Participate in appropriate treatment, counseling or classes«.be»</hd:prompt>
@@ -2448,9 +2468,6 @@
 		<hd:multipleChoice name="Other case type MC">
 			<hd:prompt>«Text spacer CO»Type of case</hd:prompt>
 			<hd:options>
-				<hd:option name="Family Law">
-					<hd:prompt>Family Law (Divorce/Parentage/Custody/Support)</hd:prompt>
-				</hd:option>
 				<hd:option name="Criminal">
 					<hd:prompt>Criminal</hd:prompt>
 				</hd:option>
@@ -2459,6 +2476,27 @@
 				</hd:option>
 			</hd:options>
 			<hd:singleSelection other="true"/>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="Other party ADM MC">
+			<hd:title>Active Duty Military</hd:title>
+			<hd:prompt>«.b»Is «Other party name first TE» an active duty service member, including:«.be»
+     • Army, Navy, Air Force, Marine Corps, or Coast Guard members on active duty, or 
+     • Members of the National Guard or Reserve under a call to active service for more than 30 days in a row, or 
+     • Commissioned corps of the Public Health Service or the National Oceanic and Atmospheric Administration (NOAA)?</hd:prompt>
+			<hd:fieldWidth widthType="full"/>
+			<hd:options>
+				<hd:option name="No"/>
+				<hd:option name="Yes"/>
+				<hd:option name="I don&apos;t know"/>
+			</hd:options>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="Other party ADM dependent MC">
+			<hd:prompt>Is «Other party name first TE» a «.b»dependent«.be» of someone else who is an active duty service member from the above list (except the Public Health Service and NOAA)?  «.i»(To be a “dependent”, «Other party name first TE» must have received more than half of his/her income from the service member for at least the last six months)«.ie».</hd:prompt>
+			<hd:options>
+				<hd:option name="No"/>
+				<hd:option name="Yes"/>
+				<hd:option name="I don&apos;t know"/>
+			</hd:options>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Other party DL state MC" askAutomatically="false" warnIfUnanswered="false">
 			<hd:prompt>State that issued the license or ID</hd:prompt>
@@ -2638,10 +2676,7 @@
 			<hd:prompt>«Text spacer CO»«.b»How old is the abuser?«.be»«.pm»«.i»(The person you want protection from)«.ie»</hd:prompt>
 			<hd:options>
 				<hd:option name="under 16">
-					<hd:prompt>Under 16</hd:prompt>
-				</hd:option>
-				<hd:option name="16-17">
-					<hd:prompt>16-17</hd:prompt>
+					<hd:prompt>Under 18</hd:prompt>
 				</hd:option>
 				<hd:option name="18+">
 					<hd:prompt>18 or older</hd:prompt>
@@ -3510,7 +3545,7 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Relationship between survivor and abuser MS">
 			<hd:defFormat>a, b</hd:defFormat>
-			<hd:prompt>«Text spacer CO»«.b»How are you and the abuser related?«.be»«.pm»«.i»(Now or in the past. Check all that apply)«.ie»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Are you and the abuser related in any of the ways listed below?«.be»«.pm»«.i»(Now or in the past. Check all that apply or check &quot;None of the Above&quot;)«.ie»</hd:prompt>
 			<hd:options defMergeText="current or former spouse/current or former domesti">
 				<hd:option name="spouse">
 					<hd:prompt>Spouses (or ex)</hd:prompt>
@@ -3669,20 +3704,17 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 		<hd:multipleChoice name="Restraints location where MS">
 			<hd:prompt>«Text spacer CO»«.b»Which places should «Other party name first TE» stay away from?«.be»«.pm»«.i»(Check all that apply)«.ie»</hd:prompt>
 			<hd:options>
-				<hd:option name="shared home">
-					<hd:prompt>our shared home</hd:prompt>
-				</hd:option>
 				<hd:option name="my home">
-					<hd:prompt>my home</hd:prompt>
+					<hd:prompt>«Survivor possessive CO» home</hd:prompt>
 				</hd:option>
 				<hd:option name="work">
-					<hd:prompt>my work</hd:prompt>
+					<hd:prompt>«Survivor possessive CO» work</hd:prompt>
 				</hd:option>
 				<hd:option name="school">
-					<hd:prompt>my school</hd:prompt>
+					<hd:prompt>«Survivor possessive CO» school</hd:prompt>
 				</hd:option>
 				<hd:option name="day care">
-					<hd:prompt>the home, day care or school «Of the child/ren CO»</hd:prompt>
+					<hd:prompt>«Survivor possessive CO» day care</hd:prompt>
 				</hd:option>
 				<hd:option name="other">
 					<hd:prompt>Other</hd:prompt>
@@ -4227,8 +4259,11 @@ Who is the order protecting?</hd:prompt>
 				<hd:option name="under 16">
 					<hd:prompt>Below 16</hd:prompt>
 				</hd:option>
-				<hd:option name="16+">
-					<hd:prompt>16 or older</hd:prompt>
+				<hd:option name="16-17">
+					<hd:prompt>16-17</hd:prompt>
+				</hd:option>
+				<hd:option name="18+">
+					<hd:prompt>18 or older</hd:prompt>
 				</hd:option>
 			</hd:options>
 		</hd:multipleChoice>
@@ -4714,7 +4749,7 @@ Who is the order protecting?</hd:prompt>
 					<hd:prompt>Guardian ad Litem (GAL)</hd:prompt>
 				</hd:option>
 				<hd:option name="next friend">
-					<hd:prompt>Next friend (someone over 18, chosen by the teenager to pursue their interests)</hd:prompt>
+					<hd:prompt>Next friend (someone over 18, chosen by the minor to pursue their interests)</hd:prompt>
 				</hd:option>
 			</hd:options>
 			<hd:singleSelection other="true"/>
@@ -6253,17 +6288,19 @@ TRUE
 //	TRUE
 //END IF</hd:script>
 		</hd:computation>
+		<hd:computation name="Eligible to protect adult CO" resultType="trueFalse">
+			<hd:script>TRUE
+IF VALUE(Who protecting MC) = &quot;vulnerable adult&quot;
+	NOT (VALUE(Vulnerable adult vulnerability MS) = OTHER(Vulnerable adult vulnerability MS))
+END IF</hd:script>
+		</hd:computation>
 		<hd:computation name="Enter other partys name CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION
 &quot;&quot;
-IF Protect teen from dating violence TF
-	&quot;Who does «Teen survivor name first TE» need protection from?&quot;
-ELSE IF VALUE(Interview for self TF) AND VALUE(Order protects children TF)
-	&quot;Who do you and the children need protection from?&quot;
-ELSE IF VALUE(Interview for self TF)
+IF Protect self CO
 	&quot;Who do you need protection from?&quot;
-ELSE IF VALUE(Order protects children TF)
-	&quot;Who do the children need protection from?&quot;
+ELSE
+	&quot;Who does «User name first TE» need protection from?&quot;
 END IF </hd:script>
 		</hd:computation>
 		<hd:computation name="Errortext birth date in future CO" resultType="text">
@@ -6555,9 +6592,10 @@ ASK NONE
 ASK Welcome
 ASK Safety Planning
 ASK Can I get a SAPO
-IF NOT Has eligible survivor CO 
+IF (NOT Has eligible survivor CO )
 	OR No eligible harm selected CO 
 	OR User is too young CO
+	OR NOT (Eligible to protect adult CO)
 	ASK Gentle exit
 	// ASSEMBLE &quot;DVPO - Wrong Interview.rtf /nw /stw&quot;	
 ELSE // Don&apos;t need gentle exit
@@ -6852,16 +6890,16 @@ VALUE(Protect teen from dating violence TF) OR (NOT Protect teen from dating vio
 			<hd:script>//used in DVPO 2 - Petition QI sheet to know if also producing the CCIS or the CIF
 VALUE(There are minor children of the relationship TF) OR VALUE(Court county DVPO petition MC) != &quot;King&quot;</hd:script>
 		</hd:computation>
-		<hd:computation name="Must file in superior court CO" resultType="trueFalse">
-			<hd:script>Court county DVPO petition MC = &quot;Benton&quot; OR
-Court county DVPO petition MC = &quot;Clark&quot; OR 
-Court county DVPO petition MC = &quot;San Juan&quot; OR 
-Court county DVPO petition MC = &quot;Skagit&quot; OR
-Court county DVPO petition MC = &quot;Pierce&quot; OR
-
-Protect teen from dating violence TF OR 
-VALUE(There are minor children of the relationship TF) OR 
-VALUE(Live with other party now TF) </hd:script>
+		<hd:computation name="Must file in superior court CO" resultType="text">
+			<hd:script>//Court county DVPO petition MC = &quot;Benton&quot; OR
+//Court county DVPO petition MC = &quot;Clark&quot; OR 
+//Court county DVPO petition MC = &quot;San Juan&quot; OR 
+//Court county DVPO petition MC = &quot;Skagit&quot; OR
+//Court county DVPO petition MC = &quot;Pierce&quot; OR
+//
+//Protect teen from dating violence TF OR 
+//VALUE(There are minor children of the relationship TF) OR 
+//VALUE(Live with other party now TF) </hd:script>
 		</hd:computation>
 		<hd:computation name="My spouse/the other parent/name CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
@@ -7713,12 +7751,21 @@ OR
 VALUE(Restraints cyberstalk adult children or other MC) = &quot;yes&quot; AND 
 COUNT(User Other Protected Persons) &gt; Count protected adult children CO</hd:script>
 		</hd:computation>
+		<hd:computation name="Protect minor CO" resultType="trueFalse">
+			<hd:script>VALUE(Who protecting MC) = &quot;minor&quot;</hd:script>
+		</hd:computation>
+		<hd:computation name="Protect self CO" resultType="trueFalse">
+			<hd:script>VALUE(Who protecting MC) = &quot;self&quot;</hd:script>
+		</hd:computation>
 		<hd:computation name="Protect self not teen CO" resultType="trueFalse">
 			<hd:script>FALSE
 NOT Protect teen from dating violence TF AND Interview for self TF</hd:script>
 		</hd:computation>
 		<hd:computation name="Protect teen from dating violence and visible CO" resultType="trueFalse">
 			<hd:script>Protect teen from dating violence TF</hd:script>
+		</hd:computation>
+		<hd:computation name="Protect vulnerable adult CO" resultType="trueFalse">
+			<hd:script>VALUE(Who protecting MC) = &quot;vulnerable adult&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Protecting only one child CO" resultType="trueFalse">
 			<hd:script>Order protects children TF AND Number selected children CO = 1</hd:script>
@@ -8095,7 +8142,7 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="SAPO version CO" resultType="text">
-			<hd:script>&quot;11/11/2020 Initial version&quot;</hd:script>
+			<hd:script>&quot;11/25/2020&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Sealed cover sheet CO" resultType="text">
 			<hd:script>//DON&apos;T TRANSLATE - FORMAT
@@ -8815,26 +8862,28 @@ END IF
 		</hd:computation>
 		<hd:computation name="Survivor for relationship CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
-IF Protect teen from dating violence TF
-	&quot;«Teen survivor name first TE»&quot;
-ELSE IF VALUE(Interview for self TF)
+IF Protect self CO
 	&quot;«Text you CO»&quot;
-ELSE IF Order protects children TF
-	&quot;«Text the children CO»&quot;
-END IF
-
-</hd:script>
+ELSE
+	&quot;«User name first TE»&quot;
+END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Survivor for restraints first person CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
-IF Protect teen from dating violence TF
-	&quot;«Teen survivor name first TE»&quot;
-ELSE IF VALUE(Interview for self TF)
+IF Protect self CO
 	&quot;«Text me CO»&quot;
-ELSE IF Order protects children TF
-	&quot;«The child/ren CO»&quot;
+ELSE 
+	&quot;«User name first TE»&quot;
 END IF
 </hd:script>
+		</hd:computation>
+		<hd:computation name="Survivor possessive CO" resultType="text">
+			<hd:script>//DO NOT TRANSLATE
+IF Protect self CO
+	&quot;«Text my CO»&quot;
+ELSE
+	&quot;«User name first TE»&apos;s&quot;
+END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Teen survivor name full CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
@@ -9031,6 +9080,10 @@ END IF
 		<hd:computation name="Text municipal CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION
 &quot;Municipal&quot;</hd:script>
+		</hd:computation>
+		<hd:computation name="Text my CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+&quot;my&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Text n/a CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION
@@ -9662,7 +9715,7 @@ TRUE
 </hd:script>
 		</hd:computation>
 		<hd:computation name="User is too young CO" resultType="trueFalse">
-			<hd:script>VALUE(User age range MC) = &quot;under 16&quot;</hd:script>
+			<hd:script>VALUE(Who protecting MC) = &quot;self&quot; AND VALUE(User age range MC) = &quot;under 16&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="User left county to flee CO" resultType="trueFalse">
 			<hd:script>FALSE
@@ -10219,7 +10272,7 @@ END IF
 			<hd:caption>«.b»Who is the abuser?«.be»«.pm»«.i»(«Enter other partys name CO»)«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Enter your name DE">
-			<hd:caption>«.b»What is your name?«.be»</hd:caption>
+			<hd:caption>«.b»«IF Protect self CO»What is your name?«ELSE IF Protect minor CO»What is the minor&apos;s name?«ELSE»What is the vulnerable adult&apos;s name?«END IF»«.be»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Enter your spouses mailing address">
 			<hd:caption>Enter «Other party name first TE»&apos;s «.b»mailing address«.be», if known «.i»(Leave blank if unknown)«.ie»</hd:caption>
@@ -10289,6 +10342,11 @@ END IF
 		</hd:dialogElement>
 		<hd:dialogElement name="Last child DE">
 			<hd:caption>«.b»You have told us about «IF Children under 18 NU = 2»both«ELSE»all «Children under 18 NU:nine»«END IF» children. Click Next to continue.«.be»</hd:caption>
+		</hd:dialogElement>
+		<hd:dialogElement name="Launch DVPO DE">
+			<hd:webLink url="https://lawhelpinteractive.org/Interview/GenerateInterview/7656/engine" window.open="">
+				<hd:caption>Get a DVPO</hd:caption>
+			</hd:webLink>
 		</hd:dialogElement>
 		<hd:dialogElement name="Limited to one year if joint children DE">
 			<hd:caption>«.i»«.b»Important!«.be»  If you are protecting joint children, usually your protection order can only last for one year.  You can ask the court to renew your order before the year is up.  «.b»Exception:«.be» If your protection order is issued as part of a divorce or parenting plan case, it «.b»can «.be»protect joint children for more than one year.«.ie»</hd:caption>
@@ -10388,6 +10446,9 @@ To search for «.w &quot;http://www.domesticviolenceinforeferral.org/domestic-vi
 			<hd:caption>This dialog is for testing purposes only, showing how dynamic pieces of potential next steps can be rendered in XML for consumption by LHI processes.  You can edit these, but present code will just re-set them to defaults.
 </hd:caption>
 		</hd:dialogElement>
+		<hd:dialogElement name="Need helper name DE">
+			<hd:caption>«.b»What is your name?«.be»</hd:caption>
+		</hd:dialogElement>
 		<hd:dialogElement name="Need parent guardian of respondent name DE">
 			<hd:caption>«Text spacer CO»«.b»Who is the abuser&apos;s responsible adult?«.be»
 Because «Other party name first TE» is under 18, you need to tell the court the name of their parent or guardian.</hd:caption>
@@ -10407,6 +10468,9 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 		<hd:dialogElement name="No eligible survivor DE">
 			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». It looks like you are not asking for protection for anyone who is eligible for an order.«.ie»</hd:caption>
 		</hd:dialogElement>
+		<hd:dialogElement name="No qualifying relationship between DE">
+			<hd:caption>«Text spacer CO»«.b»Sorry«.be». You said that you were related to the abuser. If you have any relationship to the abuser, you need to fill out a DVPO.</hd:caption>
+		</hd:dialogElement>
 		<hd:dialogElement name="Okay not logged in DE">
 			<hd:caption>Okay. That means you are «.b»not«.be» logged in. If you do not log in, you cannot save your answers. You can exit now to log in before starting the interview. Click «.b»X«.be» in the top right corner. Then «.b»log in«.be» and «.b»re-start«.be».«.pm»«Text spacer CO»To continue without logging in, click «.b»Next«.be».
 </hd:caption>
@@ -10424,7 +10488,7 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 			<hd:caption>«.b»What other cases have involved «Joint minor children first names list with or CO»?«.be»«.pm»«Text spacer CO»«.i»We will ask about them one at a time. Enter information about the «COUNTER:ninth» other case on this page. If there are more, click the &quot;Add another case&quot; button below. When you have no other cases to add, click Next.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Other cases not involving children intro DE">
-			<hd:caption>«IF Protect teen from dating violence TF»«.b»What other cases involved «Other party name first TE» and «Teen survivor name first TE»?«.be»«ELSE IF Order protects user only not children CO»«.b»What other cases involved «Other party name first TE» and you?«.be»«ELSE IF There are minor children of the relationship TF»«.b»What other cases involved «Other party name first TE» and you, but not «The child/children minors only CO»?«.be» «ELSE»«.b»What other cases involved «Other party name first TE» and you or the children?«.be»«END IF»«.pm»«Text spacer CO»«.i»We will ask about them one at a time. Enter information about the «COUNTER:ninth» other case on this page. If there are more, click the &quot;Add another case&quot; button below. When you have no other cases to add, click Next.«.ie»</hd:caption>
+			<hd:caption>«IF NOT Protect self CO»«.b»What other cases involved «Other party name first TE» and «User name first TE»?«.be»«ELSE»«.b»What other cases involved you and «Other party name first TE»?«.be»«END IF»«.pm»«Text spacer CO»«.i»We will ask about them one at a time. Enter information about the «COUNTER:ninth» other case on this page. If there are more, click the &quot;Add another case&quot; button below. When you have no other cases to add, click Next.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Other children explanation DE">
 			<hd:caption>«Text spacer CO»«.i»Okay.  List those children next.«.ie»</hd:caption>
@@ -10807,20 +10871,19 @@ You should not use this interview for one of the reasons below:</hd:caption>
 			<hd:contents>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Can I get a SAPO intro DE"/>
+				<hd:item name="Who protecting MC"/>
 				<hd:item name="User age range MC"/>
 				<hd:item name="User is too young DE"/>
-				<hd:item name="Who protecting MC"/>
 				<hd:item name="Teen age NU"/>
 				<hd:item name="Vulnerable adult vulnerability MS"/>
 				<hd:item name="Adult is not vulnerable DE"/>
 				<hd:item name="User relationship to vulnerable adult MC"/>
 				<hd:item name="User relationship to teen survivor MC"/>
 				<hd:item name="No eligible relationship user for teen survivor DE"/>
-				<hd:item name="Other party name first DE"/>
-				<hd:item name="Other party name first TE"/>
 				<hd:item name="Other party age range MC"/>
-				<hd:item name="Need parent guardian of respondent name DE"/>
-				<hd:item name="Respondent parent or guardian TE"/>
+				<hd:item name="Relationship between survivor and abuser MS"/>
+				<hd:item name="No qualifying relationship between DE"/>
+				<hd:item name="Launch DVPO DE"/>
 				<hd:item name="Respondent sexually assaulted petitioner TF"/>
 				<hd:item name="Harm type MS"/>
 				<hd:item name="No eligible harm selected DE"/>
@@ -10833,38 +10896,41 @@ HIDE ALL
 SHOW Vertical Spacing 50
 SHOW Can I get a SAPO intro DE
 
+SHOW Who protecting MC
+IF ANSWERED(Who protecting MC) AND Who protecting MC = &quot;self&quot;
+	SHOW User age range MC
+END IF
 
-SHOW User age range MC
-
-IF ANSWERED( User age range MC)
-	IF User age range MC = &quot;under 16&quot;
+IF ANSWERED(Who protecting MC) 
+	IF Who protecting MC = &quot;self&quot; AND User age range MC = &quot;under 16&quot;
 		SHOW User is too young DE
 	ELSE
-		SHOW Who protecting MC 	
 		IF ANSWERED(Who protecting MC) AND Who protecting MC  = &quot;minor&quot;
-			SHOW Teen age NU
+			//SHOW Teen age NU
 			SHOW User relationship to teen survivor MC
-		END IF	
+		END IF
 		IF ANSWERED(Who protecting MC) AND Who protecting MC  = &quot;vulnerable adult&quot;
 			SHOW Vulnerable adult vulnerability MS
 			IF ANSWERED( Vulnerable adult vulnerability MS ) AND (Vulnerable adult vulnerability MS = OTHER( Vulnerable adult vulnerability MS ))
-				SHOW Adult is not vulnerable DE				
+				SHOW Adult is not vulnerable DE
 			ELSE IF ANSWERED( Vulnerable adult vulnerability MS)
 				SHOW User relationship to vulnerable adult MC
 			END IF
-		END IF	
-		SHOW Other party name first DE
-		SHOW Other party name first TE
-		SHOW Other party age range MC
-		IF ANSWERED(Other party age range MC) AND Other party age range MC != &quot;18+&quot;
-			SHOW Need parent guardian of respondent name DE
-			SHOW Respondent parent or guardian TE
 		END IF
-		
-		SHOW Respondent sexually assaulted petitioner TF
-		SHOW Harm type MS
-		IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF
-			SHOW No eligible harm selected DE
+		IF Has eligible survivor CO AND 
+			NOT (User is too young CO)
+			AND (Eligible to protect adult CO)			
+			SHOW Other party age range MC
+			SHOW Relationship between survivor and abuser MS
+			IF ANSWERED(Relationship between survivor and abuser MS) AND Relationship between survivor and abuser MS != OTHER(Relationship between survivor and abuser MS)
+				SHOW No qualifying relationship between DE		
+				SHOW 	 Launch DVPO DE
+			ELSE
+				SHOW Respondent sexually assaulted petitioner TF
+				IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF
+					SHOW No eligible harm selected DE
+				END IF
+			END IF
 		END IF
 	END IF
 END IF</hd:script>
@@ -11614,7 +11680,6 @@ END IF
 			<hd:contents>
 				<hd:item name="Extending protection DE"/>
 				<hd:item name="Extending protection TF"/>
-				<hd:item name="Limited to one year if joint children DE"/>
 				<hd:item name="Extending protection why TE"/>
 			</hd:contents>
 			<hd:resource>
@@ -11623,11 +11688,6 @@ END IF
 			<hd:script>HIDE Extending protection why TE
 IF Extending protection TF
 SHOW Extending protection why TE
-END IF
-
-HIDE Limited to one year if joint children DE
-IF Need CCIS insert CO
-SHOW Limited to one year if joint children DE
 END IF</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Gentle exit">
@@ -11754,6 +11814,9 @@ END IF</hd:script>
 			<hd:title>«Names dialog title CO»</hd:title>
 			<hd:contents>
 				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Need helper name DE"/>
+				<hd:item name="Helper name full TE"/>
+				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Enter your name DE"/>
 				<hd:item name="User name first TE"/>
 				<hd:item name="User name middle TE" onPreviousLine="true"/>
@@ -11766,7 +11829,10 @@ END IF</hd:script>
 				<hd:item name="Other party name middle TE" onPreviousLine="true"/>
 				<hd:item name="Other party name last TE"/>
 				<hd:item name="Other party name suffix MC" onPreviousLine="true"/>
-				<hd:item name="Other party lawyer name TE"/>
+				<hd:item name="Horizontal Divider"/>
+				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Need parent guardian of respondent name DE"/>
+				<hd:item name="Respondent parent or guardian TE"/>
 			</hd:contents>
 			<hd:script>HIDE ALL
 SHOW Vertical Spacing 50
@@ -11778,6 +11844,11 @@ SHOW Other party name suffix MC
 
 REQUIRE Other party name first TE
 REQUIRE Other party name last TE
+
+IF NOT Protect self CO
+	SHOW Need helper name DE
+	SHOW Helper name full TE
+END IF
 
 IF VALUE(Protect teen from dating violence TF) = FALSE
 	SHOW Enter your name DE
@@ -11799,6 +11870,10 @@ END IF
 //	END IF
 //END IF
 
+IF ANSWERED(Other party age range MC) AND Other party age range MC != &quot;18+&quot;
+	SHOW Need parent guardian of respondent name DE
+	SHOW Respondent parent or guardian TE
+END IF
 </hd:script>
 		</hd:dialog>
 		<hd:dialog name="Next Steps">
@@ -12079,6 +12154,9 @@ END IF</hd:script>
 				<hd:item name="Other party weapons locations MS"/>
 				<hd:item name="Other party weapons locations other TE"/>
 				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Horizontal Divider"/>
+				<hd:item name="Other party ADM dependent MC"/>
+				<hd:item name="Other party ADM MC"/>
 			</hd:contents>
 			<hd:script>HIDE ALL
 SHOW Spacer
@@ -12224,7 +12302,8 @@ IF Other party hazard information MS = &quot;Other&quot;
 	SHOW Other party other hazard information TE
 END IF
 
-</hd:script>
+SHOW Other party ADM dependent MC
+SHOW Other party ADM MC</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Other Party Weapons List">
 			<hd:title>List of Weapons</hd:title>
@@ -12578,27 +12657,21 @@ END IF
 				<hd:item name="Save button here means logged in 300w IM"/>
 				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Restraints DE"/>
-				<hd:item name="Restraints harm and harassment"/>
 				<hd:item name="Restraints no contact"/>
 				<hd:item name="Restraints keep away"/>
 				<hd:item name="Restraints weapons"/>
-				<hd:item name="Restraints treatment"/>
-				<hd:item name="Restraints minors"/>
-				<hd:item name="Restraints protecting pets"/>
-				<hd:item name="Personal belongings"/>
-				<hd:item name="Special assistance"/>
 				<hd:item name="Restraints other"/>
 			</hd:contents>
 			<hd:script>// Build the list so user can select who the order will protect
 Build restraints who protecting CO
 
-IF Protect teen from dating violence TF OR Order protects user only not children CO OR (NOT At least one child type selected CO)
-HIDE Restraints minors
-END IF
+//IF Protect teen from dating violence TF OR Order protects user only not children CO OR (NOT At least one child type selected CO)
+//HIDE Restraints minors
+//END IF
 
-IF NOT Protect teen from dating violence TF AND Interview for self TF AND User age range MC = &quot;16-17&quot;
-HIDE Restraints minors
-END IF
+//I//F NOT Protect teen from dating violence TF AND Interview for self TF AND User age range MC = &quot;16-17&quot;
+//HIDE Restraints minors
+//END IF
 </hd:script>
 		</hd:dialog>
 		<hd:dialog name="Restraints harm and harassment" linkVariables="false">
@@ -12610,62 +12683,12 @@ END IF
 				<hd:item name="Restraints physically harm TF"/>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Restraints harass or stalk TF"/>
-				<hd:item name="Vertical Spacing 50 2"/>
-				<hd:item name="Restraints harm protect child TF"/>
-				<hd:item name="Restraints harm or harassment all children MC"/>
-				<hd:item name="Restraints harm protected children MS"/>
-				<hd:item name="Restraints harm unprotected children DE"/>
-				<hd:item name="Restraints cyberstalk adult children or other MC"/>
-				<hd:item name="User other protected persons intro DE"/>
-				<hd:item name="User Other Protected Persons"/>
 			</hd:contents>
 			<hd:selectionGrouping type="all"/>
 			<hd:promptPosition type="left"/>
 			<hd:resource>
 				<hd:plainText>«Text spacer CO»Most people ask the court to order all the protections that are available. If you are unsure about something, ask for it. You can always relax the protections later.</hd:plainText>
 			</hd:resource>
-			<hd:script>REQUIRE Restraints harm protected children MS
-
-HIDE Restraints harm or harassment all children MC
-HIDE Restraints harm protected children MS
-HIDE Restraints harm unprotected children DE
-HIDE Vertical Spacing 50 2
-HIDE User other protected persons intro DE
-HIDE User Other Protected Persons
-HIDE Restraints cyberstalk adult children or other MC
-
-IF NOT Protect teen from dating violence and visible CO AND ((Interview for self TF AND Order protects children TF AND At least one child type selected CO) AND NOT Protecting only one child CO) 
-	IF Restraints physically harm TF OR Restraints harass or stalk TF
-		SHOW Restraints harm or harassment all children MC
-		IF Restraints harm or harassment all children MC = &quot;some&quot;
-			SHOW Restraints harm protected children MS
-			IF ANSWERED(Restraints harm protected children MS)
-				SHOW Restraints harm unprotected children DE
-			END IF
-		END IF
-	END IF
-END IF
-
-HIDE Restraints harm protect child TF
-IF NOT Protect teen from dating violence TF AND NOT Order protects children only not user CO AND Protecting only one child CO
-	SHOW Vertical Spacing 50 2
-	SHOW Restraints harm protect child TF
-END IF
-
-IF Restraints harass or stalk TF
-	SHOW Restraints cyberstalk adult children or other MC
-	IF Restraints cyberstalk adult children or other MC = &quot;Yes&quot;
-		SHOW User other protected persons intro DE
-		SHOW User Other Protected Persons
-	END IF 
-END IF
-
-//IF Protect teen from dating violence TF OR Order protects children only not user CO
-//	HIDE Restraints harm or harassment all children MC
-//ELSE IF Restraints harm or harassment all children MC = &quot;some&quot;
-//	SHOW Restraints harm protected children MS
-//	SHOW Restraints harm unprotected children DE
-//END IF</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Restraints keep away">
 			<hd:title>Stay away</hd:title>
@@ -12673,84 +12696,39 @@ END IF
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Restraints keep away DE"/>
 				<hd:item name="Vertical Spacing 50"/>
-				<hd:item name="Restraints keep away vacate TF"/>
-				<hd:item name="Restraints keep away exclude teen/child only TF"/>
-				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Restraints keep away exclude TF"/>
-				<hd:item name="Restraints keep away exclude teen/child other TF"/>
-				<hd:item name="Restraints location where no child track MS"/>
 				<hd:item name="Restraints location where MS"/>
 				<hd:item name="Restraints location other TE"/>
+				<hd:item name="Restraints transfer school TF"/>
+				<hd:item name="Transfer school current school name TE"/>
+				<hd:item name="Transfer school current school address TE"/>
 				<hd:item name="Restraints keep way distance TF"/>
-				<hd:item name="Restraints distance TE"/>
 				<hd:item name="Restraints distance MC"/>
-				<hd:item name="Restraints keep away all children MC"/>
-				<hd:item name="Restraints keep away protected children MS"/>
-				<hd:item name="Restraints keep away unprotected children DE"/>
 			</hd:contents>
 			<hd:selectionGrouping type="all"/>
 			<hd:resource>
 				<hd:plainText>«Text spacer CO»Most people ask the court to order all the protections that are available. If you are unsure about something, ask for it. You can always relax the protections later.</hd:plainText>
 			</hd:resource>
 			<hd:script>HIDE ALL
+//SHOW Restraints transfer school TF
+SHOW Restraints keep away exclude TF
 
-// LG decided not to use the separate &apos;keep way distance&apos; variable for the template box 6 (distance). 
-//If Restraints keep away exclude TF, check boxes 4 AND 6 on template.
+IF Restraints location where MS = &quot;school&quot;
+	SHOW Restraints transfer school TF
+	IF Restraints transfer school TF
+		SHOW Transfer school current school name TE
+		SHOW Transfer school current school address TE
+	END IF
+END IF
 
-// Assume keep specific distance away from same places OP must be excluded from. No need for seprate MS variable.
-
-REQUIRE Restraints location where MS
-REQUIRE Restraints keep away all children MC
-REQUIRE Restraints keep away protected children MS
-REQUIRE Restraints location other TE
-REQUIRE Restraints location where no child track MS
-REQUIRE Restraints location where MS
-
-SHOW Vertical Spacing 50
-SHOW Restraints keep away DE
-
-
-IF Protect teen from dating violence TF OR Order protects children only not user CO
-	SHOW Restraints keep away exclude teen/child only TF
-	SHOW Restraints keep away exclude teen/child other TF
-	IF Restraints keep away exclude teen/child other TF
+IF Restraints keep away exclude TF
+	SHOW Restraints location where MS
+	IF Restraints location where MS = &quot;other&quot;
 		SHOW Restraints location other TE
 	END IF
-	IF Restraints keep away exclude teen/child only TF OR Restraints keep away exclude teen/child other TF
+	SHOW Restraints keep way distance TF
+	IF Restraints keep way distance TF
 		SHOW Restraints distance MC
-	END IF
-
-ELSE IF Interview for self TF 
-	IF Dating violence and not lived together CO
-		HIDE Restraints keep away vacate TF
-	ELSE 
-		SHOW Restraints keep away vacate TF
-	END IF
-	SHOW Restraints keep away exclude TF
-	IF Restraints keep away exclude TF
-		IF Order protects children TF AND At least one child type selected CO
-			SHOW Restraints location where MS
-			IF Restraints keep away vacate TF
-				Default restraints location where to share home CO
-			END IF 
-			IF Restraints location where MS = &quot;other&quot;
-				SHOW Restraints location other TE
-			END IF	
-			SHOW Restraints distance MC
-			IF Restraints location where MS = &quot;day care&quot; AND NOT Protecting only one child CO
-				SHOW Restraints keep away all children MC
-				IF Restraints keep away all children MC = &quot;some&quot;
-					SHOW Restraints keep away protected children MS
-					SHOW Restraints keep away unprotected children DE
-				END IF
-			END IF
-		ELSE //self-only (no children)
-			SHOW Restraints location where no child track MS
-			SHOW Restraints distance MC
-			IF Restraints location where no child track MS = &quot;other&quot;
-				SHOW Restraints location other TE
-			END IF	
-		END IF
 	END IF
 END IF</hd:script>
 		</hd:dialog>
@@ -12813,44 +12791,11 @@ END IF
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Restraints no contact TF"/>
 				<hd:item name="Restraints no contact below prompt DE"/>
-				<hd:item name="Restraints no contact all children MC"/>
-				<hd:item name="Restraints no contact protected children MS"/>
-				<hd:item name="Restraints no contact unprotected children DE"/>
-				<hd:item name="Restraints no contact protect child TF"/>
 			</hd:contents>
 			<hd:selectionGrouping type="all"/>
 			<hd:resource>
 				<hd:plainText>«Text spacer CO»Most people ask the court to order all the protections that are available. If you are unsure about something, ask for it. You can always relax the protections later.</hd:plainText>
 			</hd:resource>
-			<hd:script>REQUIRE Restraints no contact protected children MS
-
-HIDE Restraints no contact all children MC
-HIDE Restraints no contact protected children MS
-HIDE Restraints no contact unprotected children DE
-HIDE Restraints no contact below prompt DE //LG decided NOT to include this warning
-
-
-IF NOT Protect teen from dating violence TF AND ((Interview for self TF AND Order protects children TF AND At least one child type selected CO) AND NOT Protecting only one child CO)
-	SHOW Restraints no contact all children MC
-	IF Restraints no contact all children MC = &quot;some&quot;
-		SHOW Restraints no contact protected children MS
-		SHOW Restraints no contact unprotected children DE
-	END IF
-END IF
-
-HIDE Restraints no contact protect child TF
-IF NOT Protect teen from dating violence TF AND NOT Order protects children only not user CO AND Protecting only one child CO
-	SHOW Restraints no contact protect child TF
-END IF
-
-//IF Protect teen from dating violence TF
-//	HIDE Restraints no contact all children MC
-//ELSE IF Restraints no contact all children MC = &quot;some&quot;
-//	SHOW Restraints no contact protected children MS
-//	SHOW Restraints no contact unprotected children DE
-//END IF
-//
-//REQUIRE Restraints no contact protected children MS</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Restraints other">
 			<hd:title>Other</hd:title>
@@ -13801,30 +13746,15 @@ END IF</hd:script>
 				<hd:item name="Save button here means logged in 300w IM"/>
 				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Why do you need a DVPO DE"/>
-				<hd:item name="Why do you need a DVPO most recent"/>
-				<hd:item name="Why do you need a DVPO older acts"/>
-				<hd:item name="Why do you need a DVPO children"/>
-				<hd:item name="Why do you need a DVPO stalking"/>
-				<hd:item name="Why do you need a DVPO medical"/>
-				<hd:item name="Why do you need a DVPO suicide"/>
+				<hd:item name="Why do you need a SAPO"/>
 				<hd:item name="Why do you need a DVPO weapons"/>
-				<hd:item name="Extending protection"/>
-				<hd:item name="Why do you need DVPO substance abuse"/>
 				<hd:item name="Why do you need DVPO other"/>
+				<hd:item name="Extending protection"/>
 				<hd:item name="Supporting evidence"/>
 			</hd:contents>
 			<hd:resource>
 				<hd:plainText>«Text spacer CO»«.b»Tips for writing your statement:«.be»«.pm»«.pm»  •  Be as specific and descriptive as possible. Put the date, names, what, when, and where. Use names rather than pronouns like “he” or “they” as much as possible. If you cannot remember the date, put the time of year the thing happened (around a holiday, winter, summer, how old was your child) or about how long ago.«.pm»«.pm»  •  Focus on the legal definition of domestic violence (hits, assaults, physical harm, or fear of immediate physical harm or assault, sexual assault, or stalking).«.pm»«.pm»  •  You must give specifics. Putting things like “my husband is verbally and physically abusive to me,” or “he threatened to kill me,” does not help. The judge will not know what that means. Describe what «Other party name first TE» does (hit, kick, shove, slap) that is abusive. What did «Other party name first TE» say when s/he threatened you? Do not just say you were afraid. Say what you were afraid would happen to you or your child and why. If you got hurt, explain how the injury happened. Did the police come? What did they do? The more detail you can give, the better.</hd:plainText>
 			</hd:resource>
-			<hd:script>
-IF Protect teen from dating violence TF OR Order protects user only not children CO OR (NOT At least one child type selected CO)
-HIDE Why do you need a DVPO children
-END IF
-
-IF NOT Protect teen from dating violence TF AND Interview for self TF AND User age range MC = &quot;16-17&quot;
-HIDE Why do you need a DVPO children
-END IF
-</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Why do you need a DVPO children">
 			<hd:title>Acts or threats to children</hd:title>
@@ -13839,17 +13769,6 @@ END IF
 				<hd:item name="Why do you need a DVPO medical TE"/>
 				<hd:item name="We ask about suicide next DE"/>
 			</hd:contents>
-		</hd:dialog>
-		<hd:dialog name="Why do you need a DVPO most recent" linkVariables="false">
-			<hd:title>Most recent violent act</hd:title>
-			<hd:contents>
-				<hd:item name="Statement intro DE"/>
-				<hd:item name="Why do you need a DVPO most recent TE"/>
-				<hd:item name="We ask about past acts next DE"/>
-			</hd:contents>
-			<hd:resource>
-				<hd:plainText>«Text spacer CO»«.b»Tips for writing your statement:«.be»«.pm»«Text spacer CO»  •  Be as specific and descriptive as possible. Put the date, names, what, when, and where. Use names rather than pronouns like “he” or “they” as much as possible. If you cannot remember the date, put the time of year the thing happened (around a holiday, winter, summer, how old was your child) or about how long ago.«.pm»  •  Focus on the legal definition of domestic violence (hits, assaults, physical harm, or fear of immediate physical harm or assault, sexual assault, or stalking).«.pm»  •  You must give specifics. Putting things like “my husband is verbally and physically abusive to me,” or “he threatened to kill me,” does not help. The judge will not know what that means. Describe what «Other party name first TE» does (hit, kick, shove, slap) that is abusive. What did «Other party name first TE» say when s/he threatened you? Do not just say you were afraid. Say what you were afraid would happen to you or your child and why. If you got hurt, explain how the injury happened. Did the police come? What did they do? The more detail you can give, the better.</hd:plainText>
-			</hd:resource>
 		</hd:dialog>
 		<hd:dialog name="Why do you need a DVPO older acts">
 			<hd:title>Past acts</hd:title>
@@ -13924,6 +13843,16 @@ IF Other party weapons serious imminent threat TF
 END IF
 
 </hd:script>
+		</hd:dialog>
+		<hd:dialog name="Why do you need a SAPO" linkVariables="false">
+			<hd:title>Statement about sexual assault</hd:title>
+			<hd:contents>
+				<hd:item name="Statement intro DE"/>
+				<hd:item name="Why do you need a SAPO TE"/>
+			</hd:contents>
+			<hd:resource>
+				<hd:plainText>«Text spacer CO»«.b»Tips for writing your statement:«.be»«.pm»«Text spacer CO»  •  Be as specific and descriptive as possible. Put the date, names, what, when, and where. Use names rather than pronouns like “he” or “they” as much as possible. If you cannot remember the date, put the time of year the thing happened (around a holiday, winter, summer, how old was your child) or about how long ago.«.pm»  •  Focus on the legal definition of domestic violence (hits, assaults, physical harm, or fear of immediate physical harm or assault, sexual assault, or stalking).«.pm»  •  You must give specifics. Putting things like “my husband is verbally and physically abusive to me,” or “he threatened to kill me,” does not help. The judge will not know what that means. Describe what «Other party name first TE» does (hit, kick, shove, slap) that is abusive. What did «Other party name first TE» say when s/he threatened you? Do not just say you were afraid. Say what you were afraid would happen to you or your child and why. If you got hurt, explain how the injury happened. Did the police come? What did they do? The more detail you can give, the better.</hd:plainText>
+			</hd:resource>
 		</hd:dialog>
 		<hd:textFormat name="LIKE THIS" value="LIKE THIS"/>
 		<hd:textFormat name="Like This" value="Like This"/>
