@@ -534,6 +534,7 @@
 			<hd:prompt>«Text spacer CO»Other race</hd:prompt>
 			<hd:fieldWidth widthType="exact" exactWidth="20"/>
 		</hd:text>
+		<hd:text name="Temporary protection requested harm"/>
 		<hd:text name="Temporary protection requested justification TE">
 			<hd:prompt>«.b»Why do you need an order right away, before «Other party name first TE» gets notified?«.be»«.pm»«.i»(Explain why this is an emergency and how «Survivor any CO» would be harmed without an immediate order.«.pm»Just write a«.b» short explanation«.be» here. You will tell the full story over the next few pages.)«.ie»</hd:prompt>
 			<hd:multiLine height="3"/>
@@ -8931,6 +8932,9 @@ ELSE
 	&quot;____________&quot;
 END IF
 </hd:script>
+		</hd:computation>
+		<hd:computation name="Superior or district court spanish CO" resultType="text">
+			<hd:script></hd:script>
 		</hd:computation>
 		<hd:computation name="Supporting evidence attachment CO" resultType="trueFalse">
 			<hd:script>VALUE(Supporting evidence MC) = &quot;yes&quot; AND 
