@@ -1,14 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<hd:componentLibrary xmlns:hd="http://www.hotdocs.com/schemas/component_library/2009" version="11">
+<hd:componentLibrary xmlns:hd="http://www.hotdocs.com/schemas/component_library/2009" pointedToFile="SAPO interview.cmp" version="11">
 	<hd:preferences>
+		<hd:preference name="ADDITIONAL_TEMPLATES"></hd:preference>
 		<hd:preference name="COMBINE_DEF_DLGS">true</hd:preference>
 		<hd:preference name="ENABLE_EDIT_ANSWER">True</hd:preference>
 		<hd:preference name="MARK_ANSWER_FIELDS">True</hd:preference>
 		<hd:preference name="MAX_REPEAT_COUNT">100</hd:preference>
 		<hd:preference name="MAX_STACK_DEPTH">100</hd:preference>
-		<hd:preference name="POINTED TO CMP"></hd:preference>
+		<hd:preference name="OTHER_ADDITIONAL_FILES"></hd:preference>
+		<hd:preference name="POINTED TO CMP">SAPO interview</hd:preference>
 		<hd:preference name="REGISTER"></hd:preference>
+		<hd:preference name="TEMPLATE DESCRIPTION"></hd:preference>
+		<hd:preference name="TEMPLATE TITLE"></hd:preference>
 		<hd:preference name="TEMPLATE_ID">f557f5f5-f3d6-4531-b093-5e7edce50af6</hd:preference>
+		<hd:preference name="USE_SHARED_ANSWERUPLOAD_PROPS">True</hd:preference>
+		<hd:preference name="USE_SHARED_ASSEMBLY_PROPS">True</hd:preference>
+		<hd:preference name="USE_SHARED_HIDDENDATA_PROPS">True</hd:preference>
+		<hd:preference name="USE_SHARED_INTERVIEW_PROPS">True</hd:preference>
+		<hd:preference name="USE_SHARED_SERVER_PROPS">True</hd:preference>
 	</hd:preferences>
 	<hd:components>
 		<hd:textFormat name="LIKE THIS" value="LIKE THIS"/>

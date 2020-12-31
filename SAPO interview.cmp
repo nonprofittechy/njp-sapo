@@ -33,7 +33,7 @@
 		<hd:preference name="SERVER_INITIAL_INTERVIEW_OUTLINE">True</hd:preference>
 		<hd:preference name="SERVER_INITIAL_RESOURCE_PANE">True</hd:preference>
 		<hd:preference name="SERVER_SINGLE_PAGE_INTERVIEW">False</hd:preference>
-		<hd:preference name="TEMPLATE DESCRIPTION"></hd:preference>
+		<hd:preference name="TEMPLATE DESCRIPTION">TEST 7711 **LOCAL TEMP COPY**</hd:preference>
 		<hd:preference name="TEMPLATE TITLE">SAPO Interview</hd:preference>
 		<hd:preference name="TEMPLATE_ID">b8c3e8df-278c-443a-863d-edbf067d6447</hd:preference>
 		<hd:preference name="UNANSWERED VAR PLACEHOLDER">Underscores</hd:preference>
@@ -140,7 +140,7 @@
 		</hd:text>
 		<hd:text name="Helper address mailing street TE" askAutomatically="false" warnIfUnanswered="false">
 			<hd:defMergeProps unansweredText=" "/>
-			<hd:prompt>Street (or PO Box)</hd:prompt>
+			<hd:prompt>«Text spacer CO»Street (or PO Box)</hd:prompt>
 		</hd:text>
 		<hd:text name="Helper address mailing zip TE" askAutomatically="false" warnIfUnanswered="false" maxChars="5">
 			<hd:defMergeProps unansweredText="_______"/>
@@ -158,10 +158,6 @@
 		</hd:text>
 		<hd:text name="Helper name first TE">
 			<hd:prompt>Your first name</hd:prompt>
-		</hd:text>
-		<hd:text name="Helper name full TE">
-			<hd:prompt>Full name of person helping «IF Protect minor CO»the minor«ELSE»the vulnerable adult«END IF»</hd:prompt>
-			<hd:fieldWidth widthType="exact" exactWidth="50"/>
 		</hd:text>
 		<hd:text name="Helper name last TE">
 			<hd:prompt>Last name/s</hd:prompt>
@@ -411,7 +407,7 @@
 			<hd:multiLine height="4"/>
 		</hd:text>
 		<hd:text name="Other party used weapons in DV when TE">
-			<hd:prompt>«Text spacer CO»«.b»When did «Other party name first TE» last threaten you with a firearm or other weapon?«.be»«.pm»«.i»(The most recent time)«.ie»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»When did «Other party name first TE» last threaten «Survivor you or name CO» with a firearm or other weapon?«.be»«.pm»«.i»(The most recent time)«.ie»</hd:prompt>
 		</hd:text>
 		<hd:text name="Other party vehicle color TE">
 			<hd:prompt>Color</hd:prompt>
@@ -464,6 +460,9 @@
 		</hd:text>
 		<hd:text name="Person with parenting claim name TE" askAutomatically="false">
 			<hd:prompt>Name</hd:prompt>
+		</hd:text>
+		<hd:text name="Relationship between survivor and abuser TE">
+			<hd:prompt>«Text spacer CO»What is «Survivor possessive CO» relationship to the abuser?</hd:prompt>
 		</hd:text>
 		<hd:text name="Respondent parent or guardian TE">
 			<hd:prompt>Full name of «Other party name first TE»&apos;s parent or guardian</hd:prompt>
@@ -540,7 +539,7 @@
 			<hd:multiLine height="3"/>
 		</hd:text>
 		<hd:text name="Transfer school current school address TE">
-			<hd:prompt>«.b»«IF Protect self CO»What is the address of the school you attend with «Other party name first TE»?«ELSE»What is the address of the school «User name first TE» attends with «Other party name first TE»?«END IF»«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»«IF Protect self CO»What is the address of the school you attend with «Other party name first TE»?«ELSE»What is the address of the school «User name first TE» attends with «Other party name first TE»?«END IF»«.be»</hd:prompt>
 			<hd:multiLine height="2"/>
 		</hd:text>
 		<hd:text name="Transfer school current school name TE">
@@ -624,7 +623,7 @@
 		</hd:text>
 		<hd:text name="User email TE" askAutomatically="false" warnIfUnanswered="false" autoInterviewAction="gray">
 			<hd:defMergeProps unansweredText=" "/>
-			<hd:prompt>Your email address</hd:prompt>
+			<hd:prompt>«Your/survivor&apos;s name email address CO»</hd:prompt>
 			<hd:fieldWidth widthType="exact" exactWidth="40"/>
 		</hd:text>
 		<hd:text name="User interpreter language TE">
@@ -728,8 +727,12 @@
 			<hd:prompt>«Text spacer CO»Vehicle model «.i»(Example: Civic)«.ie»</hd:prompt>
 			<hd:fieldWidth widthType="calculated"/>
 		</hd:text>
-		<hd:text name="Why do you need DVPO other TE">
-			<hd:prompt>«Text spacer CO»«.b»Is there anything else you want to tell the judge about why «You/teen survivor name need/s CO» a protection order?«.be»«.pm»«.i»(It is okay to leave this blank)«.ie»</hd:prompt>
+		<hd:text name="Why do you need PO school transfer TE">
+			<hd:prompt>«Text spacer CO»«.b»If «Other party name first TE» keeps attending the same school as «Survivor you or name CO», describe any physical danger or emotional distress that would cause «Survivor you or name CO».«.be»</hd:prompt>
+			<hd:multiLine height="7"/>
+		</hd:text>
+		<hd:text name="Why do you need SAPO other TE">
+			<hd:prompt>«Text spacer CO»«.b»Is there anything else you want to tell the judge about why «You/survivor name need/s CO» a protection order?«.be»«.pm»«.i»(It is okay to leave this blank)«.ie»</hd:prompt>
 			<hd:multiLine height="7"/>
 		</hd:text>
 		<hd:text name="Why do you need a DVPO children TE">
@@ -995,7 +998,7 @@
 «.i»(Last five years only)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Contact person is helper TF" yesNoOnSameLine="true">
-			<hd:prompt>«Text spacer CO»Should you («Helper name first TE») be the person law enforcement contacts about serving and enforcing «Teen survivor name first TE»&apos;s protection order?</hd:prompt>
+			<hd:prompt>«Text spacer CO»Should you («Helper name first TE») be the person law enforcement contacts about serving and enforcing «User name first TE»&apos;s protection order?</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Dating violence lived with abuser TF">
 			<hd:prompt>«Text spacer CO»«.b»«Dating violence lived with abuser tf prompt CO»«.be»</hd:prompt>
@@ -1070,7 +1073,7 @@
 			<hd:prompt>«.pm»Do you know «Other party name first TE»&apos;s birth date?«.pm»«.i»(It is important to give the exact birth date if you can)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Live with other party now TF" yesNoOnSameLine="true" askAutomatically="false" warnIfUnanswered="false">
-			<hd:prompt>«Live with other party now tf prompt CO»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»«Live with other party now tf prompt CO»«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Next step fee waiver TF" yesNoOnSameLine="true">
 			<hd:prompt>«Text spacer CO»
@@ -1084,11 +1087,8 @@
 			<hd:prompt>«Text spacer CO»«IF VALUE(User age range MC) = &quot;16-17&quot;»«.b»Do you have any children you want to protect?«.be»«ELSE»«.b»Do you want this order to protect any children under age 18?«.be»«.pm»«.i»(You can protect children in your family or household)«.ie»«END IF»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other cases TF">
-			<hd:prompt>«IF NOT Protect self CO»
-«.b»Are there any other court cases involving «Other party name first TE» and «User name first TE»?
-«ELSE»
-«.b»Are there any other court cases involving you and «Other party name first TE»?
-«END IF»</hd:prompt>
+			<hd:prompt>«IF NOT Protect self CO»«.b»Are there any other court cases involving «Other party name first TE» and «User name first TE»?«ELSE»
+«.b»Are there any other court cases involving you and «Other party name first TE»?«END IF»«.be»«.pm»«.i»(Examples: criminal charges, other protection orders, civil lawsuits)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other cases involving children TF" askAutomatically="false">
 			<hd:prompt>«Text spacer CO»«.b»Do you know of any other court cases involving «Joint minor children first names list with or CO»?«.be»
@@ -1163,10 +1163,10 @@
 			<hd:prompt>«Text spacer CO»«.b»Shotgun«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other party used weapons in DV TF" yesNoOnSameLine="true">
-			<hd:prompt>«Text spacer CO»«.b»Has «Other party name first TE» ever used a gun, firearm, weapon, or any other object to threaten you or harm you?«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Has «Other party name first TE» ever used a gun, firearm, weapon, or any other object to threaten you or harm «Survivor you or name CO»?«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other party used weapons in DV police report TF" yesNoOnSameLine="true">
-			<hd:prompt>«Text spacer CO»«.b»Did you report it to the police?«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Did «Survivor you or name CO» report it to the police?«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other party violent reaction likely when served TF" yesNoOnSameLine="true">
 			<hd:prompt>Is «Other party name first TE» likely to react violently when served?</hd:prompt>
@@ -1175,7 +1175,7 @@
 			<hd:prompt>«Text spacer CO»«.b»Do you know where «Other party name first TE» keeps the guns or other weapons?«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Other party weapons serious imminent threat TF" yesNoOnSameLine="true">
-			<hd:prompt>«Text spacer CO»«.b»Is «Other party name first TE»&apos;s use of guns, firearms or other dangerous weapons a serious and immediate threat to anyone&apos;s health or safety?«.be»«.pm»«.i»(This could be a threat to you, to someone else, or to the general public)«.ie»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Is «Other party name first TE»&apos;s use of guns, firearms or other dangerous weapons a serious and immediate threat to anyone&apos;s health or safety?«.be»«.pm»«.i»(This could be a threat to «Survivor you or name CO», to someone else, or to the general public)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Paying fees and costs TF" yesNoOnSameLine="true">
 			<hd:prompt>«.lb»«.b»Should the judge order «Other party name first TE» to pay all fees and costs for this case?«.be»«.pm»«.i»(If you have any)«.ie»</hd:prompt>
@@ -1190,10 +1190,7 @@
 			<hd:prompt>«Text spacer CO»«.b»Do you want to protect a teenager (age 13-18) who has been the survivor of dating violence?«.be»«.pm»«.i»(This is for protecting «.b»someone else«.be», not yourself. If you are a teen age 16+ getting your own order, say &quot;No&quot;.)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Respondent sexually assaulted petitioner TF">
-			<hd:prompt>«Text spacer CO»The abuser sexually assaulted «Survivor any CO» in that:
-
-1. The abuser had sexual conduct with «Survivor any CO» without consent, or
-2. The abuser sexually penetrated «Survivor any CO» without consent.</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Did the abuser sexually assault «Survivor any CO»?«.be»«.pm»«.i»(Sexual assault means sexual conduct or penetration without consent. See the full definition in the Help area.)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Restraints custody of pet TF">
 			<hd:prompt>«.b»Give me full custody and control of pets«.be»</hd:prompt>
@@ -1229,7 +1226,7 @@
 			<hd:prompt>«.b»Stop «Other party name first TE» from taking «The child/ren CO» out of Washington«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Restraints no contact TF">
-			<hd:prompt>«.b»No contact with «Survivor for restraints first person CO» of any kind, in-person, through others, by phone, text, email, mail, or any other way.«.be» «.i»«IF Order protects children only not user CO»(Except for court-ordered visitation)«ELSE»(Mailing court documents is still allowed)«END IF»«.ie»</hd:prompt>
+			<hd:prompt>«.b»No contact with «Survivor for restraints first person CO» of any kind</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Restraints no contact protect child TF">
 			<hd:prompt>«.b»No contact with «Selected children CO» «IF There are minor children of the relationship TF»(except for court-ordered visitation)«END IF»«.be»</hd:prompt>
@@ -1289,13 +1286,13 @@
 			<hd:prompt>«Text spacer CO»Do you have a save button?</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="User left county to flee abuser TF" yesNoOnSameLine="true">
-			<hd:prompt>«Text spacer CO»«.b»Did you leave «Court county DVPO petition MC» County because of abuse?«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Did you leave «Court county SAPO petition MC» County because of abuse?«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="User live in county where filing TF" yesNoOnSameLine="true">
-			<hd:prompt>«Text spacer CO»«.b»Do you live in «Court county DVPO petition MC» County?«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Do you live in «Court county SAPO petition MC» County?«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="User needs interpreter TF" yesNoOnSameLine="true">
-			<hd:prompt>«.c»«Do you/teen survivor name need CO» an interpreter?</hd:prompt>
+			<hd:prompt>«.c»«Do/does you/survivor name need CO» an interpreter?</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="User other child lives with user TF" yesNoOnSameLine="true">
 			<hd:prompt>«Text spacer CO»«.b»Does this child live with you?«.be»</hd:prompt>
@@ -1304,7 +1301,7 @@
 			<hd:prompt>«.b»Do you plan to print and sign your forms today?«.be»</hd:prompt>
 		</hd:trueFalse>
 		<hd:trueFalse name="Waive confidential address TF" yesNoOnSameLine="true" askAutomatically="false" warnIfUnanswered="false">
-			<hd:prompt>«.b»Do you also want to list this home address on the protection order?«.be»«.pm»«.i»(The order is a public document that «Other party name first TE» will see. If you say «.b»Yes«.be», that can help law enforcement enforce the order because there is no question what address «Other party name first TE» must stay away from. But it can also cause confusion if «You/teen survivor name move/s CO». If you are unsure, say «.b»No«.be» or talk to an advocate.)«.ie»</hd:prompt>
+			<hd:prompt>«.b»Do you also want to list this home address on the protection order?«.be»«.pm»«.i»(The order is a public document that «Other party name first TE» will see. If you say «.b»Yes«.be», that can help law enforcement enforce the order because there is no question what address «Other party name first TE» must stay away from. But it can also cause confusion if «You/survivor name move/s CO». If you are unsure, say «.b»No«.be» or talk to an advocate.)«.ie»</hd:prompt>
 		</hd:trueFalse>
 		<hd:multipleChoice name="All available children MS">
 			<hd:prompt>«Text spacer CO»«.b»Who do you want to include?«.be»«.pm»«.i»(Check all that apply)«.ie»</hd:prompt>
@@ -2020,7 +2017,7 @@
 			</hd:options>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Court county DVPO petition MC">
-			<hd:prompt>«Text spacer CO»«.b»Where will you file your DVPO?«.be»«.pm»«.i»(This can be the county where you live now, or where you used to live if you fled to avoid abuse.)«.ie»</hd:prompt>
+			<hd:prompt>«IF Language MC = &quot;English&quot;»«Text spacer CO»«.b»Where will you file your protection order?«.be»«.pm»«.i»(This can be the county where you live now, or where you used to live if you fled to avoid abuse.)«.ie»«END IF»«IF Language MC = &quot;Spanish&quot;»«Text spacer CO»«.b»¿Dónde va a presentar su orden de protección?«.be»«.pm»«.i»(este puede ser el condado donde vive ahora, o donde vivía si se fue de allí para escaparse del maltrato).«.ie»«END IF»</hd:prompt>
 			<hd:fieldWidth widthType="exact" exactWidth="30"/>
 			<hd:options>
 				<hd:option name="Adams"/>
@@ -2065,17 +2062,62 @@
 			</hd:options>
 			<hd:singleSelection style="dropDownList"/>
 		</hd:multipleChoice>
-		<hd:multipleChoice name="Harm type MS">
-			<hd:prompt>«Text spacer CO»(Alternative)«.b»Has the abuser harmed «Survivor any CO» in any of these ways?«.be»</hd:prompt>
+		<hd:multipleChoice name="Court county SAPO petition MC">
+			<hd:prompt>«Text spacer CO»«.b»What county do you live in?«.be»«.pm»«.i»(This is where you need to file your protection order.)«.ie»</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="30"/>
 			<hd:options>
-				<hd:option name="sexual assault">
-					<hd:prompt>Sexual conduct</hd:prompt>
+				<hd:option name="Adams"/>
+				<hd:option name="Asotin"/>
+				<hd:option name="Benton"/>
+				<hd:option name="Chelan"/>
+				<hd:option name="Clallam"/>
+				<hd:option name="Clark"/>
+				<hd:option name="Columbia"/>
+				<hd:option name="Cowlitz"/>
+				<hd:option name="Douglas"/>
+				<hd:option name="Ferry"/>
+				<hd:option name="Franklin"/>
+				<hd:option name="Garfield"/>
+				<hd:option name="Grant"/>
+				<hd:option name="Grays Harbor"/>
+				<hd:option name="Island"/>
+				<hd:option name="Jefferson"/>
+				<hd:option name="King"/>
+				<hd:option name="Kitsap"/>
+				<hd:option name="Kittitas"/>
+				<hd:option name="Klickitat"/>
+				<hd:option name="Lewis"/>
+				<hd:option name="Lincoln"/>
+				<hd:option name="Mason"/>
+				<hd:option name="Okanogan"/>
+				<hd:option name="Pacific"/>
+				<hd:option name="Pend Oreille"/>
+				<hd:option name="Pierce"/>
+				<hd:option name="San Juan"/>
+				<hd:option name="Skagit"/>
+				<hd:option name="Skamania"/>
+				<hd:option name="Snohomish"/>
+				<hd:option name="Spokane"/>
+				<hd:option name="Stevens"/>
+				<hd:option name="Thurston"/>
+				<hd:option name="Wahkiakum"/>
+				<hd:option name="Walla Walla"/>
+				<hd:option name="Whatcom"/>
+				<hd:option name="Whitman"/>
+				<hd:option name="Yakima"/>
+			</hd:options>
+			<hd:singleSelection style="dropDownList"/>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="Form assembly language MC">
+			<hd:prompt>«Text spacer CO»«.b»«IF Language MC = &quot;English&quot;»What language do you want your forms in?«END IF»«IF Language MC = &quot;Spanish&quot;»¿En qué idioma quiere llenar sus formularios?«END IF»«.be»</hd:prompt>
+			<hd:options>
+				<hd:option name="English">
+					<hd:prompt>«IF Language MC = &quot;English&quot;»English only«ELSE»Solo en inglés«END IF»</hd:prompt>
 				</hd:option>
-				<hd:option name="fear">
-					<hd:prompt>Sexual penetration</hd:prompt>
+				<hd:option name="Bilingual">
+					<hd:prompt>«IF Language MC = &quot;English&quot;»Spanish and English (bilingual)«ELSE»Español e inglés (bilingüe)«END IF»</hd:prompt>
 				</hd:option>
 			</hd:options>
-			<hd:multipleSelection noneOfTheAbove="true"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Helper address mailing state MC" askAutomatically="false" warnIfUnanswered="false">
 			<hd:prompt>State</hd:prompt>
@@ -2152,6 +2194,18 @@
 		</hd:multipleChoice>
 		<hd:multipleChoice name="King County court house DVPO petition MC">
 			<hd:resource>
+				<hd:plainText>«IF Language MC = &quot;English&quot;»Choose your courthouse based on where you or the other party lives.«.pm»The «.b»Seattle «.be»area includes: All of King County north of Interstate 90 and including all of the Interstate 90 right-of-way; all the cities of Seattle, Mercer Island, Bellevue, Issaquah and North Bend; and all of Vashon and Maury Islands.«.pm»The «.b»Kent «.be»area includes: All of King County south of Interstate 90 except those areas included in the Seattle Case Assignment Area«END IF»«IF Language MC = &quot;Spanish&quot;»Elija su juzgado de acuerdo al lugar donde vive usted o la otra parte.«.pm»El área de «.b»Seattle «.be»comprende: Todo el condado de King al norte de la ruta interestatal 90 y todos los derechos de paso de la ruta interestatal 90; todas las ciudades de Seattle, Mercer Island, Bellevue, Issaquah y North Bend; y todas las islas de Vashon y Maury.«.pm»El área de «.b»Kent «.be»comprende: todo el condado de King al sur de la ruta interestatal 90, excepto el Área de asignación de casos de Seattle«END IF»</hd:plainText>
+			</hd:resource>
+			<hd:prompt>«IF Language MC = &quot;English&quot;»«.pm»«.b»King County Superior Court has two locations. Where will you file?«.be»«.pm»«.i»(The Maleng Regional Justice Center is in Kent. The King County Courthouse is in downtown Seattle.)«.ie»«END IF»«IF Language MC = &quot;Spanish&quot;»«.pm»«.b»El tribunal superior del condado de King tiene dos juzgados. ¿Dónde va a hacer su presentación?«.be»«.pm»«.i»(El Centro de Justicia Regional Maleng está en Kent. El juzgado del condado de King está en el centro de Seattle).«.ie»«END IF»</hd:prompt>
+			<hd:fieldWidth widthType="exact" exactWidth="30"/>
+			<hd:options defMergeText="KNT/SEA">
+				<hd:option name="Kent"/>
+				<hd:option name="Seattle"/>
+			</hd:options>
+			<hd:singleSelection style="buttonGrid"/>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="King County court house SAPO petition MC">
+			<hd:resource>
 				<hd:plainText>Choose your courthouse based on where you or the other party lives.«.pm»The «.b»Seattle «.be»area includes: All of King County north of Interstate 90 and including all of the Interstate 90 right-of-way; all the cities of Seattle, Mercer Island, Bellevue, Issaquah and North Bend; and all of Vashon and Maury Islands.«.pm»The «.b»Kent «.be»area includes: All of King County south of Interstate 90 except those areas included in the Seattle Case Assignment Area</hd:plainText>
 			</hd:resource>
 			<hd:prompt>«.pm»«.b»King County Superior Court has two locations. Where will you file?«.be»«.pm»«.i»(The Maleng Regional Justice Center is in Kent. The King County Courthouse is in downtown Seattle.)«.ie»</hd:prompt>
@@ -2161,6 +2215,13 @@
 				<hd:option name="Seattle"/>
 			</hd:options>
 			<hd:singleSelection style="buttonGrid"/>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="Language MC" askAutomatically="false" saveAnswer="false" warnIfUnanswered="false">
+			<hd:prompt>Language</hd:prompt>
+			<hd:options>
+				<hd:option name="English"/>
+				<hd:option name="Spanish"/>
+			</hd:options>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Model years 1 MC">
 			<hd:prompt>Model year</hd:prompt>
@@ -2491,7 +2552,7 @@
 			</hd:options>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Other party ADM dependent MC">
-			<hd:prompt>Is «Other party name first TE» a «.b»dependent«.be» of someone else who is an active duty service member from the above list (except the Public Health Service and NOAA)?  «.i»(To be a “dependent”, «Other party name first TE» must have received more than half of his/her income from the service member for at least the last six months)«.ie».</hd:prompt>
+			<hd:prompt>«Text spacer CO»Is «Other party name first TE» a «.b»dependent«.be» of someone else who is an active duty service member from the above list (except the Public Health Service and NOAA)?  «.i»(To be a “dependent”, «Other party name first TE» must have received more than half of his/her income from the service member for at least the last six months)«.ie».</hd:prompt>
 			<hd:options>
 				<hd:option name="No"/>
 				<hd:option name="Yes"/>
@@ -2675,7 +2736,7 @@
 		<hd:multipleChoice name="Other party age range MC">
 			<hd:prompt>«Text spacer CO»«.b»How old is the abuser?«.be»«.pm»«.i»(The person you want protection from)«.ie»</hd:prompt>
 			<hd:options>
-				<hd:option name="under 16">
+				<hd:option name="under 18">
 					<hd:prompt>Under 18</hd:prompt>
 				</hd:option>
 				<hd:option name="18+">
@@ -3196,7 +3257,7 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 					<hd:prompt>Black</hd:prompt>
 				</hd:option>
 				<hd:option name="Hispanic">
-					<hd:prompt>Hispanic or LatinX</hd:prompt>
+					<hd:prompt>Hispanic or Latino/a/x</hd:prompt>
 				</hd:option>
 				<hd:option name="Multi-Racial">
 					<hd:prompt>Multi-Racial</hd:prompt>
@@ -3545,8 +3606,8 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Relationship between survivor and abuser MS">
 			<hd:defFormat>a, b</hd:defFormat>
-			<hd:prompt>«Text spacer CO»«.b»Are you and the abuser related in any of the ways listed below?«.be»«.pm»«.i»(Now or in the past. Check all that apply or check &quot;None of the Above&quot;)«.ie»</hd:prompt>
-			<hd:options defMergeText="current or former spouse/current or former domesti">
+			<hd:prompt>«Text spacer CO»«.b»«Relationship prompt CO»«.be»«.pm»«.i»(People with any of these relationships must file for a Domestic Violence Protection Order, even if the harm is sexual assault. Check all that apply or check &quot;None of the Above&quot;)«.ie»</hd:prompt>
+			<hd:options defMergeText="spouse (or ex)/domestic partner (or ex)/dating rel">
 				<hd:option name="spouse">
 					<hd:prompt>Spouses (or ex)</hd:prompt>
 				</hd:option>
@@ -3558,9 +3619,6 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 				</hd:option>
 				<hd:option name="joint parents">
 					<hd:prompt>Parents of a child together</hd:prompt>
-				</hd:option>
-				<hd:option name="roommates">
-					<hd:prompt>Roommates</hd:prompt>
 				</hd:option>
 				<hd:option name="parent and child">
 					<hd:prompt>Parent and child</hd:prompt>
@@ -3601,7 +3659,7 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 			<hd:multipleSelection/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Restraints cyberstalk adult children or other MC">
-			<hd:prompt>«Text spacer CO»«IF Protect teen from dating violence TF OR User is 16-17 CO»«.b»Do you also want to protect any people who live with «You/teen survivor name CO» from cyberstalking?«.be»«ELSE»«.b»Do you also want to protect any adult children or people who live with «You/teen survivor name CO» from cyberstalking?«.be»«END IF»«.pm»«.i»(Usually adults need their own order, but you can protect adults in «Your/teen survivor&apos;s name household CO» from cyberstalking)«.ie»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«IF Protect teen from dating violence TF OR User is 16-17 CO»«.b»Do you also want to protect any people who live with «You/teen survivor name CO» from cyberstalking?«.be»«ELSE»«.b»Do you also want to protect any adult children or people who live with «You/teen survivor name CO» from cyberstalking?«.be»«END IF»«.pm»«.i»(Usually adults need their own order, but you can protect adults in «Your/survivor&apos;s name household CO» from cyberstalking)«.ie»</hd:prompt>
 			<hd:options>
 				<hd:option name="Yes">
 					<hd:prompt>Yes</hd:prompt>
@@ -3775,6 +3833,17 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 			</hd:options>
 			<hd:multipleSelection/>
 		</hd:multipleChoice>
+		<hd:multipleChoice name="Restraints same school MC">
+			<hd:prompt>«Text spacer CO»«.b»«IF Protect self CO»Do you and «Other party name first TE» attend the same school?«ELSE»Do «User name first TE» and «Other party name first TE» attend the same school?«END IF»«.be»</hd:prompt>
+			<hd:options>
+				<hd:option name="yes">
+					<hd:prompt>Yes</hd:prompt>
+				</hd:option>
+				<hd:option name="no">
+					<hd:prompt>No</hd:prompt>
+				</hd:option>
+			</hd:options>
+		</hd:multipleChoice>
 		<hd:multipleChoice name="Restraints state lines all children MC">
 			<hd:prompt>«.b»Keep all the children in Washington?«.be»</hd:prompt>
 			<hd:options>
@@ -3783,6 +3852,17 @@ In Family Law interviews, we ask for mailing address first, then home if differe
 				</hd:option>
 				<hd:option name="some">
 					<hd:prompt>Only some (pick from list)</hd:prompt>
+				</hd:option>
+			</hd:options>
+		</hd:multipleChoice>
+		<hd:multipleChoice name="Restraints transfer school MC">
+			<hd:prompt>«Text spacer CO»«.b»Should «Other party name first TE» be ordered to transfer to a different school?«.be»</hd:prompt>
+			<hd:options>
+				<hd:option name="yes">
+					<hd:prompt>Yes</hd:prompt>
+				</hd:option>
+				<hd:option name="no">
+					<hd:prompt>No</hd:prompt>
 				</hd:option>
 			</hd:options>
 		</hd:multipleChoice>
@@ -3948,7 +4028,7 @@ Who is the order protecting?</hd:prompt>
 			<hd:multipleSelection noneOfTheAbove="true"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Superior or district court MC">
-			<hd:prompt>«Text spacer CO»«.b»Which court will you file in?«.be»«.pm»«.i»(See help area for more information, or talk to a domestic violence advocate)«.ie»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Which court will you file in?«.be»«.pm»«.i»(See help area for more information, or talk to a sexual assault advocate)«.ie»</hd:prompt>
 			<hd:options defMergeText="Superior/District">
 				<hd:option name="superior">
 					<hd:prompt>Superior</hd:prompt>
@@ -4257,10 +4337,10 @@ Who is the order protecting?</hd:prompt>
 			<hd:prompt>«Text spacer CO»«.b»How old are you?«.be»</hd:prompt>
 			<hd:options>
 				<hd:option name="under 16">
-					<hd:prompt>Below 16</hd:prompt>
+					<hd:prompt>Under 16</hd:prompt>
 				</hd:option>
 				<hd:option name="16-17">
-					<hd:prompt>16-17</hd:prompt>
+					<hd:prompt>16 or 17</hd:prompt>
 				</hd:option>
 				<hd:option name="18+">
 					<hd:prompt>18 or older</hd:prompt>
@@ -4575,7 +4655,7 @@ Who is the order protecting?</hd:prompt>
 			<hd:singleSelection style="dropDownList"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="User home address same as mailing MC">
-			<hd:prompt>«Text spacer CO»Your «.b»mailing address«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»«Your/survivor&apos;s name mailing address CO»«.be»</hd:prompt>
 			<hd:options>
 				<hd:option name="Same">
 					<hd:prompt>Same as home address</hd:prompt>
@@ -4718,7 +4798,7 @@ Who is the order protecting?</hd:prompt>
 					<hd:prompt>Black</hd:prompt>
 				</hd:option>
 				<hd:option name="Hispanic">
-					<hd:prompt>Hispanic or LatinX</hd:prompt>
+					<hd:prompt>Hispanic or Latino/a/x</hd:prompt>
 				</hd:option>
 				<hd:option name="Multi-Racial">
 					<hd:prompt>Multi-Racial</hd:prompt>
@@ -4736,7 +4816,7 @@ Who is the order protecting?</hd:prompt>
 			<hd:singleSelection style="dropDownList"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="User relationship to teen survivor MC">
-			<hd:prompt>«Text spacer CO»«.b»What is your relationship to the minor survivor?«.be»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»What is your relationship to the minor?«.be»</hd:prompt>
 			<hd:fieldWidth widthType="exact" exactWidth="50"/>
 			<hd:options defMergeText="Parent/Guardian/Guardian ad Litem/Next friend">
 				<hd:option name="parent">
@@ -4755,7 +4835,7 @@ Who is the order protecting?</hd:prompt>
 			<hd:singleSelection other="true"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="User relationship to vulnerable adult MC">
-			<hd:prompt>«Text spacer CO»I am the vulnerable adult&apos;s</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»What is your relationship to the vulnerable adult?«.be»«.pm»«.i»(I am their...)«.ie»</hd:prompt>
 			<hd:options>
 				<hd:option name="parent">
 					<hd:prompt>Parent</hd:prompt>
@@ -4809,7 +4889,7 @@ Who is the order protecting?</hd:prompt>
 			</hd:options>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="User service address type if confidential MC">
-			<hd:prompt>«Text spacer CO»«.b»What address should «Other party name first TE» use to send you a response or other legal papers?«.be»«.pm»«.i»(«Other party name first TE» will see the address you choose.  If you choose none, you may not find out if «Other party name first TE» files a response or other court papers.)«.ie»</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»What address should «Other party name first TE» use to send you a response or other legal papers?«.be»«.pm»«.i»(«Other party name first TE» will see the address you choose.)«.ie»</hd:prompt>
 			<hd:options>
 				<hd:option name="email">
 					<hd:prompt>My email address</hd:prompt>
@@ -4819,9 +4899,6 @@ Who is the order protecting?</hd:prompt>
 				</hd:option>
 				<hd:option name="mail">
 					<hd:prompt>A different mailing address</hd:prompt>
-				</hd:option>
-				<hd:option name="none">
-					<hd:prompt>None</hd:prompt>
 				</hd:option>
 			</hd:options>
 		</hd:multipleChoice>
@@ -4896,7 +4973,7 @@ Who is the order protecting?</hd:prompt>
 			<hd:singleSelection style="dropDownList"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Vulnerable adult vulnerability MS">
-			<hd:prompt>«Text spacer CO»Why is the vulnerable adult not able to file this petition on their own behalf?</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Why is the vulnerable adult not able to file this petition on their own?«.be»</hd:prompt>
 			<hd:options>
 				<hd:option name="age">
 					<hd:prompt>Age</hd:prompt>
@@ -4914,7 +4991,7 @@ Who is the order protecting?</hd:prompt>
 			<hd:multipleSelection noneOfTheAbove="true"/>
 		</hd:multipleChoice>
 		<hd:multipleChoice name="Who protecting MC">
-			<hd:prompt>«Text spacer CO»Who do you need to protect with this order?</hd:prompt>
+			<hd:prompt>«Text spacer CO»«.b»Who do you need to protect with this order?«.be»</hd:prompt>
 			<hd:options defMergeText="you/the minor/the vulnerable adult">
 				<hd:option name="self">
 					<hd:prompt>Myself</hd:prompt>
@@ -5001,6 +5078,9 @@ END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="At least one child type selected CO" resultType="trueFalse">
 			<hd:script>VALUE(There are minor children of the relationship TF) OR VALUE(Other kids to protect TF)</hd:script>
+		</hd:computation>
+		<hd:computation name="Bilingual CO" resultType="trueFalse">
+			<hd:script>VALUE(Form assembly language MC) = &quot;Bilingual&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Build all available children repeat and MS CO" resultType="text">
 			<hd:localVariables>
@@ -6036,6 +6116,9 @@ REPEAT Next Steps
 END REPEAT
 ERASE Next Steps</hd:script>
 		</hd:computation>
+		<hd:computation name="Copy of Protect self CO" resultType="trueFalse">
+			<hd:script>VALUE(Who protecting MC) = &quot;self&quot;</hd:script>
+		</hd:computation>
 		<hd:computation name="Count of all available children repeat CO" resultType="number">
 			<hd:script>0
 COUNT(All available children repeat)</hd:script>
@@ -6069,12 +6152,12 @@ END REPEAT</hd:script>
 		<hd:computation name="Court city state zip CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 &quot;&quot;
-IF Court county DVPO petition MC != &quot;King&quot;
-	&quot;«Court county DVPO petition MC:Court city state zip MT»&quot;
-ELSE IF Court county DVPO petition MC = &quot;King&quot;
-	IF King County court house DVPO petition MC = &quot;Kent&quot;
-		&quot;«Court county DVPO petition MC:Court city state zip MT»&quot;
-	ELSE IF King County court house DVPO petition MC = &quot;Seattle&quot;
+IF Court county SAPO petition MC != &quot;King&quot;
+	&quot;«Court county SAPO petition MC:Court city state zip MT»&quot;
+ELSE IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house SAPO petition MC = &quot;Kent&quot;
+		&quot;«Court county SAPO petition MC:Court city state zip MT»&quot;
+	ELSE IF King County court house SAPO petition MC = &quot;Seattle&quot;
 		&quot;Seattle, WA 98104-2363&quot;
 	END IF
 END IF
@@ -6085,12 +6168,12 @@ END IF
 		<hd:computation name="Court clerk phone CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 &quot;&quot;
-IF Court county DVPO petition MC != &quot;King&quot;
-	&quot;«Court county DVPO petition MC:Court clerk phone MT»&quot;
-ELSE IF Court county DVPO petition MC = &quot;King&quot;
-	IF King County court house DVPO petition MC = &quot;Kent&quot;
+IF Court county SAPO petition MC != &quot;King&quot;
+	&quot;«Court county SAPO petition MC:Court clerk phone MT»&quot;
+ELSE IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house SAPO petition MC = &quot;Kent&quot;
 		&quot;206-477-3758&quot;
-	ELSE IF King County court house DVPO petition MC = &quot;Seattle&quot;
+	ELSE IF King County court house SAPO petition MC = &quot;Seattle&quot;
 		&quot;206-477-1103&quot;
 	END IF
 END IF
@@ -6101,7 +6184,7 @@ END IF
 		<hd:computation name="Court county for multi interview templates CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE 
 //for DVPO interview
-Court county DVPO petition MC + &quot; County&quot;
+Court county SAPO petition MC + &quot; County&quot;
 //for all other interviews
 //Court county MC + &quot; County&quot;
 
@@ -6110,29 +6193,29 @@ Court county DVPO petition MC + &quot; County&quot;
 		<hd:computation name="Court email for DVPO CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 &quot;&quot;
-IF Court county DVPO petition MC = &quot;Snohomish&quot;
+IF Court county SAPO petition MC = &quot;Snohomish&quot;
 	&quot;protection.orders@snoco.org&quot;
-ELSE IF Court county DVPO petition MC = &quot;King&quot;
+ELSE IF Court county SAPO petition MC = &quot;King&quot;
 	&quot;protectionorder@kingcounty.gov&quot;	
 END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="Court has email address for DVPO CO" resultType="trueFalse">
-			<hd:script>Court county DVPO petition MC = &quot;King&quot; OR Court county DVPO petition MC = &quot;Snohomish&quot;</hd:script>
+			<hd:script>Court county SAPO petition MC = &quot;King&quot; OR Court county SAPO petition MC = &quot;Snohomish&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Court mailing address CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 &quot;&quot;
-IF Court county DVPO petition MC  != &quot;King&quot;
-	&quot;«Court county DVPO petition MC:Court mailing address MT»&quot;
-ELSE IF Court county DVPO petition MC = &quot;King&quot;
-	IF King County court house DVPO petition MC = &quot;Kent&quot;
-		&quot;«Court county DVPO petition MC:Court mailing address MT»&quot;
-	ELSE IF King County court house DVPO petition MC = &quot;Seattle&quot;
+IF Court county SAPO petition MC  != &quot;King&quot;
+	&quot;«Court county SAPO petition MC:Court mailing address MT»&quot;
+ELSE IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house SAPO petition MC = &quot;Kent&quot;
+		&quot;«Court county SAPO petition MC:Court mailing address MT»&quot;
+	ELSE IF King County court house SAPO petition MC = &quot;Seattle&quot;
 		&quot;&quot;  //not different from physical
 	END IF
 END IF
-IF &quot;«Court county DVPO petition MC:Court mailing address MT»&quot; = Court county DVPO petition MC  // because no separate mailing address, and thus no merge text
+IF &quot;«Court county SAPO petition MC:Court mailing address MT»&quot; = Court county SAPO petition MC  // because no separate mailing address, and thus no merge text
 &quot;&quot;
 END IF
 // Kent courthouse in King County is covered by base merge text (from row in spreadsheet)
@@ -6141,12 +6224,12 @@ END IF
 		<hd:computation name="Court street address CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 &quot;&quot;
-IF Court county DVPO petition MC != &quot;King&quot;
-	&quot;«Court county DVPO petition MC:Court street address MT»&quot;
-ELSE IF Court county DVPO petition MC = &quot;King&quot;
-	IF King County court house DVPO petition MC = &quot;Kent&quot;
-		&quot;«Court county DVPO petition MC:Court street address MT»&quot;
-	ELSE IF King County court house DVPO petition MC = &quot;Seattle&quot;
+IF Court county SAPO petition MC != &quot;King&quot;
+	&quot;«Court county SAPO petition MC:Court street address MT»&quot;
+ELSE IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house SAPO petition MC = &quot;Kent&quot;
+		&quot;«Court county SAPO petition MC:Court street address MT»&quot;
+	ELSE IF King County court house SAPO petition MC = &quot;Seattle&quot;
 		&quot;516 3rd Ave, Rm E609&quot;
 	END IF
 END IF
@@ -6157,12 +6240,12 @@ END IF
 		<hd:computation name="Court website CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 &quot;&quot;
-IF Court county DVPO petition MC != &quot;King&quot;
-	&quot;«Court county DVPO petition MC:Court website MT»&quot;
-ELSE IF Court county DVPO petition MC = &quot;King&quot;
-	IF King County court house DVPO petition MC = &quot;Kent&quot;
-		&quot;«Court county DVPO petition MC:Court website MT»&quot;
-	ELSE IF King County court house DVPO petition MC = &quot;Seattle&quot;
+IF Court county SAPO petition MC != &quot;King&quot;
+	&quot;«Court county SAPO petition MC:Court website MT»&quot;
+ELSE IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house SAPO petition MC = &quot;Kent&quot;
+		&quot;«Court county SAPO petition MC:Court website MT»&quot;
+	ELSE IF King County court house SAPO petition MC = &quot;Seattle&quot;
 		&quot;http://www.kingcounty.gov/courts/superiorCourt.aspx&quot;
 	END IF
 END IF
@@ -6197,6 +6280,32 @@ IF Interview for self TF
 	ELSE
 		FALSE
 	END IF
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="Custom local superior court name or location CO" resultType="text">
+			<hd:script>IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house DVPO petition MC = &quot;Kent&quot;
+		&quot; at the Maleng Regional Justice Center in Kent&quot;
+	ELSE
+		&quot; in Seattle&quot;
+	END IF
+ELSE IF Court county SAPO petition MC = &quot;Thurston&quot;
+	&quot; in the «.b»Family and Juvenile Court«.be»&quot;
+ELSE
+	&quot;&quot;
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="Custom local superior court name or location SP CO" resultType="text">
+			<hd:script>IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house DVPO petition MC = &quot;Kent&quot;
+		&quot; al &apos;Maleng Regional Justice Center&apos; en Kent&quot;
+	ELSE
+		&quot; en Seattle&quot;
+	END IF
+ELSE IF Court county SAPO petition MC = &quot;Thurston&quot;
+	&quot; en «.b»el tribunal de familia y de menores«.be» (Family and Juvenile Court)&quot;
+ELSE
+	&quot;&quot;
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Dating violence and abuser under 16 CO" resultType="trueFalse">
@@ -6257,6 +6366,13 @@ ELSE
 END IF
 </hd:script>
 		</hd:computation>
+		<hd:computation name="Disqualify roommate or relationship CO" resultType="trueFalse">
+			<hd:script>FALSE
+IF (ANSWERED(Live with other party now TF) AND Live with other party now TF) OR (ANSWERED(Relationship between survivor and abuser MS) AND Relationship between survivor and abuser MS != OTHER(Relationship between survivor and abuser MS))
+	TRUE
+END IF
+</hd:script>
+		</hd:computation>
 		<hd:computation name="Dissolution etc in LEI CO" resultType="trueFalse">
 			<hd:script>// Determines whether to check the box labeled &quot;Dissolution/Separation/Invalidity/Nonparental Custody/Paternity
 FALSE</hd:script>
@@ -6264,19 +6380,20 @@ FALSE</hd:script>
 		<hd:computation name="District or municipal court CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 IF Superior or district court MC = &quot;district&quot;
-&quot;Text district CO&quot;
+	Text district CO
 ELSE IF Superior or district court MC = &quot;municipal&quot;
-&quot;Text municipal CO&quot;
+	Text municipal CO
 END IF
 </hd:script>
 		</hd:computation>
-		<hd:computation name="Do you/teen survivor name need CO" resultType="text">
+		<hd:computation name="Do/does you/survivor name need CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION
-IF Protect teen from dating violence TF
-	&quot;does «Teen survivor name first TE» need&quot;
+IF Protect self CO
+&quot;do you need&quot;
 ELSE 
-	&quot;do you need&quot;
+&quot;does «User name first TE» need&quot;
 END IF 
+
 </hd:script>
 		</hd:computation>
 		<hd:computation name="Domestic violence box in LEI CO" resultType="trueFalse">
@@ -6293,6 +6410,9 @@ TRUE
 IF VALUE(Who protecting MC) = &quot;vulnerable adult&quot;
 	NOT (VALUE(Vulnerable adult vulnerability MS) = OTHER(Vulnerable adult vulnerability MS))
 END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="English CO" resultType="trueFalse">
+			<hd:script>VALUE(Form assembly language MC) = &quot;English&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Enter other partys name CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION
@@ -6377,69 +6497,24 @@ ELSE IF Interview for self TF
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Exclude child school CO" resultType="trueFalse">
-			<hd:script>// Three tracks
-
-// track 1: protecting child or teen only, not self
-IF Protect teen from dating violence TF OR Order protects children only not user CO
-	Restraints keep away exclude teen/child only TF // We don&apos;t offer protecting self&apos;s school in this track
-// Track 2: involves self
-ELSE IF Interview for self TF 
-	IF Order protects children TF AND At least one child type selected CO AND Restraints keep away exclude TF
-		Restraints location where MS = &quot;day care&quot;
-	ELSE 
-		FALSE
-	END IF
+			<hd:script>IF VALUE(Restraints keep away exclude TF)
+	VALUE(Restraints location where MS) = &quot;day care&quot;
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Exclude my residence CO" resultType="trueFalse">
-			<hd:script>// Three tracks
-
-// track 1: only protecting children
-IF Protect teen from dating violence TF OR Order protects children only not user CO
-	FALSE // We don&apos;t offer protecting shared residence in this track
-// Track 2: involves self
-ELSE IF Interview for self TF 
-	// Track 2.1 -- self and children
-	IF Order protects children TF AND At least one child type selected CO
-		Restraints location where MS = &quot;my home&quot;
-	// Track 2.2 - only self
-	ELSE
-		Restraints location where no child track MS = &quot;my home&quot;
-	END IF
-END IF</hd:script>
+			<hd:script>IF VALUE(Restraints keep away exclude TF)
+	VALUE(Restraints location where MS) = &quot;my home&quot;
+END IF
+</hd:script>
 		</hd:computation>
 		<hd:computation name="Exclude other CO" resultType="trueFalse">
-			<hd:script>// Three tracks
-
-// track 1: only protecting children
-IF Protect teen from dating violence TF OR Order protects children only not user CO
-	Restraints keep away exclude teen/child other TF
-// Track 2: involves self
-ELSE IF Interview for self TF 
-	// Track 2.1 -- self and children
-	IF Order protects children TF AND At least one child type selected CO
-		Restraints location where MS = &quot;other&quot;
-	// Track 2.2 - only self
-	ELSE
-		Restraints location where no child track MS = &quot;other&quot;
-	END IF
+			<hd:script>IF VALUE(Restraints keep away exclude TF)
+	VALUE(Restraints location where MS) = &quot;other&quot;
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Exclude own school CO" resultType="trueFalse">
-			<hd:script>// Three tracks
-
-// track 1: only protecting children
-IF Protect teen from dating violence TF OR Order protects children only not user CO
-	FALSE // We don&apos;t offer protecting self&apos;s school in this track
-// Track 2: involves self
-ELSE IF Interview for self TF 
-	// Track 2.1 -- self and children
-	IF Order protects children TF AND At least one child type selected CO
-		Restraints location where MS = &quot;school&quot;
-	// Track 2.2 - only self
-	ELSE
-		Restraints location where no child track MS = &quot;school&quot;
-	END IF
+			<hd:script>IF VALUE(Restraints keep away exclude TF)
+	VALUE(Restraints location where MS) = &quot;school&quot;
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Exclude shared residence CO" resultType="trueFalse">
@@ -6474,20 +6549,8 @@ ELSE IF Interview for self TF
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Exclude workplace CO" resultType="trueFalse">
-			<hd:script>// Three tracks
-
-// track 1: only protecting children
-IF Protect teen from dating violence TF OR Order protects children only not user CO
-	FALSE // We don&apos;t offer protecting workplace in this track
-// Track 2: involves self
-ELSE IF Interview for self TF 
-	// Track 2.1 -- self and children
-	IF Order protects children TF AND At least one child type selected CO
-		Restraints location where MS = &quot;work&quot;
-	// Track 2.2 - only self
-	ELSE
-		Restraints location where no child track MS = &quot;work&quot;
-	END IF
+			<hd:script>IF VALUE(Restraints keep away exclude TF)
+	Restraints location where MS = &quot;work&quot;
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Existing protection order exists CO" resultType="trueFalse">
@@ -6588,64 +6651,50 @@ Set answer set flags CO
 
 SET User role MC TO &quot;Petitioner&quot;
 
+DEFAULT Language MC TO &quot;English&quot;
+
 ASK NONE
 ASK Welcome
 ASK Safety Planning
 ASK Can I get a SAPO
 IF (NOT Has eligible survivor CO )
-	OR No eligible harm selected CO 
 	OR User is too young CO
+	OR Disqualify roommate or relationship CO 
+	OR No eligible harm selected CO 
 	OR NOT (Eligible to protect adult CO)
 	ASK Gentle exit
 	// ASSEMBLE &quot;DVPO - Wrong Interview.rtf /nw /stw&quot;	
 ELSE // Don&apos;t need gentle exit
-	IF Protect teen from dating violence TF
-		ASK Protection for teenager
-		ASK Helper contact info
-	END IF
 	ASK Names
-//	IF Order protects children TF AND NOT Protect teen from dating violence TF
-//		ASK Children Gate Question
-//		IF There are minor children of the relationship TF //AND Answered children gate questions CO
-//			//	SHOW Your Joint Children 1
-//			//	IF VALUE(Children NU) &gt; 1
-//			ASK Children Repeat
-//			IF Children under 18 NU &gt; 1 AND (Children under 18 NU &gt; Count of children repeat 1 CO)
-//				ASK Children Not Enough
-//			END IF	
-//			ASK Persons With Parenting Claims and Other Cases		
-//		END IF
-//		IF VALUE(Other kids to protect TF)
-//			ASK User Children 2 Gate
-//			IF User age range MC = &quot;18+&quot;
-//				ASK User Other Children 3 Gate
-//				ASK Other Party Children 4 Gate
-//			END IF
-//		END IF
-//
-//		IF The present answer set was previously saved CO AND (Count of all available children repeat CO &gt;= 1) //COUNT(All available children repeat) &gt; 1
-//			ASK Which children
-//		END IF
-//	END IF	
-	//ASK All available children repeat // For debugging purposes only
-	//ASK Selected children repeat // For debugging
 	ASK Other cases
 	ASK Restraints
 	ASK Temporary protection
 	ASK Progress affirmation 
 	ASK Why do you need a DVPO	
+	IF NOT Protect self CO
+		ASK Helper contact info
+	END IF
 	ASK LEI Intro
 	ASK Court
 	ASK Personal service
 	ASK Closing
-//	ASSEMBLE &quot;DVPO 1 - Instructions.rtf /nw /stw&quot;
-//	ASSEMBLE &quot;DVPO 2 - Petition.rtf /nw /stw&quot;
-//	ASSEMBLE &quot;DVPO 3 - Proposed Orders.rtf /nw /stw&quot;
-//	ASSEMBLE &quot;DVPO 4 - Law Enforcement Info.hpt /nw /stw&quot;
-//	IF Need return of service CO
-//		ASSEMBLE &quot;DVPO 5 - Proof of Service.rtf /nw /stw&quot;
-//	END IF
-//
+	IF VALUE(Form assembly language MC) = &quot;Bilingual&quot;
+		ASSEMBLE &quot;OPAS 1 - Instrucciones.rtf /nw /stw&quot;
+		ASSEMBLE &quot;OPAS 2 - Peticion.rtf /nw /stw&quot;
+		ASSEMBLE &quot;OPAS 3 - Ordenes propuestas.rtf /nw /stw&quot;
+		//		ASSEMBLE &quot;OPAS 4 - Info para las fuerzas del orden.hpt /nw /stw&quot;
+		IF Need return of service CO
+			ASSEMBLE &quot;OPAS 5 - Prueba de entrega.rtf /nw /stw&quot;
+		END IF
+	ELSE
+		ASSEMBLE &quot;SAPO 1 - Instructions.rtf /nw /stw&quot;
+		ASSEMBLE &quot;SAPO 2 - Petition.rtf /nw /stw&quot;
+		ASSEMBLE &quot;SAPO 3 - Proposed Orders.rtf /nw /stw&quot;
+		//	ASSEMBLE &quot;SAPO 4 - Law Enforcement Info.hpt /nw /stw&quot;
+		IF Need return of service CO
+			ASSEMBLE &quot;SAPO 5 - Proof of Service.rtf /nw /stw&quot;
+		END IF
+	END IF
 END IF // Didn&apos;t do gentle exit
 
 // Populate next steps CO
@@ -6858,16 +6907,14 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="Live with other party now tf prompt CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
+			<hd:script>//NEEDS TRANSLATION
 &quot;&quot;
-IF Protect teen from dating violence TF
-	&quot;Do «Teen survivor name first TE»and «Other party name first TE» live together now?&quot;
-ELSE IF Track one child only CO
-	&quot;Do the child and «Other party name first TE» live together now?&quot;
-ELSE IF Track children only CO
-	&quot;Do the children and «Other party name first TE» live together now?&quot;
-ELSE IF VALUE(Interview for self TF)
-	&quot;Do you and «Other party name first TE» live together now?&quot;
+IF Protect minor CO
+	&quot;Does the minor live with the abuser now?&quot;
+ELSE IF Protect vulnerable adult CO
+	&quot;Does the vulnerable adult live with the abuser now?&quot;
+ELSE
+	&quot;Do you live with the abuser now?&quot;
 END IF
 </hd:script>
 		</hd:computation>
@@ -6888,10 +6935,11 @@ VALUE(Protect teen from dating violence TF) OR (NOT Protect teen from dating vio
 		</hd:computation>
 		<hd:computation name="More than one form CO" resultType="trueFalse">
 			<hd:script>//used in DVPO 2 - Petition QI sheet to know if also producing the CCIS or the CIF
-VALUE(There are minor children of the relationship TF) OR VALUE(Court county DVPO petition MC) != &quot;King&quot;</hd:script>
+VALUE(There are minor children of the relationship TF) OR VALUE(Court county SAPO petition MC) != &quot;King&quot;</hd:script>
 		</hd:computation>
-		<hd:computation name="Must file in superior court CO" resultType="text">
-			<hd:script>//Court county DVPO petition MC = &quot;Benton&quot; OR
+		<hd:computation name="Must file in superior court CO" resultType="trueFalse">
+			<hd:script>FALSE
+//Court county DVPO petition MC = &quot;Benton&quot; OR
 //Court county DVPO petition MC = &quot;Clark&quot; OR 
 //Court county DVPO petition MC = &quot;San Juan&quot; OR 
 //Court county DVPO petition MC = &quot;Skagit&quot; OR
@@ -7321,6 +7369,19 @@ ELSE IF Other party explosives TF
 	&quot;«Text yes CO»&quot;
 ELSE IF NOT Other party explosives TF
 	&quot;«Text no CO»&quot; 
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="Other party explosives SP CO" resultType="text">
+			<hd:script>//TEMPLATE ONLY -- SPANISH PARALLEL 
+&quot; &quot;
+IF VALUE(Other party has other weapons MC) = &quot;unknown&quot;
+	&quot;No sé&quot;
+ELSE IF VALUE(Other party has other weapons MC) = &quot;no&quot;
+	&quot;No&quot;
+ELSE IF Other party explosives TF
+	&quot;Sí&quot;
+ELSE IF NOT Other party explosives TF
+	&quot;No&quot; 
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Other party height CO" resultType="text">
@@ -7765,7 +7826,8 @@ NOT Protect teen from dating violence TF AND Interview for self TF</hd:script>
 			<hd:script>Protect teen from dating violence TF</hd:script>
 		</hd:computation>
 		<hd:computation name="Protect vulnerable adult CO" resultType="trueFalse">
-			<hd:script>VALUE(Who protecting MC) = &quot;vulnerable adult&quot;</hd:script>
+			<hd:script>VALUE(Who protecting MC) = &quot;vulnerable adult&quot;
+</hd:script>
 		</hd:computation>
 		<hd:computation name="Protecting only one child CO" resultType="trueFalse">
 			<hd:script>Order protects children TF AND Number selected children CO = 1</hd:script>
@@ -7832,6 +7894,17 @@ IF NOT VALUE(Protect teen from dating violence TF) AND Interview for self TF
 	VALUE(Relationship between survivor and abuser MS) = &quot;joint parents&quot;
 END IF</hd:script>
 		</hd:computation>
+		<hd:computation name="Relationship prompt CO" resultType="text">
+			<hd:script>IF Protect minor CO
+	&quot;Is the minor related to the abuser in any of the ways listed below?&quot;
+ELSE IF Protect vulnerable adult CO
+	&quot;Is the vulnerable adult related to the abuser in any of the ways listed below?&quot;
+ELSE
+	&quot;Are you related to the abuser in any of the ways listed below?&quot;
+END IF
+
+</hd:script>
+		</hd:computation>
 		<hd:computation name="Relationship roommates CO" resultType="trueFalse">
 			<hd:script>FALSE
 IF NOT VALUE(Protect teen from dating violence TF) AND Interview for self TF
@@ -7869,6 +7942,20 @@ END IF
 			<hd:script>//NEEDS TRANSLATION
 &quot;Reservation&quot;</hd:script>
 		</hd:computation>
+		<hd:computation name="Respondent 16 or 17 CO" resultType="trueFalse">
+			<hd:script>IF VALUE(Know other party birth date TF)
+	AGE(Other party birth date DA) &lt; 18 AND AGE(Other party birth date DA) &gt; 15
+ELSE
+	FALSE
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="Respondent 18 or over CO" resultType="trueFalse">
+			<hd:script>IF VALUE(Know other party birth date TF)
+	AGE(Other party birth date DA) &gt;= 18
+ELSE
+	VALUE(Other party age range MC) != &quot;under 18&quot;
+END IF</hd:script>
+		</hd:computation>
 		<hd:computation name="Respondent birth date CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 //in DVPO interview, OP is always respondent
@@ -7887,6 +7974,20 @@ ELSE
 	Other party name full CO
 END IF
 </hd:script>
+		</hd:computation>
+		<hd:computation name="Respondent under 16 CO" resultType="trueFalse">
+			<hd:script>IF VALUE(Know other party birth date TF)
+	AGE(Other party birth date DA) &lt; 16
+ELSE
+	FALSE
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="Respondent under 18 CO" resultType="trueFalse">
+			<hd:script>IF VALUE(Know other party birth date TF)
+	AGE(Other party birth date DA) &lt; 18
+ELSE
+	VALUE(Other party age range MC) = &quot;under 18&quot;
+END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Restraints custody unprotected children CO" resultType="text">
 			<hd:localVariables>
@@ -8142,7 +8243,16 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="SAPO version CO" resultType="text">
-			<hd:script>&quot;11/25/2020&quot;</hd:script>
+			<hd:script>&quot;12/31/2020-A&quot;</hd:script>
+		</hd:computation>
+		<hd:computation name="School transfer appendix needed CO" resultType="trueFalse">
+			<hd:script>School transfer needed CO</hd:script>
+		</hd:computation>
+		<hd:computation name="School transfer needed CO" resultType="trueFalse">
+			<hd:script>VALUE(Restraints keep away exclude TF) AND 
+VALUE(Restraints location where MS) = &quot;school&quot; AND
+VALUE(Restraints same school MC) = &quot;yes&quot; AND
+VALUE(Restraints transfer school MC) = &quot;yes&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="Sealed cover sheet CO" resultType="text">
 			<hd:script>//DON&apos;T TRANSLATE - FORMAT
@@ -8226,6 +8336,12 @@ RESULT + &quot;«.pe»&quot;
 		<hd:computation name="Self CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION - PARALLEL IN TEMPLATE
 &quot;Self&quot;</hd:script>
+		</hd:computation>
+		<hd:computation name="Service address CO" resultType="text">
+			<hd:script>Helper address mailing full inline CO
+User address home inline CO 
+User address mailing inline CO
+User contact person address CO</hd:script>
 		</hd:computation>
 		<hd:computation name="Set answer set flags CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
@@ -8789,26 +8905,28 @@ END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Superior court website link CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
-IF Court county DVPO petition MC = &quot;King&quot;
-	IF King County court house DVPO petition MC = &quot;Kent&quot;
+IF Court county SAPO petition MC = &quot;King&quot;
+	IF King County court house SAPO petition MC = &quot;Kent&quot;
 		&quot;«.w &quot;&quot;http://www.kingcounty.gov/courts/superiorcourt/nmrjc.aspx&quot;&quot;»King County Superior Court - Regional Justice Center (Kent) website«.we»&quot;
 	ELSE 
 		&quot;«.w &quot;&quot;http://www.kingcounty.gov/courts/superiorCourt.aspx&quot;&quot;»King County Superior Court - Seattle&apos;s website«.we»&quot;
 	END IF
 ELSE
-	&quot;«Court county DVPO petition MC:Superior court website MT»&quot;
+	&quot;«Court county SAPO petition MC:Superior court website MT»&quot;
 END IF
 
 </hd:script>
 		</hd:computation>
 		<hd:computation name="Superior or district court CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE - PARALLEL IN TEMPLATE
-IF Superior or district court MC = &quot;superior&quot;
-	&quot;Text superior CO&quot;
+IF Must file in superior court CO
+	Text superior CO
+ELSE IF Superior or district court MC = &quot;superior&quot;
+	Text superior CO
 ELSE IF Superior or district court MC = &quot;district&quot;
-	&quot;Text district CO&quot;
+	Text district CO
 ELSE IF Superior or district court MC = &quot;municipal&quot;
-	&quot;Text municipal CO&quot;
+	Text municipal CO
 ELSE 
 	&quot;____________&quot;
 END IF
@@ -8841,8 +8959,15 @@ Relationship between survivor and abuser MS = &quot;spouse&quot; OR
 </hd:script>
 		</hd:computation>
 		<hd:computation name="Survivor any CO" resultType="text">
-			<hd:script>//DO NOT TRANSLATE
-&quot;«Who protecting MC»&quot;</hd:script>
+			<hd:script>//NEEDS TRANSLATION
+
+IF Who protecting MC = &quot;vulnerable adult&quot;
+&quot;the vulnerable adult&quot;
+ELSE IF Who protecting MC = &quot;minor&quot;
+&quot;the minor&quot;
+ELSE
+&quot;you&quot;
+END IF </hd:script>
 		</hd:computation>
 		<hd:computation name="Survivor collective object pronoun CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
@@ -8884,6 +9009,24 @@ IF Protect self CO
 ELSE
 	&quot;«User name first TE»&apos;s&quot;
 END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="Survivor you or name CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+
+IF Protect self CO
+	&quot;you&quot;
+ELSE 
+	User name first TE
+END IF </hd:script>
+		</hd:computation>
+		<hd:computation name="Survivor your or name&apos;s CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+
+IF Protect self CO
+	&quot;your&quot;
+ELSE 
+	&quot;«User name first TE»&apos;s&quot;
+END IF </hd:script>
 		</hd:computation>
 		<hd:computation name="Teen survivor name full CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
@@ -9152,6 +9295,15 @@ END IF
 			<hd:script>//NEEDS TRANSLATION
 &quot;Superior&quot;</hd:script>
 		</hd:computation>
+		<hd:computation name="Text survivor Your or Name&apos;s Info CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+
+IF Protect self CO
+	&quot;Your Info&quot;
+ELSE 
+	&quot;«User name first TE»&apos;s Info&quot;
+END IF </hd:script>
+		</hd:computation>
 		<hd:computation name="Text the child CO" resultType="text">
 			<hd:script>//NEEDS TRANSLATION
 &quot;the child&quot;</hd:script>
@@ -9397,6 +9549,13 @@ END IF
 // which will only be true once, when it&apos; a brand new answer file.  This allows a flag for prior use of the answer file (The present answer set was previously saved TF) to be set without
 // HotDocs seeing that flag&apos;s value immediately, in a brand new answer file and assuming that the user is in a saved answer file.</hd:script>
 		</hd:computation>
+		<hd:computation name="Toggle language CO" resultType="text">
+			<hd:script>IF Language MC = &quot;English&quot;
+	SET Language MC TO &quot;Spanish&quot;
+ELSE
+	SET Language MC TO &quot;English&quot;
+END IF</hd:script>
+		</hd:computation>
 		<hd:computation name="Toggle visible firearm images CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
 SET Toggle visible firearm images TF TO NOT VALUE(Toggle visible firearm images TF)</hd:script>
@@ -9443,7 +9602,7 @@ END IF
 		<hd:computation name="User address for service if any CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE, TEMPLATE ONLY
 
-IF Protect teen from dating violence TF
+IF NOT Protect self CO
 	Helper address CO
 ELSE 
 	IF User info needs to be confidential TF
@@ -9467,19 +9626,7 @@ ELSE
 			&quot;&quot;
 		END IF
 	END IF
-END IF 
-
-
-
-//IF NOT User info needs to be confidential TF 
-//	User address mailing inline CO
-//ELSE IF User info needs to be confidential TF AND Okay to use contact for service address TF
-//	User contact person address CO
-//ELSE 
-//	&quot;&quot;
-//END IF
-//END IF
-</hd:script>
+END IF </hd:script>
 		</hd:computation>
 		<hd:computation name="User address home inline CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE, TEMPLATE ONLY, USED IN CIF TO ONLY SHOW HOME IF DIFFERENT THAN MAILING
@@ -9683,13 +9830,12 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="User info needs to be confidential prompt CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-	&quot;Does «Teen survivor name first TE»&apos;s information need to be «.b»confidential«.be» to protect «Teen survivor name first TE»&apos;s health, safety, or liberty?&quot;
-ELSE 
+			<hd:script>//NEEDS TRANSLATION -
+IF Protect self CO
 	&quot;Does your information need to be «.b»confidential«.be» to protect your health, safety, or liberty?&quot;
-END IF 
-</hd:script>
+ELSE 
+	&quot;Does «User name first TE»&apos;s information need to be «.b»confidential«.be» to protect your health, safety, or liberty?&quot;
+END IF </hd:script>
 		</hd:computation>
 		<hd:computation name="User interpreter language CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE. TEMPLATE ONLY
@@ -9718,22 +9864,15 @@ TRUE
 			<hd:script>VALUE(Who protecting MC) = &quot;self&quot; AND VALUE(User age range MC) = &quot;under 16&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="User left county to flee CO" resultType="trueFalse">
-			<hd:script>FALSE
+			<hd:script>//DELETE FOR SAPO
+
+FALSE
 NOT User live in county where filing TF AND VALUE(User left county to flee abuser TF)</hd:script>
 		</hd:computation>
 		<hd:computation name="User name full CO" resultType="text">
 			<hd:defMergeProps unansweredText="________________________________"/>
 			<hd:script>//DO NOT TRANSLATE
-IF Protect teen from dating violence TF
-Helper name full CO
-ELSE 
 SPACE(User name first TE) + SPACE(User name middle TE) + SPACE(User name last TE, &quot;&quot;) + SPACE(&quot;, &quot; + User name suffix MC, &quot;&quot;)
-END IF
-
-QUIT //the rest is irrelevant because first and last names will be required
-IF RESULT = &quot;&quot;
-	&quot;Your Name&quot;
-END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="User needs interpreter CO" resultType="trueFalse">
@@ -9743,6 +9882,24 @@ IF Protect teen from dating violence TF
 	VALUE(Helper needs interpreter TF)
 ELSE 
 	VALUE(User needs interpreter TF)
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="User or helper on behalf name full CO" resultType="text">
+			<hd:defMergeProps unansweredText="________________________________"/>
+			<hd:script>//DO NOT TRANSLATE
+IF Protect self CO
+	&quot;«User name full CO»&quot;
+ELSE
+	&quot;«Helper name full CO» on behalf of Petitioner&quot;
+END IF</hd:script>
+		</hd:computation>
+		<hd:computation name="User or helper on behalf name full SP CO" resultType="text">
+			<hd:defMergeProps unansweredText="________________________________"/>
+			<hd:script>//DO NOT TRANSLATE
+IF Protect self CO
+	&quot;«User name full CO»&quot;
+ELSE
+	&quot;«Helper name full CO» a nombre de la parte demandante&quot;
 END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="User other child name CO" resultType="text">
@@ -9877,6 +10034,13 @@ ELSE
 	END IF
 END IF
 </hd:script>
+		</hd:computation>
+		<hd:computation name="User under 16 CO" resultType="trueFalse">
+			<hd:script>IF ANSWERED(User birth date DA)
+	AGE(User birth date DA) &lt; 16
+ELSE
+	FALSE
+END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Vehicle 1 year make model CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE
@@ -10014,31 +10178,31 @@ Other party substance abuse MS = &quot;drugs&quot;</hd:script>
 		<hd:computation name="Why do you need DVPO other substance abuse CO" resultType="trueFalse">
 			<hd:script>Other party substance abuse MS = &quot;other&quot;</hd:script>
 		</hd:computation>
+		<hd:computation name="You/survivor name move/s CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
+//CONTEXT: it can also cause confusion if  you move/Name moves.
+IF Protect self CO
+&quot;you move&quot;
+ELSE
+&quot;«User name first TE» moves&quot;
+END IF 
+</hd:script>
+		</hd:computation>
+		<hd:computation name="You/survivor name need/s CO" resultType="text">
+			<hd:script>//DON&apos;T TRANSLATE
+IF Protect self CO
+	&quot;«Text you need CO»&quot;
+ELSE 
+	&quot;«User name first TE» needs&quot;
+END IF 
+</hd:script>
+		</hd:computation>
 		<hd:computation name="You/teen survivor name CO" resultType="text">
 			<hd:script>//DON&apos;T TRANSLATE
 IF Protect teen from dating violence TF
 	&quot;«Teen survivor name first TE»&quot;
 ELSE 
 	&quot;«Text you CO»&quot;
-END IF 
-</hd:script>
-		</hd:computation>
-		<hd:computation name="You/teen survivor name move/s CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE 
-//CONTEXT: it can also cause confusion if Name moves/you move.
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE» moves&quot;
-ELSE 
-&quot;you move&quot;
-END IF 
-</hd:script>
-		</hd:computation>
-		<hd:computation name="You/teen survivor name need/s CO" resultType="text">
-			<hd:script>//DON&apos;T TRANSLATE
-IF Protect teen from dating violence TF
-	&quot;«Teen survivor name first TE» needs&quot;
-ELSE 
-	&quot;«Text you need CO»&quot;
 END IF 
 </hd:script>
 		</hd:computation>
@@ -10051,67 +10215,81 @@ ELSE
 END IF 
 </hd:script>
 		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name address CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s address&quot;
+		<hd:computation name="Your/survivor&apos;s name address CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+IF Protect self CO
+&quot;Your address&quot;
 ELSE 
-&quot;your address&quot;
+&quot;«User name first TE»&apos;s address&quot;
 END IF 
 </hd:script>
 		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name contact CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
+		<hd:computation name="Your/survivor&apos;s name contact CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
 //CONTEXT: If the address is confidential you must give infor of someone else who can be Name&apos;s/your contatct for law enforcement. 
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s contact&quot;
+IF Protect self CO
+&quot;Your contact&quot;
 ELSE 
-&quot;your contact&quot;
+&quot;«User name first TE»&apos;s contact&quot;
 END IF 
 </hd:script>
 		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name contact info CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s Contact Info&quot;
+		<hd:computation name="Your/survivor&apos;s name contact info CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
+IF Protect self CO
+&quot;Your contact info&quot;
 ELSE 
-&quot;your Contact Info&quot;
+&quot;«User name first TE»&apos;s contact info&quot;
+END IF </hd:script>
+		</hd:computation>
+		<hd:computation name="Your/survivor&apos;s name description CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
+IF Protect self CO
+&quot;Your description&quot;
+ELSE 
+&quot;«User name first TE»&apos;s description&quot;
+END IF </hd:script>
+		</hd:computation>
+		<hd:computation name="Your/survivor&apos;s name email address CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+IF Protect self CO
+&quot;Your email address&quot;
+ELSE 
+&quot;«User name first TE»&apos;s email address&quot;
 END IF 
 </hd:script>
 		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name description CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s Description&quot;
+		<hd:computation name="Your/survivor&apos;s name height CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
+IF Protect self CO
+&quot;Your height&quot;
 ELSE 
-&quot;your Description&quot;
-END IF 
-</hd:script>
+&quot;«User name first TE»&apos;s height&quot;
+END IF </hd:script>
 		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name height CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s Height&quot;
+		<hd:computation name="Your/survivor&apos;s name home address CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
+IF Protect self CO
+&quot;Your «.b»home«.be» address&quot;
 ELSE 
-&quot;your Height&quot;
-END IF 
-</hd:script>
+&quot;«User name first TE»&apos;s «.b»home«.be» address&quot;
+END IF </hd:script>
 		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name home address CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s «.b»home«.be» address&quot;
-ELSE 
-&quot;your «.b»home«.be» address&quot;
-END IF 
-</hd:script>
-		</hd:computation>
-		<hd:computation name="Your/teen survivor&apos;s name household CO" resultType="text">
-			<hd:script>//NEEDS TRANSLATION - GRAMMAR - DONE
-IF Protect teen from dating violence TF
-&quot;«Teen survivor name first TE»&apos;s household&quot;
-ELSE 
+		<hd:computation name="Your/survivor&apos;s name household CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION 
+
+IF Protect self CO
 &quot;your household&quot;
+ELSE 
+&quot;«User name first TE»&apos;s household&quot;
+END IF </hd:script>
+		</hd:computation>
+		<hd:computation name="Your/survivor&apos;s name mailing address CO" resultType="text">
+			<hd:script>//NEEDS TRANSLATION
+IF Protect self CO
+&quot;Your mailing address&quot;
+ELSE 
+&quot;«User name first TE»&apos;s mailing address&quot;
 END IF 
 </hd:script>
 		</hd:computation>
@@ -10125,10 +10303,10 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:dialogElement name="Adult is not vulnerable DE">
-			<hd:caption>«Text spacer CO»«.b»Sorry.«.be» You can only get a SAPO for an adult who is vulnerable for one the reasons listed above. If the adult is not vulnerable, they must file their own SAPO.</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»«.b»Sorry.«.be» You can only get a sexual assault protection order for an adult who is vulnerable for one the reasons listed above. If the adult is not vulnerable in one of these ways, they must file their own protection order.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Can I get a SAPO intro DE">
-			<hd:caption>«.i»You can get a SAPO to protect yourself, a minor, or a vulnerable adult to protect them from sexual assault against someone who is «.b»not«.be» related to you. If the abuser is related to you or the person who needs the order, you can get a DVPO instead.«.ie»</hd:caption>
+			<hd:caption>«.i»You can get a Sexual Assault Protection Order to protect yourself, a minor, or a vulnerable adult, from sexual assault by an unrelated abuser. If the abuser is related to the survivor, living with the survivor, or intimate partners with the survivor, you need to get a Domestic Violence Protection Order instead.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Check your county superior court website DE">
 			<hd:caption>«Text spacer CO»Due to COVID, courts change their procedures frequently.  Check the «Superior court website link CO» for current information.</hd:caption>
@@ -10243,30 +10421,35 @@ END IF
 		<hd:dialogElement name="Closer to Kent or Seattle DE">
 			<hd:caption>Okay. We will also give you the Superior Court contact information just in case you need it.</hd:caption>
 		</hd:dialogElement>
-		<hd:dialogElement name="Closing text DVPO DE">
-			<hd:caption>«.i»«.z +20»«.b»Well done!«.be»  You have completed the interview!«.ze»«.ie»«.pm»«.pm»Click «.b»Finish«.be» below to get «IF Need return of service CO»five«ELSE»four«END IF» forms:
-«Text spacer CO»     DVPO 1 - Instructions«.pm»     DVPO 2 - Petition«.pm»     DVPO 3 - Proposed Orders«.pm»     DVPO 4 - Law Enforcement Info«IF Need return of service CO»«.pm»     DVPO 5 - Proof of Service«END IF»«.pm»«Text spacer CO»You must «.b»download all «IF Need return of service CO»five«ELSE»four«END IF» forms.«.be» They will be listed separately. «.pm»«.pm»When you click Finish, a pop-up may warn you if you left some questions blank. Use the double arrows below to jump to the page with the last blank question. Or ignore the pop-up if you left things blank on purpose.«.pm»«.pm»Remember to «.b»save your answers«.be» in case you need to return and make a change, or use them for the next step in your case. If you are not already logged in, you can log in at the next screen. If you don&apos;t have an LHI account, you can register for one there. </hd:caption>
+		<hd:dialogElement name="Closing text SAPO DE">
+			<hd:caption>«IF Language MC = &quot;English&quot;»«Text spacer CO»Click «.b»Finish«.be» below to get «IF Need return of service CO»five«ELSE»four«END IF» forms: «IF Bilingual CO»«Text spacer CO»     OPAS 1 - Instrucciones«.pm»     OPAS 2 - Petición«.pm»     OPAS 3 - Órdenes propuestas«.pm»     OPAS 4 - Información de agencias del orden«IF Need return of service CO»«.pm»     OPAS 5 - Prueba de entrega«END IF»«ELSE»«Text spacer CO»     SAPO 1 - Instructions«.pm»     SAPO 2 - Petition«.pm»     SAPO 3 - Proposed Orders«.pm»     SAPO 4 - Law Enforcement Info«IF Need return of service CO»«.pm»     SAPO 5 - Proof of Service«END IF»«END IF»«.pm»«Text spacer CO»You must «.b»download all «IF Need return of service CO»five«ELSE»four«END IF» forms.«.be» They will be listed separately. «.pm»«.pm»When you click Finish, a pop-up may warn you if you left some questions blank. Use the double arrows below to jump to the page with the last blank question. Or ignore the pop-up if you left things blank on purpose.«.pm»«.pm»Remember to «.b»save your answers«.be» in case you need to return and make a change, or use them for the next step in your case. If you are not already logged in, you can log in at the next screen. If you don&apos;t have an LHI account, you can register for one there.«END IF»«IF Language MC = &quot;Spanish&quot;»«Text spacer CO»Haga clic en «.b»Finalizar«.be» a continuación para obtener «IF Need return of service CO»cinco«ELSE»cuatro«END IF» formularios: «IF Bilingual CO»«Text spacer CO»     OPAS 1 - Instrucciones«.pm»     OPAS 2 - Petición«.pm»     OPAS 3 - Órdenes propuestas«.pm»     OPAS 4 - Información de agencias del orden«IF Need return of service CO»«.pm»     OPAS 5 - Prueba de entrega«END IF»«ELSE»«Text spacer CO»     SAPO 1 - Instructions«.pm»     SAPO 2 - Petition«.pm»     SAPO 3 - Proposed Orders«.pm»     SAPO 4 - Law Enforcement Info«IF Need return of service CO»«.pm»     SAPO 5 - Proof of Service«END IF»«END IF»«.pm»«Text spacer CO»Tiene que «.b»descargar los «IF Need return of service CO»cinco«ELSE»cuatro«END IF» formularios.«.be» Se enumerarán por separado. «.pm»«.pm»Cuando haga clic en Finalizar, una ventana emergente puede advertirle si dejó algunas preguntas en blanco. Use las flechas dobles a continuación para ir a la página con la última pregunta en blanco. O ignore la advertencia si dejó cosas en blanco a propósito.«.pm»«.pm»No se olvide de «.b»guardar sus respuestas«.be» en caso de tener que volver y hacer un cambio, o usarlas para el próximo paso en su caso. Si no ha iniciado una sesión todavía, podrá iniciarla en la próxima pantalla. Si no tiene una cuenta de LHI, puede crear una allí.«END IF»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Consider other types of protection orders DE">
-			<hd:caption>«Text spacer CO»«.i»You may want to consider a different type of protection order:«.pm»«Text spacer CO»   •  «.w &quot;https://www.washingtonlawhelp.org/resource/antiharassment-forms-instructions?ref=HwW4S&quot;»Harassment «.we»or «.w &quot;https://www.washingtonlawhelp.org/resource/stalking-protection-order?ref=ZirWb&quot;»Stalking«.we»«.pm»   •  «.w &quot;https://www.washingtonlawhelp.org/resource/understanding-the-sexual-assault-protection-order-a-step-by-step-guidebook?ref=dKJOz&quot;»Sexual Assault«.we»«.pm»   •  «.w &quot;https://www.washingtonlawhelp.org/resource/protecting-elders-and-vulnerable-adults-from?ref=QtKiq&quot;»Vulnerable Adult«.we»</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»You may want to consider a different type of protection order:«.pm»«Text spacer CO»   •  «.w &quot;https://www.washingtonlawhelp.org/resource/antiharassment-forms-instructions?ref=HwW4S&quot;»Harassment «.we»or «.w &quot;https://www.washingtonlawhelp.org/resource/stalking-protection-order?ref=ZirWb&quot;»Stalking«.we»«.pm»   •  «.w &quot;https://www.washingtonlawhelp.org/resource/protecting-elders-and-vulnerable-adults-from?ref=QtKiq&quot;»Vulnerable Adult«.we»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Count all available children repeat DE">
 			<hd:caption>«COUNT(All available children repeat)»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="County where filing DE">
-			<hd:caption>«Text spacer CO»«.i»You said you were going to file your case in «Court county DVPO petition MC» county.«.ie»</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»You said you were going to file your case in «Court county SAPO petition MC» county.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Court choice warn no venue in court DE">
 			<hd:caption>«.i»«.b»Warning!«.be»  You may want to choose a different county to file in. You can only file in the county that you live in now or left to avoid abuse.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Court explanation DE">
-			<hd:caption>«Text spacer CO»«.i»You can file your protection order in Superior, District, or Municipal Court. We will put the Superior Court&apos;s address and contact information in your instructions. Check the «.w &quot;http://www.courts.wa.gov/court_dir/?fa=court_dir.county&quot;»Washington State Courts Directory«.we» for other courts in «Court county DVPO petition MC» county.«.ie»</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»You can file your protection order in Superior, District, or Municipal Court. We will put the Superior Court&apos;s address and contact information in your instructions. Check the «.w &quot;http://www.courts.wa.gov/court_dir/?fa=court_dir.county&quot;»Washington State Courts Directory«.we» for other courts in «Court county SAPO petition MC» county.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Dating violence abuser too young DE">
 			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». You cannot get a protection order for dating violence against someone who is under 16. «.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Debug number selected children DE">
 			<hd:caption>DEBUG: You chose «Number selected children CO» children //DO NOT TRANSLATE</hd:caption>
+		</hd:dialogElement>
+		<hd:dialogElement name="Disqualify relationship DE">
+			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». «IF Protect minor CO»You said that the minor is related to (or intimate partners with) the abuser.«ELSE IF Protect vulnerable adult CO»You said that the vulnerable adult is related to (or intimate partners with) the abuser.«ELSE»You said that you are related to (or intimate partners with) the abuser.«END IF» You must ask for a Domestic Violence Protection Order, «.b»not«.be» a Sexual Assault Protection Order, even if the harm is sexual assault.«.ie»</hd:caption>
+		</hd:dialogElement>
+		<hd:dialogElement name="Disqualify roommate DE">
+			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». «IF Protect minor CO»You said that the minor is living with the abuser.«ELSE IF Protect vulnerable adult CO»You said that the vulnerable adult is living with the abuser.«ELSE»You said that you are living with the abuser.«END IF» Roommates must ask for a Domestic Violence Protection Order, «.b»not«.be» a Sexual Assault Protection Order, even if the harm is sexual assault.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Enter other partys name DE">
 			<hd:caption>«.b»Who is the abuser?«.be»«.pm»«.i»(«Enter other partys name CO»)«.ie»</hd:caption>
@@ -10300,7 +10483,7 @@ END IF
 </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Helper address explanation DE">
-			<hd:caption>«Text spacer CO»«.b»How can the court contact you?«.be»</hd:caption>
+			<hd:caption>«Text spacer CO»«.b»Your Address«.be»«.pm»«.i»Because you are filing for protection on «User name first TE»&apos;s behalf, you must give an address where you can get legal papers for this case. It does «.b»not«.be» have to be your home address. You can use a Post Office Box, or the address of a friend or relative you trust to tell you immediately if you receive any legal papers.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Helper age DE">
 			<hd:caption>
@@ -10311,9 +10494,12 @@ END IF
 «END IF»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Helper intro DE">
-			<hd:caption>«Text spacer CO»«.b»Who are you?«.be»«.pm»«.i»(The court needs your information because you are filing this petition for «Teen survivor name first TE» as the &quot;Petitioner&quot;. Do not put «Teen survivor name first TE»&apos;s information on this page. If «Teen survivor name first TE» is filing «Teen survivor on his/her/their own CO», go back to &quot;Can I get a DVPO&quot; and answer No to the first question.)«.ie»</hd:caption>
+			<hd:caption>«.i»«IF Protect minor CO»You said you are helping a minor file for a protection order. The minor will be called the &quot;Petitioner&quot;.«ELSE»You said you are helping a vulnerable adult file for a protection order. The vulnerable adult will be called the &quot;Petitioner&quot;.«END IF»  Your name will also be on the papers.«.ie» </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Horizontal Divider">
+			<hd:horizontalDivider caption="" justification="center"/>
+		</hd:dialogElement>
+		<hd:dialogElement name="Horizontal Divider 2">
 			<hd:horizontalDivider caption="" justification="center"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="Horizontal Divider SAPO">
@@ -10331,6 +10517,9 @@ END IF
 		<hd:dialogElement name="Image Loading Saved Answers arrows revised 450w">
 			<hd:image file="Loading Saved Answers arrows revised 450w.png"/>
 		</hd:dialogElement>
+		<hd:dialogElement name="Image WashingtonFormsOnline Logo 138w 2">
+			<hd:image file="WashingtonFormsOnline Logo 138w.png"/>
+		</hd:dialogElement>
 		<hd:dialogElement name="Image WashingtonFormsOnline Logo 138w_png">
 			<hd:image file="WashingtonFormsOnline Logo 138w.png"/>
 		</hd:dialogElement>
@@ -10338,97 +10527,98 @@ END IF
 			<hd:caption>«Text spacer CO»«.i»«.z +20»Next we ask about info for «.b»law enforcement«.be».«.ze»«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="LEI confidential information instructions DE">
-			<hd:caption>«.i»Okay. If «Your/teen survivor&apos;s name address CO» is confidential, you must give the name, address and phone number of someone else who can be «Your/teen survivor&apos;s name contact CO» for law enforcement.«.ie»</hd:caption>
+			<hd:caption>«.i»Okay. If «Your/survivor&apos;s name address CO» is confidential, you must give the name, address and phone number of someone else who can be «Your/survivor&apos;s name contact CO» for law enforcement.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Last child DE">
 			<hd:caption>«.b»You have told us about «IF Children under 18 NU = 2»both«ELSE»all «Children under 18 NU:nine»«END IF» children. Click Next to continue.«.be»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Launch DVPO DE">
 			<hd:webLink url="https://lawhelpinteractive.org/Interview/GenerateInterview/7656/engine" window.open="">
-				<hd:caption>Get a DVPO</hd:caption>
+				<hd:caption>«.b»Go to the Domestic Violence interview«.be»</hd:caption>
 			</hd:webLink>
 		</hd:dialogElement>
 		<hd:dialogElement name="Limited to one year if joint children DE">
 			<hd:caption>«.i»«.b»Important!«.be»  If you are protecting joint children, usually your protection order can only last for one year.  You can ask the court to renew your order before the year is up.  «.b»Exception:«.be» If your protection order is issued as part of a divorce or parenting plan case, it «.b»can «.be»protect joint children for more than one year.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Local domestic violence agency DE">
-			<hd:caption>«IF Court county DVPO petition MC = &quot;King&quot;»
-Find «.b»King County«.be» domestic violence programs «.b»«.w &quot;http://www.dvprotectionorder.org/resources.html&quot;»here«.we»«.be».«.pm»«.pm»«ELSE»«.i»«Court county DVPO petition MC» County domestic violence services:«.ie»
-«IF Court county DVPO petition MC = &quot;Adams&quot;»
+			<hd:caption>[**DEVELOPER NOTE: We haven&apos;t updated the agency list to include sexual assault programs yet**]
+«IF Court county SAPO petition MC = &quot;King&quot;»
+Find «.b»King County«.be» domestic violence programs «.b»«.w &quot;http://www.dvprotectionorder.org/resources.html&quot;»here«.we»«.be».«.pm»«.pm»«ELSE»«.i»«Court county SAPO petition MC» County domestic violence services:«.ie»
+«IF Court county SAPO petition MC = &quot;Adams&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.grantcountywa.gov/new-hope/ &quot; »New Hope DV/SA Services«.we»«.be», Moses Lake«.pm»Crisis line: (888) 560-6027«.pm»Office phone: (509) 764-8402
-«ELSE IF Court county DVPO petition MC = &quot;Asotin&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Asotin&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.ywcaidaho.org/?programs___domestic_abuse &quot; »YWCA of Lewiston/Clarkston«.we»«.be», Lewiston, ID«.pm»Crisis line: (800) 669-3176«.pm»Office phone: (208) 743-1535
-«ELSE IF Court county DVPO petition MC = &quot;Benton&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Benton&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.dvsbf.org/ &quot; »DV Services of Benton &amp; Franklin Counties«.we»«.be», Kennewick«.pm»Crisis line: (509) 582-9841«.pm»Office phone: (509) 735-1295«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Chelan&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Chelan&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.nwirp.org/ &quot; »NW Immigrant Rights Project«.we»«.be», Wenatchee«.pm»Crisis line: (866) 271.2084«.pm»Office phone: (509) 570.0054«.pm»«Text spacer CO»«.b»«.w &quot;http://www.findsafety.org/ &quot; »SAGE«.we»«.be», Wenatchee«.pm»Crisis line: (509) 663-7446«.pm»Office phone: (509) 663-7446«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Clallam&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Clallam&quot;»
 «Text spacer CO»«.b»«.w &quot;https://mariposahouse.org/ &quot; »Mariposa House«.we»«.be», Forks«.pm»Office phone: (360) 374-6411«.pm»«Text spacer CO»«.b»«.w &quot;http://www.healthyfam.org/ &quot; »Healthy Families of Clallam County«.we»«.be», Port Angeles«.pm»Crisis line: (360) 452-4357«.pm»Office phone: (360) 452-3811«.pm»«Text spacer CO»«.b»«.w &quot;http://www.elwha.org/tribalprograms/familyadvocacy.html &quot; »Lower Elwha Klallam Tribe – Family Advocacy Program«.we»«.be», Port Angeles«.pm»Office phone: (360) 565-7257«.pm»«Text spacer CO»«.b»«.w &quot;https://quileutenation.org/contacts/ &quot; »Quileute Indian Tribe – DVSA New Beginnings Program«.we»«.be», La Push«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Clark&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Clark&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.cowlitz.org/index.php/resources/health-and-human-services/29-pathways-to-healing-program &quot; »Cowlitz Indian Tribe – Pathways to Healing«.we»«.be», Vancouver«.pm»Office phone: (360) 397-8228«.pm»«Text spacer CO»«.b»«.w &quot;https://ywcaclarkcounty.org/what-we-do/our-programs/safechoice-domestic-violence-program/ &quot; »YWCA Clark County – Safe Choice«.we»«.be», Vancouver«.pm»Crisis line: (800) 695-0167«.pm»Office phone: (360) 696-0167«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Columbia&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Columbia&quot;»
 «Text spacer CO»«.b»«.w &quot;YWCA – Walla Walla &quot; »YWCA – Walla Walla«.we»«.be», Dayton«.pm»Crisis line: (509) 382-9922«.pm»Office phone: (509) 382-9922«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Cowlitz&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Cowlitz&quot;»
 «Text spacer CO»«.b»«.w &quot;http://esshelter.com/ &quot; »Emergency Support Shelter«.we»«.be», Kelso«.pm»Crisis line: (360) 636-8471«.pm»Office phone: (360) 425-1176«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Douglas&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Douglas&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.findsafety.org/ &quot; »SAGE«.we»«.be», Wenatchee«.pm»Crisis line: (509) 663-7446«.pm»Office phone: (509) 663-7446«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Ferry&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Ferry&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.ruralresources.org/get-help/domestic-violence/ &quot; »Rural Resources Victim Services«.we»«.be», Coleville«.pm»Crisis line: (509) 684-6139 or 844-509-SAFE (7233)«.pm»Office phone: (509) 684-3796«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Franklin&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Franklin&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.dvsbf.org/ &quot; »DV Services of Benton &amp; Franklin Counties«.we»«.be», Kennewick«.pm»Crisis line: (509) 582-9841«.pm»Office phone: (509) 735-1295«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Garfield&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Garfield&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.ywcaidaho.org/?programs___domestic_abuse &quot; »YWCA of Lewiston/Clarkston«.we»«.be», Lewiston, ID«.pm»Crisis line: (800) 669-3176«.pm»Office phone: (208) 743-1535«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Grant&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Grant&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.grantcountywa.gov/New-Hope/ &quot; »New Hope DV/SA Services«.we»«.be», Moses Lake«.pm»Crisis line: (888) 560-6027«.pm»Office phone: (509) 764-8402«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Grays Harbor&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Grays Harbor&quot;»
 «Text spacer CO»«.b»«.w &quot; &quot; »Chehalis Confederated Tribe – Domestic Violence Program«.we»«.be», Oakville«.pm»Crisis line: (360) 709-1874«.pm»Office phone: (360) 273-5911«.pm»«Text spacer CO»«.b»«.w &quot;https://www.facebook.com/pages/Domestic-Violence-Center-of-Grays-Harbor/120107088045275 &quot; »Domestic Violence Center of Grays Harbor«.we»«.be», Hoquiam«.pm»Crisis line: (800) 818-2194«.pm»Office phone: (360) 538-0733«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Island&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Island&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.cadacanhelp.org/ &quot; »Citizens Against Domestic &amp; Sexual Abuse (CADA)«.we»«.be», Oak Harbor«.pm»Crisis line: (800) 215-5669«.pm»Office phone: (360) 675-7057«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Jefferson&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Jefferson&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.dovehousejc.org/ &quot; »Dove House Advocacy Services«.we»«.be», Port Townsend«.pm»Crisis line: (360) 385-5291«.pm»Office phone: (360) 385-5292«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Kitsap&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Kitsap&quot;»
 «Text spacer CO»«.b»«.w &quot;https://www.pgst.nsn.us/tribal-programs/tribal-services/court-services &quot; »Port Gamble S’Klallam Crime Victim Servives«.we»«.be», Kingston«.pm»Office phone: (360) 297-6299«.pm»«Text spacer CO»«.b»«.w &quot;http://ywcakitsap.org/signs-of-abuse/ &quot; »YWCA of Kitsap County-ALIVE Program«.we»«.be», Bremerton«.pm»Crisis line: (800) 500-5513«.pm»Office phone: (360) 479-0522«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Kittitas&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Kittitas&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.comphc.org/yakima-valley-mental-health-victim.php &quot; »Abuse Support &amp; Prevention Education Now (ASPEN)«.we»«.be», Ellensburg«.pm»Office phone: (509) 925-9384«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Klickitat&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Klickitat&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.wgap.ws/home/domestic-violence-sexual-assault &quot; »Programs for Peaceful Living«.we»«.be», Bingen«.pm»Crisis line: (800) 352-5541«.pm»Goldendale office: (509) 773-6100«.pm»White Salmon office: (509) 493-1533«.pm» 
-«ELSE IF Court county DVPO petition MC = &quot;Lewis&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Lewis&quot;»
 «Text spacer CO»«.b»«.w &quot;http://thehumanresponsenetwork.org/ &quot; »Human Response Network«.we»«.be», Chehalis«.pm»Office phone: (360) 748-6601«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Lincoln&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Lincoln&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.ruralresources.org/get-help/domestic-violence/ &quot; »Rural Resources Victim Services«.we»«.be», Davenport«.pm»Crisis line: (509) 684-6139 or 844-509-SAFE (7233)«.pm»Office phone: (509) 215-1420«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Mason&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Mason&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.turningpointe.org/ &quot; »Turning Pointe Survivor Advocacy Center«.we»«.be», Shelton«.pm»Crisis line: (360) 432-1212«.pm»Office phone: (360) 426-1216«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Okanogan&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Okanogan&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.roomone.org/#/domestic-violence-prevention/ &quot; »Room One«.we»«.be», Twisp«.pm»Crisis line: (509) 997-2050«.pm»Office phone: (509) 997-2050«.pm»«Text spacer CO»«.b»«.w &quot;http://www.thesupportcenter.org/ &quot; »The Support Center«.we»«.be», Omak«.pm»Crisis line: (888) 826-3221«.pm»Office phone: (509) 826-3221«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Pacific&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Pacific&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.crisis-support.org/ &quot; »Crisis Support Network«.we»«.be», Raymond«.pm»Crisis line: (800) 435-7276«.pm»Office phone: (360) 875-6702«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Pend Oreille&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Pend Oreille&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.pofcn.org/services.html &quot; »Family Crisis Network«.we»«.be», Newport«.pm»Crisis line: (509) 447-5483«.pm»Office phone: (509) 447-2274«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Pierce&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Pierce&quot;»
 «Text spacer CO»«.b»«.w &quot;https://www.catherineplace.org/ &quot; »Catherine Place«.we»«.be», Tacoma«.pm»Office phone: (253) 572-3547«.pm»«Text spacer CO»«.b»«.w &quot;http://aplaceofhelp.org/ &quot; »Crystal Judson Family Justice Center«.we»«.be», Tacoma«.pm»Crisis line: (253) 798-4166«.pm»Office phone: (253) 798-4310«.pm»«Text spacer CO»«.b»«.w &quot;http://domesticviolencehelp.org/index.html &quot; »Family Renewal Shelter«.we»«.be», Tacoma«.pm»Crisis line: (253) 475-9010«.pm»«Text spacer CO»«.b»«.w &quot;https://www.kwacares.org/our-services/domestic-violence-assistance/ &quot; »Korean Women’s Association«.we»«.be», Tacoma«.pm»Crisis line: (253) 359-0470«.pm»Office phone: (253) 535-4202«.pm»«Text spacer CO»«.b»«.w &quot;https://www.oursistershouse.com/ &quot; »Our Sisters House«.we»«.be», Tacoma«.pm»Office phone: (253) 383-4275«.pm»«Text spacer CO»«.b»«.w &quot;http://www.tribaljustice.org/program-profiles/community-domestic-violence-advocacy-program &quot; »Puyallup Tribe of Indians – Community DV Advocacy Program«.we»«.be», Puyallup«.pm»Crisis line: (253) 680-5499«.pm»Office phone: (253) 680-5499«.pm»«Text spacer CO»«.b»«.w &quot;https://www.tacomacommunityhouse.org/advocacy/ &quot; »Tacoma Community House Client Advocacy Services«.we»«.be», Tacoma«.pm»Office phone: (253) 383-3951«.pm»«Text spacer CO»«.b»«.w &quot;https://www.ywcapiercecounty.org/ &quot; »YWCA of Pierce County«.we»«.be», Tacoma«.pm»Crisis line: (253) 383-2593«.pm»Office phone: (253) 272-4181«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;San Juan&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;San Juan&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.safesj.org/ &quot; »SAFE San Juans«.we»«.be», Lopez Island«.pm»Crisis line: (360) 468-4567«.pm»Office phone: (360) 468-3788«.pm»«Text spacer CO»«.b»«.w &quot;http://www.safesj.org/ &quot; »SAFE San Juans«.we»«.be», Orcas Island«.pm»Crisis line: (360) 376-1234«.pm»Office phone: (360) 376-5979«.pm»«Text spacer CO»«.b»«.w &quot;http://www.safesj.org/ &quot; »SAFE San Juans«.we»«.be», San Juan Island«.pm»Crisis line: (360) 378-2345«.pm»Office phone: (360) 378-8680«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Skagit&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Skagit&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.skagitdvsas.org/ &quot; »Skagit Domestic Violence &amp; Sexual Assault Services«.we»«.be», Mount Vernon«.pm»Crisis line: (888) 336-9591«.pm»Office phone: (360) 336-9591«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Skamania&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Skamania&quot;»
 «Text spacer CO»«.b»«.w &quot;http://skamaniadvsa.webs.com/ &quot; »Skamania County Council on Domestic Violence &amp; Sexual Assault«.we»«.be», Stevenson«.pm»Crisis line: (877) 427-4210«.pm»Office phone: (509) 427-4210«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Snohomish&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Snohomish&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.snococbw.org/ &quot; »Domestic Violence Services of Snohomish County«.we»«.be», Everett«.pm»Crisis line: (425) 252-2873«.pm»Office phone: (425) 259-2827«.pm»«Text spacer CO»«.b»«.w &quot;https://www.tulaliptribes-nsn.gov/Dept/LegacyOfHealing &quot; »Tulalip Indian Tribe – Legacy of Healing Advocacy Center and Safe House«.we»«.be», Tulalip«.pm»Office phone: (360) 714-4400«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Spokane&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Spokane&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.spokanetribe.com/contact &quot; »Spokane Tribe of Indians Domestic Violence Program«.we»«.be», Spokane«.pm»Office phone: (509) 258-8924«.pm»«Text spacer CO»«.b»«.w &quot;https://ywcaspokane.org/programs/ &quot; »YWCA – Alternatives to Domestic Violence«.we»«.be», Spokane«.pm»Crisis line: (509) 326-2255«.pm»Office phone: (509) 789-9297«.pm»«Text spacer CO»«.b»«.w &quot;https://lcsnw.org/program/victim-advocacy-and-education/&quot;»Lutheran Community Services Northwest«.we»«.be», Spokane«.pm»«.i»(Provides support to non-intimate partner violence survivors and victims)«.ie»«.pm»Office phone: (509) 747-8224«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Stevens&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Stevens&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.ruralresources.org/get-help/domestic-violence/ &quot; »Rural Resources Victim Services«.we»«.be», Colville«.pm»Crisis line: (509) 684-6139 or 844-509-SAFE (7233)«.pm»Office phone: (509) 684-3796«.pm»«Text spacer CO»«.b»«.w &quot;https://www.spokanetribe.com/dv &quot; »Spokane Tribe of Indians Domestic Violence Program«.we»«.be», Spokane«.pm»Office phone: (509) 258-8924«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Thurston&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Thurston&quot;»
 «Text spacer CO»«.b»«.w &quot; &quot; »Chehalis Confederated Tribes DV Program«.we»«.be», Oakville«.pm»Office phone: (360) 273-5911«.pm»«Text spacer CO»«.b»«.w &quot;http://www.safeplaceolympia.org/ &quot; »SafePlace«.we»«.be», Olympia«.pm»Crisis line: (360) 754-6300«.pm»Office phone: (360) 786-8754«.pm»«Text spacer CO»«.b»«.w &quot;http://fscss.org/services/fjc/ &quot; »Thurston County Family Justice Center – The Family Support Center«.we»«.be», Olympia«.pm»Office phone: (360) 754-9297«.pm»«Text spacer CO»«.b»«.w &quot;http://cieloprograms.org/ &quot; »CIELO Project«.we»«.be», Olympia«.pm»Office phone: (360) 709-0931«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Wahkiakum&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Wahkiakum&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.stjamesfc.org/The-Charlotte-House.html &quot; »Charlotte House/St. James Domestic Violence Program«.we»«.be», Cathlamet«.pm»Crisis line: (360) 795-6400«.pm»Office phone: (360) 795-8612«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Walla Walla&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Walla Walla&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.ywcaww.org/services/ &quot; »YWCA-Walla Walla«.we»«.be», Walla Walla«.pm»Crisis line: (509) 529-9922«.pm»Office phone: (509) 525-2570«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Whatcom&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Whatcom&quot;»
 «Text spacer CO»«.b»«.w &quot;http://foodjustice.org/ &quot; »Community to Community«.we»«.be», Bellingham«.pm»Office phone: (360) 738-0893«.pm»«Text spacer CO»«.b»«.w &quot;https://www.dvsas.org/ &quot; »Domestic Violence &amp; Sexual Assault Services of Whatcom County«.we»«.be», Bellingham«.pm»Crisis line: (360) 715-1563«.pm»Office phone: (360) 671-5714«.pm»«Text spacer CO»«.b»«.w &quot;https://www.oppco.org/basic-needs/housing-2/ &quot; »Dorothy Place (a part of Opportunity Council)«.we»«.be», Bellingham«.pm»Office phone: (360) 734-5121«.pm»«Text spacer CO»«.b»«.w &quot;https://www.lummi-nsn.gov/Website.php?PageID=399 &quot; »Lummi Victims of Crime«.we»«.be», Bellingham«.pm»Office phone: (360) 384-2285«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Whitman&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Whitman&quot;»
 «Text spacer CO»«.b»«.w &quot;http://www.atvp.org/ &quot; »Alternatives to Violence of the Palouse«.we»«.be», Pullman«.pm»Crisis line: (509) 332-4357«.pm»Office phone: (509) 332-0552«.pm»
-«ELSE IF Court county DVPO petition MC = &quot;Yakima&quot;»
+«ELSE IF Court county SAPO petition MC = &quot;Yakima&quot;»
 «Text spacer CO»«.b»«.w &quot;https://www.facebook.com/lowervalleycrisis/ &quot; »The Lighthouse«.we»«.be», Sunnyside«.pm»Crisis line: (509) 837-6689«.pm»Office phone: (509) 837-6689«.pm»«Text spacer CO»«.b»«.w &quot;http://www.nwirp.org/ &quot; »NW Immigrant Rights Project«.we»«.be», Granger«.pm»Crisis line: (888) 756-3641«.pm»Office phone: (509) 854-2100«.pm»«Text spacer CO»«.b»«.w &quot;http://www.yakamanation-nsn.gov/behavioralhealthservices.php &quot; »Yakama Indian Nation Behavioral Health Services«.we»«.be», Toppenish«.pm»Office phone: (509) 865-2725 ext. 6203«.pm»«Text spacer CO»«.b»«.w &quot;http://www.ywcayakima.org/ &quot; »YWCA Yakima«.we»«.be», Yakima«.pm»Crisis line: (509) 248-7796«.pm»Office phone: (509) 248-7796«.pm»
 «END IF»«END IF»
 To search for «.w &quot;http://www.domesticviolenceinforeferral.org/domestic-violence-programs?field_county_value=All&amp;field_program_catagory_tid=1&quot;»culturally/community specific«.we» or «.w &quot;http://www.domesticviolenceinforeferral.org/domestic-violence-programs?field_county_value=All&amp;field_program_catagory_tid=2&quot;»Tribal programs«.we», or to search by city, please visit «.w &quot;http://www.domesticviolenceinforeferral.org/domestic-violence-programs?field_county_value=All&amp;field_program_catagory_tid=All&quot;»Washington State Domestic Violence Information &amp; Referral«.we».</hd:caption>
@@ -10447,17 +10637,16 @@ To search for «.w &quot;http://www.domesticviolenceinforeferral.org/domestic-vi
 </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Need helper name DE">
-			<hd:caption>«.b»What is your name?«.be»</hd:caption>
+			<hd:caption>«Text spacer CO»«.b»What is your name?«.be»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Need parent guardian of respondent name DE">
-			<hd:caption>«Text spacer CO»«.b»Who is the abuser&apos;s responsible adult?«.be»
-Because «Other party name first TE» is under 18, you need to tell the court the name of their parent or guardian.</hd:caption>
+			<hd:caption>«Text spacer CO»«.b»Who is the abuser&apos;s responsible adult?«.be»«.pm»«.i»(Because «Other party name first TE» is under 18, you need to tell the court the name of their parent or guardian.)«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Need reason to order weapons surrender DE">
 			<hd:caption>«Text spacer CO»«.i»You are asking the judge to order «Other party name first TE» to turn in weapons and not get any more. To support this request, you must answer yes to at least one of the questions on this page and describe what happened or could happen.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="No eligible harm selected DE">
-			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». The legal definition of sexual assault is narrow. If «Other party name first TE» did not have sexual contact or sexually penetrate the survivor without consent, you cannot get a SAPO.</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»«.b»You can only get a Sexual Assault Protection Order if you have been sexually assaulted.«.be». Review the legal definition of sexual assault in the help area. Talk to a community advocate if you are unsure. </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="No eligible relationship survivor and abuser DE">
 			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». «Other party name first TE» must be related to «Survivor for relationship CO» in one of the ways listed to get a domestic violence protection order.«.ie»</hd:caption>
@@ -10467,9 +10656,6 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 		</hd:dialogElement>
 		<hd:dialogElement name="No eligible survivor DE">
 			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». It looks like you are not asking for protection for anyone who is eligible for an order.«.ie»</hd:caption>
-		</hd:dialogElement>
-		<hd:dialogElement name="No qualifying relationship between DE">
-			<hd:caption>«Text spacer CO»«.b»Sorry«.be». You said that you were related to the abuser. If you have any relationship to the abuser, you need to fill out a DVPO.</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Okay not logged in DE">
 			<hd:caption>Okay. That means you are «.b»not«.be» logged in. If you do not log in, you cannot save your answers. You can exit now to log in before starting the interview. Click «.b»X«.be» in the top right corner. Then «.b»log in«.be» and «.b»re-start«.be».«.pm»«Text spacer CO»To continue without logging in, click «.b»Next«.be».
@@ -10546,7 +10732,7 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 			<hd:horizontalDivider caption="«.b»«Other party name first TE»&apos;s Description«.be»"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="Paying fees and costs DE">
-			<hd:caption>«.pm»The court does «.b»not«.be» charge a fee to file for a DVPO. And law enforcement will serve your order for free. But you may have fees or costs for this case if you hire a lawyer or have to pay someone to serve «Other party name first TE».</hd:caption>
+			<hd:caption>«.pm»The court does «.b»not«.be» charge a fee to file for a protection order. And law enforcement will serve your order for free. But you may have fees or costs for this case if you hire a lawyer or have to pay someone to serve «Other party name first TE».</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Person children lived with single intro DE">
 			<hd:caption>«Text spacer CO»«.b»Who was that main caretaker?«.be»</hd:caption>
@@ -10569,6 +10755,9 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 		<hd:dialogElement name="Pick other weapon DE">
 			<hd:caption>«Text spacer CO»«.b»What kind of other weapons does «Other party name first TE» have?«.be»«.pm»«.i»( The most common types are listed below. Say &quot;Yes&quot; to any types of other weapons «Other party name first TE» has.)«.ie»</hd:caption>
 		</hd:dialogElement>
+		<hd:dialogElement name="Placeholder 2 DE">
+			<hd:caption></hd:caption>
+		</hd:dialogElement>
 		<hd:dialogElement name="Placeholder DE">
 			<hd:caption></hd:caption>
 		</hd:dialogElement>
@@ -10582,7 +10771,7 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 			<hd:caption>«.pm»«.i»«.z +20»You finished the first half of the interview. «.b»Good job!«.be»«.ze»«.ie»«.pm»«.pm»Are you feeling scared, overwhelmed, or stuck?  An advocate can help!  Their services are private and they will support what you need to feel safe.  You do «.b»not «.be»have to do this alone.  </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Protected person intro DE">
-			<hd:caption>«.i»Law enforcement also needs information about «Teen survivor name or you CO» to enforce the protection order.«.pm»«Text spacer CO»Answers from this page will go on the «.b»Law Enforcement Information«.be» or «.b»Confidential Information«.be» forms. You do «.b»not «.be»have to give «Other party name first TE» copies of those forms.«.pm»«Text spacer CO»Scroll down so you do not miss any questions.«.ie»«.pm»«IF Protect teen from dating violence TF»«Text spacer CO»«.b»Information about «Teen survivor name first TE» (the teenager)«.be»«ELSE»«Text spacer CO»«.b»Your info«.be»«END IF»</hd:caption>
+			<hd:caption>«.i»Law enforcement needs information about «Survivor you or name CO» to enforce the protection order.«.pm»«Text spacer CO»Answers from this page will go on the «.b»Law Enforcement Information«.be» or «.b»Confidential Information«.be» forms. You do «.b»not «.be»have to give «Other party name first TE» copies of those forms.«.pm»«Text spacer CO»Scroll down so you do not miss any questions.«.ie»«.pm»«Text spacer CO»«.b»«Text survivor Your or Name&apos;s Info CO»«.be»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Protection for teenager DE">
 			<hd:caption>«Text spacer CO»«.b»Who is the teenager who needs protection?«.be»</hd:caption>
@@ -10614,7 +10803,7 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Restraints keep away DE">
-			<hd:caption>«IF Protect teen from dating violence TF OR Order protects children only not user CO»«.i»Check if you want «Other party name first TE» excluded from certain places.«ELSE»«.i»Check if you want «Other party name first TE» excluded from certain places or to move out of your shared home. «IF VALUE(Interview for self TF) AND VALUE(Order protects children TF)»You can protect places where you and/or «The child/ren go/es CO».«END IF»«END IF»«.ie»«.pm»«Text spacer CO»«.b»«Other party name first TE» must:«.be»</hd:caption>
+			<hd:caption>«.i»Check if you want «Other party name first TE» excluded from certain places.«.ie»«.pm»«Text spacer CO»«.b»«Other party name first TE» must:«.be»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Restraints keep away unprotected children DE">
 			<hd:caption>«.i»Okay. That means  «Other party name first TE» «.b»can«.be» go to the home, day care or school of «Restraints keep away unprotected children».«.ie»
@@ -10628,10 +10817,23 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Restraints no contact DE">
-			<hd:caption>«.i»Check if you want no contact at all. «IF Track user and one child CO OR Track user and children CO»You can protect yourself and/or «The child/ren CO».«END IF»«.ie»«.pm»«Text spacer CO»«.b»«Other party name first TE» must have:«.be»</hd:caption>
+			<hd:caption>«.i»Check if you want no contact at all. «.ie»«.pm»«Text spacer CO»«.b»«Other party name first TE» must have:«.be»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Restraints no contact below prompt DE">
-			<hd:caption>«.i»«.b»Important!«.be»  This means no contact of any kind: in-person, phone, text, social-media, mail, or through others. Even if you call/text/email «Other party name first TE» first, s/he cannot respond. «Other party name first TE» cannot ask someone else to give you a message.</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»«.b»Important!«.be»  This means no contact of any kind: in-person, phone, text, social-media, mail, or through others. Even if you call/text/email «Other party name first TE» first, «Other party name first TE» cannot respond. «Other party name first TE» cannot ask someone else to give you a message.</hd:caption>
+		</hd:dialogElement>
+		<hd:dialogElement name="Restraints no contact below question DE">
+			<hd:caption>«Text spacer CO»This means no contact by:
+ •  phone
+ •  text
+ •  social media (Facebook, Twitter)
+ •  messaging (WhatsApp)
+ •  mail 
+ •  written notes
+ •  any other kind of contact
+«Text spacer CO»It also means no contact through other people, even if the other person does not know about the order.
+«IF Protect self CO»«Text spacer CO»Even if you contact «Other party name first TE» first, «Other party name first TE» cannot respond. «Other party name first TE» cannot ask someone else to give you a message.«END IF»«.pm»«Text spacer CO»The only contact allowed is service of court documents.
+</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Restraints no contact unprotected children DE">
 			<hd:caption>«IF Count of all unprotected children no contact CO &gt; 0»
@@ -10651,7 +10853,7 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 			<hd:caption>«.i»You can ask the judge to order «Other party name first TE» to turn in weapons and not get any more.«.pm»«.b»Please talk to an advocate if guns or firearms are involved.«.be» An advocate can help you make a safety plan and work with law enforcement to get the weapons safely removed.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Safety planning DE">
-			<hd:caption>«.b»Talk with a domestic violence advocate«.be» if you are being hurt, threatened or stalked. Advocates can help with safety concerns and with the protection order process. You can ask an advocate to review the forms you make with this interview.«.pm»«.pm»«.b»Firearms and domestic violence are a dangerous combination.«.be» If the abuser has access to firearms or has threatened suicide, «.b»please «.be»talk to an advocate about making a safety plan.«.pm»«.pm»«.b»Are you a Tribal Member or living in a Tribal Community or on a Reservation?«.be» You may have the choice of filing for a protection order in a State Court or a Tribal Court. Each Tribe&apos;s code and/or process may differ. Contact the Tribal Court to learn more. (Find Tribal Court directories at «.w &quot;https://goia.wa.gov/tribal-directory/washington-state-tribal-courts&quot;»GOIA«.we» or the «.w &quot;https://www.courts.wa.gov/court_dir/orgs/134.html&quot;»State Court&apos;s website«.we».) The forms from this program may not work in Tribal Court.«.pm»«.pm»The National Domestic Violence Hotline is 1-800-799-SAFE. See local listings below after you choose a county.</hd:caption>
+			<hd:caption>A «.b»community sexual assault program «.be»can help you navigate the emotions, choices, and systems that you may encounter following a sexual assault. Advocates are available to discuss your concerns and connect you to resources. Specifically, they can answer questions about your options and rights, provide support and coping strategies, accompany you to medical or legal appointments, and help you navigate systems and situations related to your experience of sexual assault. «.b»You are not alone«.be».«.pm»«Text spacer CO»The Sexual Violence Law Center at Legal Voice helps surivors with legal support statewide: 1-844-991-7852. See listings for local programs below after you choose a county.</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Save answers message DE">
 			<hd:caption>«.b»You have just completed a big section.  Now is a great time to save your work! «.be»«.pm»«.i»(If you are logged in, click on the save button at the top right of your screen. See picture below.)«.ie»</hd:caption>
@@ -10669,6 +10871,9 @@ Because «Other party name first TE» is under 18, you need to tell the court th
 			<hd:horizontalDivider caption="«.b»Service and Hazards«.be»"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="Spacer">
+			<hd:verticalSpacing/>
+		</hd:dialogElement>
+		<hd:dialogElement name="Spacer 2">
 			<hd:verticalSpacing/>
 		</hd:dialogElement>
 		<hd:dialogElement name="Special assistance DE">
@@ -10720,8 +10925,14 @@ If the teen wants to file on their own, have the teen complete this interview. (
 </hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="This county court has a protection order office DE">
-			<hd:caption>«Text spacer CO»«IF Court county DVPO petition MC = &quot;King&quot;»The «.w &quot;https://www.kingcounty.gov/depts/prosecutor/protection-orders.aspx&quot;»King County Prosecuting Attorney’s Protection Order Advocacy Program«.we» (POAP) helps with protection orders in «.b»Superior Court«.be». They encourage you to contact them.«.pm»     Email: protectionorder@kingcounty.gov«.pm»     Kent phone: 206-477-3758«.pm»     Seattle phone: 206-477-1103«END IF»
-«IF Court county DVPO petition MC = &quot;Snohomish&quot;»The «.w &quot;https://www.snohomishcountywa.gov/5520/Protection-Orders&quot;»Snohomish County Clerk’s Protection Order Office«.we» helps with protection orders in «.b»Superior Court«.be». They encourage you to contact them.«.pm»     Email: protection.orders@snoco.org«.pm»     Phone: 425-388-3638«END IF»</hd:caption>
+			<hd:caption>«Text spacer CO»«IF Court county SAPO petition MC = &quot;King&quot;»The «.w &quot;https://www.kingcounty.gov/depts/prosecutor/protection-orders.aspx&quot;»King County Prosecuting Attorney’s Protection Order Advocacy Program«.we» (POAP) helps with protection orders in «.b»Superior Court«.be». They encourage you to contact them.«.pm»     Email: protectionorder@kingcounty.gov«.pm»     Kent phone: 206-477-3758«.pm»     Seattle phone: 206-477-1103«END IF»
+«IF Court county SAPO petition MC = &quot;Snohomish&quot;»The «.w &quot;https://www.snohomishcountywa.gov/5520/Protection-Orders&quot;»Snohomish County Clerk’s Protection Order Office«.we» helps with protection orders in «.b»Superior Court«.be». They encourage you to contact them.«.pm»     Email: protection.orders@snoco.org«.pm»     Phone: 425-388-3638«END IF»</hd:caption>
+		</hd:dialogElement>
+		<hd:dialogElement name="Toggle language english DE">
+			<hd:scriptLink computation="Toggle language CO" displayAsText="false" displayAsImage="true" buttonWidth="16" buttonHeight="5" imageFile="Toggle button English 138w IM.png"/>
+		</hd:dialogElement>
+		<hd:dialogElement name="Toggle language espanol DE">
+			<hd:scriptLink computation="Toggle language CO" displayAsText="false" displayAsImage="true" buttonWidth="16" buttonHeight="5" imageFile="Toggle button Espanol 138w IM.png"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="Toggle visible firearm images button DE">
 			<hd:scriptLink computation="Toggle visible firearm images CO">
@@ -10732,7 +10943,7 @@ If the teen wants to file on their own, have the teen complete this interview. (
 			<hd:verticalSpacing spacing="50"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="User address home DE">
-			<hd:caption>Enter «Your/teen survivor&apos;s name home address CO»</hd:caption>
+			<hd:caption>Enter «Your/survivor&apos;s name home address CO»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="User address mailing DE">
 			<hd:caption>«Text spacer CO»Enter your «.b»mailing«.be» address«.pm»«.i»This can be the address of a friend or relative you trust to tell you immediately if you receive any legal papers.«.ie»</hd:caption>
@@ -10759,13 +10970,13 @@ If the teen wants to file on their own, have the teen complete this interview. (
 			<hd:caption>«.b»List your other children who are NOT «Other party name first TE»&apos;s, if you want to protect them in this order.«.be»«.pm»«Text spacer CO»«.i»Enter them one at a time. Click the &quot;Add another child&quot; button if needed. When you have no other children to add, click Next.«IF The present answer set was previously saved CO»«.pm»«Text spacer CO»If you have loaded saved answers from another Washington Forms Online interview, you may already see all your children listed. If you do not want to include one of these children in your protection order, you can tell us to leave them out later. You do not have to delete them here.«END IF»«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="User contact info divider DE">
-			<hd:horizontalDivider caption="«Text spacer CO»«.b»«.c»«Your/teen survivor&apos;s name contact info CO»«.be»"/>
+			<hd:horizontalDivider caption="«Text spacer CO»«.b»«Your/survivor&apos;s name contact info CO»«.be»"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="User height divider DE">
-			<hd:horizontalDivider caption="«.b»«.c»«Your/teen survivor&apos;s name height CO»«.be»"/>
+			<hd:horizontalDivider caption="«.b»«Your/survivor&apos;s name height CO»«.be»"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="User is too young DE">
-			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». You must be at least 16 to ask for a SAPO on your own. You can ask someone else to petition the court for you. This could be a parent, guardian, guardian ad litem, or other trusted adult. «.ie»</hd:caption>
+			<hd:caption>«Text spacer CO»«.i»«.b»Sorry«.be». You must be at least 16 to ask for a protection order on your own. You can ask someone else to petition the court for you. This could be a parent, guardian, guardian ad litem, or other trusted adult. «.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="User other child age DE">
 			<hd:caption>
@@ -10784,8 +10995,8 @@ If the teen wants to file on their own, have the teen complete this interview. (
 		<hd:dialogElement name="User other protected persons intro DE">
 			<hd:caption>«Text spacer CO»List the other people you want to protect from cyberstalking in the table below. Put one person on each row. «IF NOT (Protect teen from dating violence TF OR User is 16-17 CO)»Say if they are one of your adult children or some other type of household member. Do not list yourself here.«END IF»</hd:caption>
 		</hd:dialogElement>
-		<hd:dialogElement name="User physical description divider D">
-			<hd:horizontalDivider caption="«.b»«.c»«Your/teen survivor&apos;s name description CO» Description«.be»"/>
+		<hd:dialogElement name="User physical description divider DE">
+			<hd:horizontalDivider caption="«.b»«Your/survivor&apos;s name description CO»«.be»"/>
 		</hd:dialogElement>
 		<hd:dialogElement name="Version DE">
 			<hd:horizontalDivider caption="«SAPO version CO»" justification="center"/>
@@ -10823,13 +11034,10 @@ If the teen wants to file on their own, have the teen complete this interview. (
 			<hd:caption>«.i»We ask about «.b»weapons«.be» on the next page.«.ie»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Welcome text SAPO DE">
-			<hd:caption>«.b»Welcome!«.be» This interview will fill out forms to ask for a sexual assault protection order (SAPO). 
-«Text spacer CO»This interview may take up to 45 minutes. Scroll down to make sure you answer all the questions on each page before clicking &quot;Next&quot; to continue.
-«Text spacer CO»«.b»Use a safe device.«.be» That should be a computer or phone that the abuser cannot get to (even remotely). «.w &quot;https://www.techsafety.org/&quot;»Techsafety.org«.we» has tips for staying safe online.«IF NOT  The present answer set was previously saved CO»«.pm»«Text spacer CO»«.b»This program does not save your answers automatically.«.be» If you leave it inactive for more than 2 hours without saving, you will lose your work. If you are logged in, you can save your work as you go
-«Text spacer CO»Look at the top right corner of your screen.«END IF»</hd:caption>
+			<hd:caption>«IF Language MC = &quot;English&quot;»«.b»Welcome!«.be» This interview will fill out forms to ask for a sexual assault protection order (SAPO). «.pm»«Text spacer CO»This interview may take up to 45 minutes. Scroll down to make sure you answer all the questions on each page before clicking &quot;Next&quot; to continue. «.pm»«Text spacer CO»«.b»Use a safe device.«.be» That should be a computer or phone that the abuser cannot get to (even remotely). «.w &quot;https://www.techsafety.org/&quot;»Techsafety.org«.we» has tips for staying safe online.«IF NOT  The present answer set was previously saved CO»«.pm»«Text spacer CO»«.b»This program does not save your answers automatically.«.be» If you leave it inactive for more than 2 hours without saving, you will lose your work. If you are logged in, you can save your work as you go «Text spacer CO»Look at the top right corner of your screen.«END IF»«END IF»«IF Language MC = &quot;Spanish&quot;»«.b»¡Bienvenido!«.be» Esta entrevista llenará los formularios para pedir una Orden de protección de agresión sexual (OPAS, o SAPO, por su sigla en inglés). «.pm»«Text spacer CO»Esta entrevista durará unos 45 minutos. Desplácese hacia abajo en la pantalla para asegurarse de contestar todas las preguntas en cada página antes de hacer clic en “Siguiente” para continuar. «.pm»«Text spacer CO»«.b»Use un dispositivo seguro.«.be» Este debe ser una computadora o teléfono que el abusador no puede inspeccionar (ni siquiera en forma remota). «.w &quot;https://www.techsafety.org/&quot;»Techsafety.org«.we» tiene consejos para permanecer seguro en línea.«IF NOT  The present answer set was previously saved CO»«.pm»«Text spacer CO»«.b»Este programa no guarda sus respuestas automáticamente.«.be» Si lo deja inactivo por más de 2 horas sin guardar la información, esta se perderá. Si inició una sesión, podrá guardar su trabajo mientras contesta «Text spacer CO»Fíjese en la esquina superior derecha de su pantalla.«END IF»«END IF»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Where does home address go on forms DE">
-			<hd:caption>«Text spacer CO»We will list «Your/teen survivor&apos;s name home address CO» on forms that only go to law enforcement or the court, not to «Other party name first TE».</hd:caption>
+			<hd:caption>«Text spacer CO»We will list «Your/survivor&apos;s name home address CO» on forms that only go to law enforcement or the court, not to «Other party name first TE».</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="Which children DE">
 			<hd:caption>«Text spacer CO»«.i»If you have done another Washington Forms Online interview for a divorce or child support case, you may see some children that you listed in that other interview. You may or may not want to protect all of those children in your DV order. Tell us if you do not want to include all of these children in your protection order. We will still save their information for your other interviews.«.ie»«.pm»«.pm»«.b»Here are all the children you have told us about:«.be»«.pm»«.i»(Only children under 18 are listed)«.ie»«.pm»«REPEAT All available children repeat»«.pm»     «All children name first TE»«END REPEAT»«.pm»</hd:caption>
@@ -10837,8 +11045,11 @@ If the teen wants to file on their own, have the teen complete this interview. (
 		<hd:dialogElement name="Why do you need DVPO substance abuse DE">
 			<hd:caption>«Text spacer CO»«.b»Were drugs, alcohol, or abuse of any other substances involved in the domestic violence?«.be»</hd:caption>
 		</hd:dialogElement>
-		<hd:dialogElement name="Why do you need a DVPO DE">
-			<hd:caption>«Text spacer CO»«.i»«.z +20»Next we ask «.b»why «.be»you need a protection order.«.ze»«.ie»«.pm»«.pm»We will ask about what happened:«.pm»  •  Most recently«.pm»  •  Other past acts«.pm»  •  Violence or threats towards children«.pm»  •  Stalking behavior«.pm»  •  Medical treatment you may have received«.pm»  •  Threats of suicide by «Other party name first TE»«.pm»  •  Firearms«.pm»  •  Use of drugs or alchohol by «Other party name first TE»«.pm»«.pm»We will ask each question one page at a time. You can skip any pages that do not apply to your situation.</hd:caption>
+		<hd:dialogElement name="Why do you need a PO DE">
+			<hd:caption>«Text spacer CO»«.i»«.z +20»Next we ask «.b»why «.be»you need a protection order.«.ze»«.ie»</hd:caption>
+		</hd:dialogElement>
+		<hd:dialogElement name="You have completed the interview DE">
+			<hd:caption>«IF Language MC = &quot;English&quot;»«.i»«.z +20»«.b»Well done!«.be»  You have completed the interview!«.ze»«.ie»«END IF»«IF Language MC = &quot;Spanish&quot;»«.i»«.z +20»«.b»¡Bien hecho!«.be»  ¡Ha completado la entrevista!«.ze»«.ie»«END IF»</hd:caption>
 		</hd:dialogElement>
 		<hd:dialogElement name="You should not use this interview DE">
 			<hd:caption>«Text spacer CO»
@@ -10879,17 +11090,18 @@ You should not use this interview for one of the reasons below:</hd:caption>
 				<hd:item name="Adult is not vulnerable DE"/>
 				<hd:item name="User relationship to vulnerable adult MC"/>
 				<hd:item name="User relationship to teen survivor MC"/>
-				<hd:item name="No eligible relationship user for teen survivor DE"/>
 				<hd:item name="Other party age range MC"/>
+				<hd:item name="Live with other party now TF"/>
+				<hd:item name="Disqualify roommate DE"/>
 				<hd:item name="Relationship between survivor and abuser MS"/>
-				<hd:item name="No qualifying relationship between DE"/>
+				<hd:item name="Relationship between survivor and abuser TE"/>
+				<hd:item name="Disqualify relationship DE"/>
 				<hd:item name="Launch DVPO DE"/>
 				<hd:item name="Respondent sexually assaulted petitioner TF"/>
-				<hd:item name="Harm type MS"/>
 				<hd:item name="No eligible harm selected DE"/>
 			</hd:contents>
 			<hd:resource>
-				<hd:plainText>«Text spacer CO»«.b»What is domestic violence?«.be»«Text spacer CO»It is a pattern of physically and/or emotionally abusive behavior used to control someone with whom the abuser has an intimate or family relationship.«.pm»«.pm»«.b»How does the law define domestic violence?«.be»«Text spacer CO»Washington law says domestic violence happens when someone does one of these:«Text spacer CO» •	Hits, assaults (including sexual assault), or harms you physically in any way«Text spacer CO» •	Causes you to fear immediate physical harm or assault«Text spacer CO» •	Stalks you«.pm»«.pm»«.b»The person causing the harm or threatening you must be one of these:«.be»«Text spacer CO» •	A family member «Text spacer CO» •	A spouse or domestic partner«Text spacer CO» •	A former spouse or former domestic partner«Text spacer CO» •	Someone you have or had a dating relationship with«Text spacer CO» •	Someone you have a child with«Text spacer CO» •	A roommate or former roommate«.pm»«Text spacer CO»«.b»What are some examples of things that can cause fear of immediate harm?«.be»«Text spacer CO» •	Restraining your freedom of movement«Text spacer CO» •	Stalking you «Text spacer CO» •	Destroying your property «Text spacer CO» •	Making verbal threats to hurt you «Text spacer CO» •	Making threats by text or social media«.pm»«Text spacer CO»«.b»What is stalking?«.be»«Text spacer CO»State law defines “stalking” a few ways. «.b»Stalking as a crime«.be» happens when all these are true:«Text spacer CO» •	Someone intentionally is harassing or following you.«Text spacer CO» •	You fear that they want to hurt you or someone else, or someone’s property. Your fear must be reasonable under the circumstances. «Text spacer CO» •	The stalker either«Text spacer CO»«.tc»«.tc»1. Means to frighten, intimidate, or harass you OR«Text spacer CO»«.tc»«.tc» 2.  Knows or should know you feel that way even if they did not mean for you to feel that way.«.b» «Text spacer CO»If this describes your situation, call the police.«.be»«.pm»«.pm»«.b»Stalking can also mean «.b»cyberstalking «.be»(stalking you online).«.be»«Text spacer CO»«.b»State law creating stalking protection orders«.be» says stalking is repeated «Text spacer CO» •	tries to contact«Text spacer CO» •	monitoring«Text spacer CO» •	tracking«Text spacer CO» •	keeping under observation«Text spacer CO»•	following you«Text spacer CO»-and causing you to feel intimidated, scared or threatened. </hd:plainText>
+				<hd:plainText>«Text spacer CO»«.b»What is sexual assault?«.be»«Text spacer CO»For purposes of getting a protection order, sexual assault is nonconsensual sexual conduct or nonconsensual sexual penetration. «.pm»«Text spacer CO»«.b»Nonconsensual«.be» means a lack of freely given agreement. «.pm»«Text spacer CO»«.b»Sexual conduct«.be» means any of the following:«Text spacer CO»     (a) any intentional or knowing touching or fondling of the genitals, anus, or breasts, directly or indirectly, including through clothing;«Text spacer CO»     (b) any intentional or knowing display of the genitals, anus, or breasts for the purposes of arousal or sexual gratification of the respondent;«Text spacer CO»     (c) any intentional or knowing touching or fondling of the genitals, anus, or breasts, directly or indirectly, including through clothing, that the petitioner is forced to perform by another person or the respondent;«Text spacer CO»     (d) any forced display of the petitioner’s genitals, anus, or breasts for the purposes of arousal or sexual gratification of the respondent or others;«Text spacer CO»     (e) any intentional or knowing touching of the clothed or unclothed body of a child under the age of 13, if done for the purpose of sexual gratification or arousal of the respondent or others; and«Text spacer CO»     (f) any coerced or forced touching or fondling by a child under the age of thirteen, directly or indirectly, including through clothing, of the genitals, anus, or breasts of the respondent or others.«.pm»«Text spacer CO»«.b»Sexual penetration«.be» means:«Text spacer CO»     •  any contact, however slight, between the sex organ or anus of one person by an object, the sex organ, mouth or anus of another person, or«Text spacer CO»     •  any intrusion, however slight, of any part of the body of one person or of any animal or object into the sex organ or anus of another person.«Text spacer CO»Sexual penetration includes but is not limited to cunnilingus, fellatio, or anal penetration.«Text spacer CO»Evidence of emission of semen is not required to prove sexual penetration.</hd:plainText>
 			</hd:resource>
 			<hd:script>REQUIRE ALL
 HIDE ALL
@@ -10921,14 +11133,21 @@ IF ANSWERED(Who protecting MC)
 			NOT (User is too young CO)
 			AND (Eligible to protect adult CO)			
 			SHOW Other party age range MC
-			SHOW Relationship between survivor and abuser MS
-			IF ANSWERED(Relationship between survivor and abuser MS) AND Relationship between survivor and abuser MS != OTHER(Relationship between survivor and abuser MS)
-				SHOW No qualifying relationship between DE		
-				SHOW 	 Launch DVPO DE
+			SHOW Live with other party now TF
+			IF ANSWERED(Live with other party now TF) AND Live with other party now TF
+				SHOW Disqualify roommate DE		
+				SHOW Launch DVPO DE
 			ELSE
-				SHOW Respondent sexually assaulted petitioner TF
-				IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF
-					SHOW No eligible harm selected DE
+				SHOW Relationship between survivor and abuser MS
+				IF ANSWERED(Relationship between survivor and abuser MS) AND Relationship between survivor and abuser MS != OTHER(Relationship between survivor and abuser MS)
+					SHOW Disqualify relationship DE		
+					SHOW Launch DVPO DE
+				ELSE
+					SHOW Relationship between survivor and abuser TE
+					SHOW Respondent sexually assaulted petitioner TF
+					IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF
+						SHOW No eligible harm selected DE
+					END IF
 				END IF
 			END IF
 		END IF
@@ -11626,11 +11845,14 @@ END IF</hd:script>
 			<hd:title>Closing</hd:title>
 			<hd:contents>
 				<hd:item name="Vertical Spacing 50"/>
-				<hd:item name="Closing text DVPO DE"/>
+				<hd:item name="You have completed the interview DE"/>
+				<hd:item name="Form assembly language MC"/>
+				<hd:item name="Closing text SAPO DE"/>
 			</hd:contents>
 			<hd:resource>
 				<hd:plainText>«.b»If you cannot answer all of the questions now, you can:«.be»«.pm»   •   Download the forms with some answers blank. If you do this, you must fill in the missing info before you file them with court.«Text spacer CO»Or«Text spacer CO»  •   Save your answers and return to the interview to fill in the missing info later. «.i»(*Better choice to make sure your forms are complete.)«.ie»</hd:plainText>
 			</hd:resource>
+			<hd:script>REQUIRE Form assembly language MC</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Court">
 			<hd:contents>
@@ -11641,24 +11863,24 @@ END IF</hd:script>
 				<hd:item name="This county court has a protection order office DE"/>
 				<hd:item name="Superior or district court MC"/>
 				<hd:item name="Closer to Kent or Seattle DE"/>
-				<hd:item name="King County court house DVPO petition MC"/>
+				<hd:item name="King County court house SAPO petition MC"/>
 				<hd:item name="Check your county superior court website DE"/>
 			</hd:contents>
 			<hd:resource>
-				<hd:plainText>«Text spacer CO»«.b»Which court should I choose?«.be»«.pm»The Superior Court may have a protection order office or clerk who can help with the filing process.  But a District or Municipal Court may be closer to where you live or more convenient.«.pm»Most counties let you file in any court if your case does not involve joint children and you do not live with the abuser. You must file in Superior Court if you are protecting joint children or if the order would remove the abuser from your home. </hd:plainText>
+				<hd:plainText>«Text spacer CO»«.b»Which court should I choose?«.be»«.pm»The Superior Court may have a protection order office or clerk who can help with the filing process.  But a District or Municipal Court may be closer to where you live or more convenient.«.pm»Most counties let you file in any court if [Q: ANY SAPO SPECIFIC CRITERIA HERE?  IF YOU WANT A SCHOOL TRANSFER DO YOU HAVE TO GO TO SUPERIOR COURT?]</hd:plainText>
 			</hd:resource>
 			<hd:script>HIDE ALL
 REQUIRE ALL
 
 SHOW County where filing DE
-IF Court county DVPO petition MC = &quot;King&quot; OR Court county DVPO petition MC = &quot;Snohomish&quot;
+IF Court county SAPO petition MC = &quot;King&quot; OR Court county SAPO petition MC = &quot;Snohomish&quot;
 	SHOW This county court has a protection order office DE
 END IF
 IF Must file in superior court CO
 	SET Superior or district court MC TO &quot;superior&quot;
 	SHOW Must file in superior court DE
-	IF Court county DVPO petition MC = &quot;King&quot;
-		SHOW King County court house DVPO petition MC
+	IF Court county SAPO petition MC = &quot;King&quot;
+		SHOW King County court house SAPO petition MC
 	END IF
 //	SHOW Check your county superior court website DE
 ELSE
@@ -11666,8 +11888,8 @@ ELSE
 	SHOW Superior or district court MC
 	IF Superior or district court MC = &quot;superior&quot; 
 //		SHOW Check your county superior court website DE
-		IF Court county DVPO petition MC = &quot;King&quot;
-			SHOW King County court house DVPO petition MC
+		IF Court county SAPO petition MC = &quot;King&quot;
+			SHOW King County court house SAPO petition MC
 		END IF
 	END IF
 END IF
@@ -11691,98 +11913,87 @@ SHOW Extending protection why TE
 END IF</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Gentle exit">
-			<hd:title>Your answers do not qualify for a DVPO</hd:title>
+			<hd:title>Your answers do not qualify</hd:title>
 			<hd:contents>
-				<hd:item name="You should not use this interview DE"/>
-				<hd:item name="No eligible survivor DE"/>
-				<hd:item name="No eligible harm selected DE"/>
-				<hd:item name="Dating violence abuser too young DE"/>
-				<hd:item name="Teenager is too old for next friend DE"/>
-				<hd:item name="No eligible relationship user for teen survivor DE"/>
 				<hd:item name="User is too young DE"/>
-				<hd:item name="No eligible relationship survivor and abuser DE"/>
+				<hd:item name="Adult is not vulnerable DE"/>
+				<hd:item name="Disqualify roommate DE"/>
+				<hd:item name="Disqualify relationship DE"/>
+				<hd:item name="Launch DVPO DE"/>
+				<hd:item name="No eligible harm selected DE"/>
 				<hd:item name="Consider other types of protection orders DE"/>
 				<hd:item name="Read pub and contact local agency intro DE"/>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Local domestic violence agency DE"/>
 				<hd:item name="Vertical Spacing 50"/>
 			</hd:contents>
+			<hd:resource>
+				<hd:plainText>«IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF»«Text spacer CO»«.b»What is sexual assault?«.be»«Text spacer CO»For purposes of getting a protection order, sexual assault is nonconsensual sexual conduct or nonconsensual sexual penetration. «.pm»«Text spacer CO»«.b»Nonconsensual«.be» means a lack of freely given agreement. «.pm»«Text spacer CO»«.b»Sexual conduct«.be» means any of the following:«Text spacer CO»     (a) any intentional or knowing touching or fondling of the genitals, anus, or breasts, directly or indirectly, including through clothing;«Text spacer CO»     (b) any intentional or knowing display of the genitals, anus, or breasts for the purposes of arousal or sexual gratification of the respondent;«Text spacer CO»     (c) any intentional or knowing touching or fondling of the genitals, anus, or breasts, directly or indirectly, including through clothing, that the petitioner is forced to perform by another person or the respondent;«Text spacer CO»     (d) any forced display of the petitioner’s genitals, anus, or breasts for the purposes of arousal or sexual gratification of the respondent or others;«Text spacer CO»     (e) any intentional or knowing touching of the clothed or unclothed body of a child under the age of 13, if done for the purpose of sexual gratification or arousal of the respondent or others; and«Text spacer CO»     (f) any coerced or forced touching or fondling by a child under the age of thirteen, directly or indirectly, including through clothing, of the genitals, anus, or breasts of the respondent or others.«.pm»«Text spacer CO»«.b»Sexual penetration«.be» means:«Text spacer CO»     •  any contact, however slight, between the sex organ or anus of one person by an object, the sex organ, mouth or anus of another person, or«Text spacer CO»     •  any intrusion, however slight, of any part of the body of one person or of any animal or object into the sex organ or anus of another person.«Text spacer CO»Sexual penetration includes but is not limited to cunnilingus, fellatio, or anal penetration.«Text spacer CO»Evidence of emission of semen is not required to prove sexual penetration.«END IF»</hd:plainText>
+			</hd:resource>
 			<hd:script>HIDE ALL
 //SHOW You should not use this interview DE
 
-
-IF No eligible survivor CO
-	SHOW No eligible survivor DE
-END IF
-IF No eligible harm selected CO
-	SHOW No eligible harm selected DE
-	SHOW Consider other types of protection orders DE
-END IF
-IF Dating violence and abuser under 16 CO
-	SHOW Dating violence abuser too young DE
-END IF
-IF Teenager is too old for next friend CO
-	SHOW Teenager is too old for next friend DE
-END IF
-IF No eligible relationship user for teen survivor CO
-	SHOW No eligible relationship user for teen survivor DE
-END IF
-IF User is too young CO
-	SHOW User is too young DE
-END IF
-IF NOT No eligible harm selected CO AND No eligible relationship survivor and abuser CO
-	SHOW No eligible relationship survivor and abuser DE
-	SHOW Consider other types of protection orders DE
-END IF 
-
 SHOW Vertical Spacing 50
 SHOW Read pub and contact local agency intro DE
-SHOW Local domestic violence agency DE</hd:script>
+SHOW Local domestic violence agency DE
+
+IF ANSWERED(Who protecting MC) 
+	IF Who protecting MC = &quot;self&quot; AND User age range MC = &quot;under 16&quot;
+		SHOW User is too young DE
+	ELSE
+		IF ANSWERED(Who protecting MC) AND Who protecting MC  = &quot;vulnerable adult&quot;
+			IF ANSWERED( Vulnerable adult vulnerability MS ) AND (Vulnerable adult vulnerability MS = OTHER( Vulnerable adult vulnerability MS ))
+				SHOW Adult is not vulnerable DE
+			END IF
+		END IF
+		IF Has eligible survivor CO AND 
+			NOT (User is too young CO)
+			AND (Eligible to protect adult CO)			
+			IF (ANSWERED(Live with other party now TF) AND Live with other party now TF)
+				SHOW Disqualify roommate DE
+			ELSE 
+				IF Disqualify roommate or relationship CO
+					SHOW Disqualify relationship DE		
+					SHOW 	 Launch DVPO DE
+				ELSE
+					IF ANSWERED( Respondent sexually assaulted petitioner TF ) AND NOT Respondent sexually assaulted petitioner TF
+						SHOW No eligible harm selected DE
+						SHOW Consider other types of protection orders DE
+					END IF
+				END IF
+			END IF
+		END IF
+	END IF
+END IF</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Helper contact info">
-			<hd:title>Your information</hd:title>
+			<hd:title>Your address</hd:title>
 			<hd:contents>
-				<hd:item name="Helper intro DE"/>
-				<hd:item name="Helper name first TE"/>
-				<hd:item name="Helper name middle TE" onPreviousLine="true"/>
-				<hd:item name="Helper name last TE"/>
-				<hd:item name="Helper name suffix MC" onPreviousLine="true"/>
-				<hd:item name="Helper birth date DA"/>
-				<hd:item name="Helper age DE" onPreviousLine="true"/>
-				<hd:item name="User sex MC"/>
-				<hd:item name="Spacer" onPreviousLine="true"/>
-				<hd:item name="User DL number TE"/>
-				<hd:item name="User DL state MC"/>
 				<hd:item name="Helper address explanation DE"/>
-				<hd:item name="Helper needs interpreter TF"/>
-				<hd:item name="Helper interpreter language TE"/>
-				<hd:item name="Helper phone TE"/>
-				<hd:item name="Helper email TE"/>
-				<hd:item name="Provide service address if you can DE"/>
 				<hd:item name="Helper address mailing street TE"/>
 				<hd:item name="Helper address mailing city TE"/>
 				<hd:item name="Helper address mailing state MC" onPreviousLine="true"/>
 				<hd:item name="Helper address mailing zip TE" onPreviousLine="true"/>
 				<hd:item name="Helper address mailing outside US TF"/>
 				<hd:item name="Helper address mailing outside US TE"/>
+				<hd:item name="Helper phone TE"/>
+				<hd:item name="Helper email TE"/>
+				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Helper needs interpreter TF"/>
+				<hd:item name="Helper interpreter language TE"/>
 				<hd:item name="User service address type MC"/>
 			</hd:contents>
 			<hd:selectionGrouping type="all"/>
-			<hd:script>REQUIRE Helper name first TE
-REQUIRE Helper name last TE
-REQUIRE Helper birth date DA
-REQUIRE User sex MC
-REQUIRE Helper phone TE
-REQUIRE User service address type MC
-HIDE Helper age DE
+			<hd:script>
 
-IF ANSWERED(Helper birth date DA)
-	IF Helper birth date DA &gt; TODAY
-				SET ERRORTEXT TO Errortext birth date in future CO
-	ELSE
-		SHOW Helper age DE
-	END IF
-END IF
+REQUIRE Helper address mailing street TE
+REQUIRE Helper address mailing city TE
+REQUIRE Helper address mailing state MC
+REQUIRE Helper address mailing zip TE
+REQUIRE Helper address mailing outside US TE
+REQUIRE Helper phone TE
+REQUIRE Helper interpreter language TE
+REQUIRE User service address type MC
 
 HIDE Helper address mailing outside US TE
 IF Helper address mailing outside US TF
@@ -11806,74 +12017,77 @@ END IF</hd:script>
 				<hd:item name="Save button here means logged in 300w IM"/>
 				<hd:item name="Horizontal Divider"/>
 				<hd:item name="LEI Intro DE"/>
-				<hd:item name="Other Party LEI Information"/>
 				<hd:item name="User LEI Information"/>
+				<hd:item name="Other Party LEI Information"/>
 			</hd:contents>
 		</hd:dialog>
 		<hd:dialog name="Names" linkVariables="false">
 			<hd:title>«Names dialog title CO»</hd:title>
 			<hd:contents>
 				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Helper intro DE"/>
 				<hd:item name="Need helper name DE"/>
-				<hd:item name="Helper name full TE"/>
-				<hd:item name="Horizontal Divider"/>
+				<hd:item name="Helper name first TE"/>
+				<hd:item name="Helper name middle TE" onPreviousLine="true"/>
+				<hd:item name="Helper name last TE"/>
+				<hd:item name="Helper name suffix MC" onPreviousLine="true"/>
+				<hd:item name="Vertical Spacing 50 2"/>
+				<hd:item name="Horizontal Divider 2"/>
 				<hd:item name="Enter your name DE"/>
 				<hd:item name="User name first TE"/>
 				<hd:item name="User name middle TE" onPreviousLine="true"/>
 				<hd:item name="User name last TE"/>
 				<hd:item name="User name suffix MC" onPreviousLine="true"/>
-				<hd:item name="Vertical Spacing 50 2"/>
+				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Enter other partys name DE"/>
 				<hd:item name="Other party name first TE"/>
 				<hd:item name="Other party name middle TE" onPreviousLine="true"/>
 				<hd:item name="Other party name last TE"/>
 				<hd:item name="Other party name suffix MC" onPreviousLine="true"/>
-				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Need parent guardian of respondent name DE"/>
 				<hd:item name="Respondent parent or guardian TE"/>
 			</hd:contents>
 			<hd:script>HIDE ALL
 SHOW Vertical Spacing 50
+SHOW Enter your name DE
+SHOW User name first TE
+SHOW User name middle TE
+SHOW User name last TE
+SHOW User name suffix MC
+REQUIRE User name first TE
+REQUIRE User name last TE
+
 SHOW Enter other partys name DE
 SHOW Other party name first TE
 SHOW Other party name middle TE
 SHOW Other party name last TE
 SHOW Other party name suffix MC
-
 REQUIRE Other party name first TE
 REQUIRE Other party name last TE
 
 IF NOT Protect self CO
+	SHOW Helper intro DE
 	SHOW Need helper name DE
-	SHOW Helper name full TE
-END IF
-
-IF VALUE(Protect teen from dating violence TF) = FALSE
-	SHOW Enter your name DE
-	SHOW User name first TE
-	SHOW User name middle TE
-	SHOW User name last TE
-	SHOW User name suffix MC
+	SHOW  Helper name first TE
+	SHOW Helper name middle TE
+	SHOW Helper name last TE
+	SHOW Helper name suffix MC
 	SHOW Vertical Spacing 50 2
-	SHOW Horizontal Divider
-	REQUIRE User name first TE
-	REQUIRE User name last TE
+	SHOW Horizontal Divider 2
+	REQUIRE Helper name first TE
+	REQUIRE Helper name last TE
 END IF
-
-//	IF ANSWERED(Other party name last TE)
-//		SHOW Other party has lawyer TF
-//		IF Other party has lawyer TF
-//			SHOW Other party lawyer name TE
-//		END IF
-//	END IF
-//END IF
 
 IF ANSWERED(Other party age range MC) AND Other party age range MC != &quot;18+&quot;
 	SHOW Need parent guardian of respondent name DE
 	SHOW Respondent parent or guardian TE
 END IF
+
+SHOW Vertical Spacing 50 2
+SHOW Horizontal Divider
 </hd:script>
 		</hd:dialog>
 		<hd:dialog name="Next Steps">
@@ -12078,6 +12292,7 @@ END IF</hd:script>
 				<hd:item name="Other party birth date estimate TE"/>
 				<hd:item name="Other party birth date DA"/>
 				<hd:item name="Other party age DE" onPreviousLine="true"/>
+				<hd:item name="Spacer 2" onPreviousLine="true"/>
 				<hd:item name="Other party birth date intro DE"/>
 				<hd:item name="Other party birth month MC"/>
 				<hd:item name="Other party birth day NU"/>
@@ -12144,8 +12359,6 @@ END IF</hd:script>
 				<hd:item name="Other party interpreter language TE"/>
 				<hd:item name="Other party impaired TF"/>
 				<hd:item name="Other party impairment description TE"/>
-				<hd:item name="Live with other party now TF"/>
-				<hd:item name="Other party knows may be moved out TF"/>
 				<hd:item name="Other party knows of filing for po/ro TF"/>
 				<hd:item name="Other party violent reaction likely when served TF"/>
 				<hd:item name="Other party hazard information MS"/>
@@ -12155,8 +12368,8 @@ END IF</hd:script>
 				<hd:item name="Other party weapons locations other TE"/>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Horizontal Divider"/>
-				<hd:item name="Other party ADM dependent MC"/>
 				<hd:item name="Other party ADM MC"/>
+				<hd:item name="Other party ADM dependent MC"/>
 			</hd:contents>
 			<hd:script>HIDE ALL
 SHOW Spacer
@@ -12191,6 +12404,11 @@ SHOW  Other party impaired TF
 REQUIRE Other party impaired TF
 SHOW Other party hazard information MS
 REQUIRE Other party hazard information MS
+SHOW Other party ADM dependent MC
+SHOW Other party ADM MC
+REQUIRE Other party ADM MC
+REQUIRE Other party ADM dependent MC
+
 
 IF ANSWERED(Other party birth date DA)
 	DEFAULT Know other party birth date TF TO TRUE
@@ -12203,21 +12421,10 @@ IF Know other party birth date TF
 	SHOW Other party birth date DA
 	IF ANSWERED(Other party birth date DA)
 		SHOW Other party age DE
+		SHOW Spacer 2
 	END IF
 ELSE 
 	SHOW Other party birth date estimate TE
-END IF
-
-
-SHOW Live with other party now TF 
-REQUIRE Live with other party now TF 
-IF Ask if ever lived together CO AND NOT Dating violence lived with abuser TF
-	HIDE Live with other party now TF 
-	SET Live with other party now TF TO FALSE
-END IF
-IF Live with other party now TF
-	SHOW Other party knows may be moved out TF
-	REQUIRE Other party knows may be moved out TF
 END IF
 
 SHOW Other party knows of filing for po/ro TF
@@ -12301,9 +12508,7 @@ END IF
 IF Other party hazard information MS = &quot;Other&quot;
 	SHOW Other party other hazard information TE
 END IF
-
-SHOW Other party ADM dependent MC
-SHOW Other party ADM MC</hd:script>
+</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Other Party Weapons List">
 			<hd:title>List of Weapons</hd:title>
@@ -12592,6 +12797,8 @@ END IF</hd:script>
 			<hd:title>Halfway there!</hd:title>
 			<hd:contents>
 				<hd:item name="Progress affirmation DE"/>
+				<hd:item name="Vertical Spacing 50"/>
+				<hd:item name="Local domestic violence agency DE"/>
 			</hd:contents>
 		</hd:dialog>
 		<hd:dialog name="Protection for teenager" linkVariables="false">
@@ -12699,11 +12906,11 @@ Build restraints who protecting CO
 				<hd:item name="Restraints keep away exclude TF"/>
 				<hd:item name="Restraints location where MS"/>
 				<hd:item name="Restraints location other TE"/>
-				<hd:item name="Restraints transfer school TF"/>
+				<hd:item name="Restraints distance MC"/>
+				<hd:item name="Restraints same school MC"/>
+				<hd:item name="Restraints transfer school MC"/>
 				<hd:item name="Transfer school current school name TE"/>
 				<hd:item name="Transfer school current school address TE"/>
-				<hd:item name="Restraints keep way distance TF"/>
-				<hd:item name="Restraints distance MC"/>
 			</hd:contents>
 			<hd:selectionGrouping type="all"/>
 			<hd:resource>
@@ -12711,25 +12918,29 @@ Build restraints who protecting CO
 			</hd:resource>
 			<hd:script>HIDE ALL
 //SHOW Restraints transfer school TF
+SHOW Vertical Spacing 50
+SHOW Restraints keep away DE
 SHOW Restraints keep away exclude TF
+REQUIRE Restraints same school MC
+REQUIRE Transfer school current school name TE
 
-IF Restraints location where MS = &quot;school&quot;
-	SHOW Restraints transfer school TF
-	IF Restraints transfer school TF
-		SHOW Transfer school current school name TE
-		SHOW Transfer school current school address TE
-	END IF
-END IF
 
 IF Restraints keep away exclude TF
 	SHOW Restraints location where MS
 	IF Restraints location where MS = &quot;other&quot;
 		SHOW Restraints location other TE
 	END IF
-	SHOW Restraints keep way distance TF
-	IF Restraints keep way distance TF
-		SHOW Restraints distance MC
+	IF Restraints location where MS = &quot;school&quot;
+		SHOW Restraints same school MC
+		IF VALUE(Restraints same school MC) = &quot;yes&quot;
+			SHOW Restraints transfer school MC
+			IF VALUE(Restraints transfer school MC) = &quot;yes&quot;
+				SHOW Transfer school current school name TE
+				SHOW Transfer school current school address TE
+			END IF
+		END IF
 	END IF
+	SHOW Restraints distance MC
 END IF</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Restraints minors">
@@ -12790,7 +13001,7 @@ END IF
 				<hd:item name="Restraints no contact DE"/>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Restraints no contact TF"/>
-				<hd:item name="Restraints no contact below prompt DE"/>
+				<hd:item name="Restraints no contact below question DE"/>
 			</hd:contents>
 			<hd:selectionGrouping type="all"/>
 			<hd:resource>
@@ -12928,9 +13139,6 @@ END IF
 				<hd:item name="Other party surrender weapons law enforcement TE"/>
 				<hd:item name="Vertical Spacing 50"/>
 			</hd:contents>
-			<hd:resource>
-				<hd:plainText>«Text spacer CO»Sometimes the judge «.b»must«.be» order weapons surrender with a protection order.  It is required when a protection order is between intimate partners and judge finds that the abuser is a credible threat.«.pm»«.pm»The judge can order «Other party name first TE» to give up his weapons right away (before a hearing) if there is an emergency and someone could be seriously harmed.«.pm»«.pm»«.b»Intimate partner«.be» means any of these:«Text spacer CO» •	A spouse or domestic partner«Text spacer CO» •	A former spouse or former domestic partner «Text spacer CO» •	Someone you had a dating relationship with (if you are both 16 or older)«Text spacer CO» •	Someone you have a child with</hd:plainText>
-			</hd:resource>
 			<hd:script>HIDE ALL
 REQUIRE Other party has firearms MC
 REQUIRE Other party has CPL MC
@@ -13018,20 +13226,17 @@ IF Restraints weapons TF
 END IF</hd:script>
 		</hd:dialog>
 		<hd:dialog name="Safety Planning">
-			<hd:title>Safety Planning</hd:title>
+			<hd:title>Support for Survivors</hd:title>
 			<hd:contents>
 				<hd:item name="Vertical Spacing 50"/>
 				<hd:item name="Safety planning DE"/>
-				<hd:item name="Court county DVPO petition MC"/>
-				<hd:item name="User live in county where filing TF"/>
-				<hd:item name="User left county to flee abuser TF"/>
-				<hd:item name="Court choice warn no venue in court DE"/>
+				<hd:item name="Court county SAPO petition MC"/>
 				<hd:item name="Horizontal Divider"/>
 				<hd:item name="Local domestic violence agency DE"/>
 				<hd:item name="Vertical Spacing 50"/>
 			</hd:contents>
 			<hd:resource>
-				<hd:plainText>«Text spacer CO»«.b»When you talk to a domestic violence legal advocate, you can expect that:«.be»«Text spacer CO» •	Services are offered free of charge«Text spacer CO» •	Legal advocates are not lawyers and cannot give legal advice«.pm»«.pm»«.b»Advocates can offer a range of services that might include:«.be»«Text spacer CO» •	Accompanying you to court«Text spacer CO» •	Helping you fill out paperwork«Text spacer CO» •	Helping you understand the civil or criminal process«Text spacer CO» •	Outlining or prioritizing the legal options that are available«Text spacer CO» •	Informing you about what actually goes on in court«Text spacer CO» •	Preparing you for a hearing or trial, and giving support before, during and after«Text spacer CO» •	Referring you to low or no-cost lawyers«.pm»«.pm»«.b»Domestic violence programs may also offer:«.be»«Text spacer CO» •	«.b»A caring listening ear. «.be»All programs have people who can listen and help you sort out options.«Text spacer CO» •	«.b»Advocacy services«.be». Most programs have specially trained advocates who can help with welfare, CPS, disAbility services, immigration, housing, employment protections, and more.«Text spacer CO» •	«.b»Emergency shelter«.be». Many programs offer shelter or safe homes.«Text spacer CO» •	«.b»Transitional housing«.be». Some programs have longer term housing for survivors.«Text spacer CO» •	«.b»Support groups.«.be» Some programs run groups for children, youth and adults.«Text spacer CO» •	«.b»Crisis services.«.be» Many programs offer 24-hour crisis services.
+				<hd:plainText>«Text spacer CO»«.b»When you talk to a sexual assault legal advocate, you can expect that:«.be»«Text spacer CO» •	Services are offered free of charge«Text spacer CO» •	Legal advocates are not lawyers and cannot give legal advice«.pm»«.pm»«.b»Advocates can offer a range of services that might include:«.be»«Text spacer CO» •	Accompanying you to court«Text spacer CO» •	Helping you fill out paperwork«Text spacer CO» •	Helping you understand the civil or criminal process«Text spacer CO» •	Outlining or prioritizing the legal options that are available«Text spacer CO» •	Informing you about what actually goes on in court«Text spacer CO» •	Preparing you for a hearing or trial, and giving support before, during and after«Text spacer CO» •	Referring you to low or no-cost lawyers«.pm»«.pm»«.b»Sexual assault programs may also offer:«.be»«Text spacer CO» •	«.b»A caring listening ear. «.be»All programs have people who can listen and help you sort out options.«Text spacer CO» •	«.b»Advocacy services«.be». Most programs have specially trained advocates who can help with welfare, CPS, disAbility services, immigration, housing, employment protections, and more.«Text spacer CO» •	«.b»Emergency shelter«.be». Many programs offer shelter or safe homes.«Text spacer CO» •	«.b»Transitional housing«.be». Some programs have longer term housing for survivors.«Text spacer CO» •	«.b»Support groups.«.be» Some programs run groups for children, youth and adults.«Text spacer CO» •	«.b»Crisis services.«.be» Many programs offer 24-hour crisis services.
 </hd:plainText>
 			</hd:resource>
 			<hd:script>//Agency list maintained on Google Sheet at https://docs.google.com/spreadsheets/d/1HTB9sn8sWbK_9ywGKNw4xj8cUmaRLP0ptr4PFo9xolk/edit#gid=0
@@ -13040,21 +13245,23 @@ HIDE ALL
 REQUIRE ALL
 SHOW Vertical Spacing 50
 SHOW Safety planning DE
-SHOW Court county DVPO petition MC
+SHOW Court county SAPO petition MC
 
-IF ANSWERED( Court county DVPO petition MC)
+IF ANSWERED( Court county SAPO petition MC)
 	SHOW Horizontal Divider
 	SHOW Local domestic violence agency DE
-	SHOW User live in county where filing TF
-	IF NOT User live in county where filing TF
-		SHOW User left county to flee abuser TF
-		IF NOT User left county to flee abuser TF
-			SHOW Court choice warn no venue in court DE
-		END IF
-	END IF
+//	SHOW User live in county where filing TF
+//	IF NOT User live in county where filing TF
+//		SHOW User left county to flee abuser TF
+//		IF NOT User left county to flee abuser TF
+//			SHOW Court choice warn no venue in court DE
+//		END IF
+//	END IF
 END IF
 
-//If user does not live in county where filing, asking User county MC in the LEI: Protected Person dialog.
+//FOR DVPO, If user does not live in county where filing, asking User county MC in the LEI: Protected Person dialog.
+
+//FOR SAPO, user must file in county where they live: RCW 7.90.040(6)
 
 </hd:script>
 		</hd:dialog>
@@ -13148,7 +13355,7 @@ END IF</hd:script>
 				<hd:item name="Temporary protection requested justification TE"/>
 			</hd:contents>
 			<hd:resource>
-				<hd:plainText>«Text spacer CO»«.b»Talk with a domestic violence advocate«.be» if you have questions about getting an emergency order. </hd:plainText>
+				<hd:plainText>«Text spacer CO»«.b»Talk with a sexual assault advocate«.be» if you have questions about getting an emergency order. </hd:plainText>
 			</hd:resource>
 			<hd:script>REQUIRE ALL
 
@@ -13285,7 +13492,7 @@ END IF</hd:script>
 				<hd:item name="User DL number TE"/>
 				<hd:item name="User DL state MC"/>
 				<hd:item name="Vertical Spacing 50"/>
-				<hd:item name="User physical description divider D"/>
+				<hd:item name="User physical description divider DE"/>
 				<hd:item name="User eye color MC"/>
 				<hd:item name="User hair color MC"/>
 				<hd:item name="Teenager race MC"/>
@@ -13337,7 +13544,7 @@ END IF</hd:script>
 			<hd:script>HIDE ALL
 SHOW Top of dialog space DE
 SHOW Protected person intro DE
-SHOW User physical description divider D  
+SHOW User physical description divider DE  
 SHOW User skin tone MC
 SHOW Vertical Spacing 50
 SHOW User height divider DE
@@ -13359,44 +13566,38 @@ REQUIRE User county for WACIC MC
 REQUIRE User county for WACIC TE
 
 
-IF Protect teen from dating violence TF
-	SHOW Teenager race MC
-	IF Teenager race MC = &quot;Other&quot;
-		SHOW Teenager race other TE
+SHOW User birth date DA
+REQUIRE User birth date DA
+IF ANSWERED (User birth date DA)
+	SHOW User age DE
+	IF AGE(User birth date DA) &lt;16 
+		SET ERRORTEXT TO Errortext user LEI info under 16 CO
+	ELSE IF User birth date DA &gt; TODAY
+		SET ERRORTEXT TO Errortext birth date in future CO
 	END IF
-	SHOW User phone TE
-ELSE // regular track (not teen dating violence)
-	SHOW User birth date DA
-	REQUIRE User birth date DA
-	IF ANSWERED (User birth date DA)
-		SHOW User age DE
-		IF AGE(User birth date DA) &lt;16 
-			SET ERRORTEXT TO Errortext user LEI info under 16 CO
-		ELSE IF User birth date DA &gt; TODAY
-			SET ERRORTEXT TO Errortext birth date in future CO
-		END IF
-	END IF
-	SHOW User sex MC
-	REQUIRE User sex MC
-	SHOW User race MC
-	IF User race MC = &quot;Other&quot;
-		SHOW User race other TE
-	END IF
-	SHOW User DL number TE
-	SHOW User DL state MC
-	SHOW User phone TE
-	SHOW User email TE	
 END IF
+SHOW User sex MC
+REQUIRE User sex MC
+SHOW User race MC
+IF User race MC = &quot;Other&quot;
+	SHOW User race other TE
+END IF
+SHOW User DL number TE
+SHOW User DL state MC
+SHOW User phone TE
+SHOW User email TE	
+
 
 IF User needs interpreter TF
 	SHOW User interpreter language TE
 END IF 
 
 IF User info needs to be confidential TF
-	IF VALUE(Protect teen from dating violence TF)
+	IF Who protecting MC != &quot;self&quot;
 		SHOW Contact person is helper TF
+		REQUIRE Contact person is helper TF
 	END IF
-	IF (NOT VALUE(Protect teen from dating violence TF)) OR (NOT VALUE(Contact person is helper TF))
+	IF ((NOT Protect self CO) AND ANSWERED(Contact person is helper TF) AND (NOT Contact person is helper TF)) OR Protect self CO
 		SHOW LEI confidential information instructions DE
 		SHOW User contact person name TE
 		REQUIRE User contact person name TE
@@ -13406,7 +13607,7 @@ IF User info needs to be confidential TF
 		SHOW User contact person address zip TE
 		SHOW User contact person phone TE
 		REQUIRE User contact person phone TE
-		IF NOT VALUE(Protect teen from dating violence TF)
+		IF Protect self CO
 			SHOW  User service address type if confidential MC
 			IF User service address type if confidential MC = &quot;email&quot;
 				REQUIRE User email TE
@@ -13444,7 +13645,7 @@ ELSE  //NOT confidential
 		REQUIRE User address home state MC
 		REQUIRE User address home zip TE
 	END IF
-	IF NOT VALUE(Protect teen from dating violence TF)
+	IF Protect self CO
 		SHOW User home address same as mailing MC
 		IF User home address same as mailing MC = &quot;Different&quot;
 			SHOW User address mailing DE
@@ -13472,14 +13673,14 @@ ELSE  //NOT confidential
 	END IF
 END IF
 
-IF NOT User live in county where filing TF //asked in Safety Planning dialog
-	SHOW User county for WACIC MC
-	IF VALUE(User county for WACIC MC) = &quot;Not in Washington&quot;
-		SHOW User county for WACIC TE
-	END IF
-ELSE
-	SET User county for WACIC MC TO Court county DVPO petition MC
-END IF
+//IF NOT User live in county where filing TF //asked in Safety Planning dialog
+//	SHOW User county for WACIC MC
+//	IF VALUE(User county for WACIC MC) = &quot;Not in Washington&quot;
+//		SHOW User county for WACIC TE
+//	END IF
+//ELSE
+SET User county for WACIC MC TO Court county SAPO petition MC
+//END IF
 
 </hd:script>
 		</hd:dialog>
@@ -13627,7 +13828,11 @@ END IF</hd:script>
 				<hd:item name="Horizontal Divider SAPO"/>
 				<hd:item name="Version DE"/>
 				<hd:item name="Image WashingtonFormsOnline Logo 138w_png"/>
-				<hd:item name="Placeholder DE" wide="true" onPreviousLine="true"/>
+				<hd:item name="Placeholder DE" onPreviousLine="true"/>
+				<hd:item name="Toggle language espanol DE" onPreviousLine="true"/>
+				<hd:item name="Image WashingtonFormsOnline Logo 138w 2"/>
+				<hd:item name="Placeholder 2 DE" onPreviousLine="true"/>
+				<hd:item name="Toggle language english DE" onPreviousLine="true"/>
 				<hd:item name="Vertical Spacing 100"/>
 				<hd:item name="Welcome text SAPO DE"/>
 				<hd:item name="Text for user using saved answers DE"/>
@@ -13643,10 +13848,26 @@ END IF</hd:script>
 				<hd:item name="Image Loading Saved Answers arrows revised 450w"/>
 			</hd:contents>
 			<hd:resource>
-				<hd:plainText>«.b»This is the Help area.«.be» Look here for guidance as you go through the interview. To hide the Help area, click &quot;X&quot;. To show it, click the Help sidebar on the right (under the lightbulb).«.pm» «.pm»«.b»Moving around:«.be»«.pm»«.pm»Use the «.b»First, Previous, Next,«.be» and «.b»Last«.be» buttons to move around the interview. Do not use the back arrows in your web browser or you will exit the interview. Use the Finish button when you are done with the interview and ready to create your forms.«.pm»You can also jump to a specific page by clicking in the outline on the left side of your screen. (On a small device like a smart phone or tablet, you may not see the outline.)«.pm»«.pm»«.b»Incomplete Answers:«.be»«.pm»«.pm»Some questions must be answered to continue the interview.  Those will be in red. For other questions, you can leave the answer blank if you do not know it.«.pm»«.pm»At the end of the interview, we will tell you if you are missing important information. You can:«Text spacer CO»• Download the forms with some answers blank. If you do this, you must fill in the missing info before you file them with court. «Text spacer CO»Or«Text spacer CO»• Save your answers and return to the interview to fill in the missing info later. (*Better choice to make sure your forms are complete.)«.pm»«.pm»«.b»Disclaimer:«.be» «.pm»«.pm»Washington Forms Online is a free web-based program to help people without lawyers select and complete forms needed for a family law case. The program is designed to follow current statutes, mandatory forms, and court rules. It does «.b»not«.be» apply legal principles and judgment to anyone&apos;s specific circumstances. Washington Forms Online «.b»strongly encourages«.be» you to review the forms created through this program with a licensed lawyer or Limited Licensed Legal Technician. 
-</hd:plainText>
+				<hd:plainText>«IF Language MC = &quot;English&quot;»«.b»This is the Help area.«.be» Look here for guidance as you go through the interview. To hide the Help area, click &quot;X&quot;. To show it, click the Help sidebar on the right (under the lightbulb).«.pm» «.pm»«.b»Moving around:«.be»«.pm»«.pm»Use the «.b»First, Previous, Next,«.be» and «.b»Last«.be» buttons to move around the interview. Do not use the back arrows in your web browser or you will exit the interview. Use the Finish button when you are done with the interview and ready to create your forms.«.pm»You can also jump to a specific page by clicking in the outline on the left side of your screen. (On a small device like a smart phone or tablet, you may not see the outline.)«.pm»«.pm»«.b»Incomplete Answers:«.be»«.pm»«.pm»Some questions must be answered to continue the interview.  Those will be in red. For other questions, you can leave the answer blank if you do not know it.«.pm»«.pm»At the end of the interview, we will tell you if you are missing important information. You can:«Text spacer CO»• Download the forms with some answers blank. If you do this, you must fill in the missing info before you file them with court. «Text spacer CO»Or«Text spacer CO»• Save your answers and return to the interview to fill in the missing info later. (*Better choice to make sure your forms are complete.)«.pm»«.pm»«.b»Disclaimer:«.be» «.pm»«.pm»Washington Forms Online is a free web-based program to help people without lawyers select and complete forms needed for a family law case. The program is designed to follow current statutes, mandatory forms, and court rules. It does «.b»not«.be» apply legal principles and judgment to anyone&apos;s specific circumstances. Washington Forms Online «.b»strongly encourages«.be» you to review the forms created through this program with a licensed lawyer or Limited Licensed Legal Technician.«END IF»«IF Language MC = &quot;Spanish&quot;»«.b»Esta es el área de ayuda.«.be» Aquí podrá obtener una guía para recorrer la entrevista. Para ocultar el área de ayuda, haga clic en la “X”. Para mostrarla, haga clic en la barra lateral derecha (bajo la bombilla de luz).«.pm» «.pm»«.b»Cómo moverse entre páginas:«.be»«.pm»«.pm»Use los botones «.b»Primera, Previa, Siguiente «.be» y «.b»Última«.be» para ir de una página a otra. No use las flechas de retroceso de su navegador web, porque saldrá de la entrevista. Use el botón Finalizar una vez que haya terminado con la entrevista y esté listo para crear sus formularios.«.pm»También puede ir a una página específica haciendo clic en el resumen en la parte izquierda de su pantalla. (En un dispositivo pequeño como un teléfono inteligente o tableta, quizás no vea el resumen).«.pm»«.pm»«.b»Respuesta incompletas:«.be»«.pm»«.pm»Hay que responder algunas preguntas para continuar con la entrevista.  Estas preguntas estarán en rojo. Para otras preguntas, puede dejar la respuesta en blanco si no la sabe.«.pm»«.pm»Al finalizar la entrevista, le diremos si falta información importante. Puede:«Text spacer CO»• Descargar los formularios con algunas respuestas en blanco. Si hace esto, tiene que poner la información faltante antes de presentarlos en el tribunal. «Text spacer CO»O«Text spacer CO»• Guardar sus respuestas y volver a la entrevista más tarde para llenar la información faltante. (*Esta es la mejor opción para asegurar que sus formularios estén completos.)«.pm»«.pm»«.b»Renuncia legal:«.be» «.pm»«.pm»Washington Forms Online es un programa web gratis para ayudar a personas sin un abogado a seleccionar y completar los formularios necesarios para un caso de derecho familiar. El programa está diseñado para cumplir con las leyes actuales, los formularios obligatorios y las reglas del tribunal. «.b»No«.be» aplica principios legales ni hace un juicio de valor sobre las circunstancias específicas de una persona. Washington Forms Online «.b»recomienda firmemente«.be» que revise los formularios creados con este programa con un abogado licenciado o un técnico legal de licencia limitada.«END IF»</hd:plainText>
 			</hd:resource>
 			<hd:script>REQUIRE User is logged in to LHI TF
+
+HIDE Toggle language espanol DE
+HIDE Toggle language english DE
+HIDE Image WashingtonFormsOnline Logo 138w_png
+HIDE Image WashingtonFormsOnline Logo 138w 2
+HIDE Placeholder DE
+HIDE Placeholder 2 DE
+
+IF Language MC = &quot;English&quot;
+	SHOW  Image WashingtonFormsOnline Logo 138w_png
+	SHOW Placeholder DE
+	SHOW Toggle language espanol DE
+ELSE 
+	SHOW Image WashingtonFormsOnline Logo 138w 2
+	SHOW Placeholder 2 DE
+	SHOW Toggle language english DE
+END IF 
 
 HIDE User is logged in to LHI TF
 HIDE Great! That means you are logged in DE
@@ -13721,7 +13942,7 @@ HIDE Add more children TF</hd:script>
 		<hd:dialog name="Why do you need DVPO other">
 			<hd:title>Other</hd:title>
 			<hd:contents>
-				<hd:item name="Why do you need DVPO other TE"/>
+				<hd:item name="Why do you need SAPO other TE"/>
 			</hd:contents>
 		</hd:dialog>
 		<hd:dialog name="Why do you need DVPO substance abuse" askAutomatically="false">
@@ -13745,11 +13966,11 @@ END IF</hd:script>
 				<hd:item name="Save answers message DE"/>
 				<hd:item name="Save button here means logged in 300w IM"/>
 				<hd:item name="Horizontal Divider"/>
-				<hd:item name="Why do you need a DVPO DE"/>
+				<hd:item name="Why do you need a PO DE"/>
 				<hd:item name="Why do you need a SAPO"/>
+				<hd:item name="Why do you need a PO school transfer"/>
 				<hd:item name="Why do you need a DVPO weapons"/>
 				<hd:item name="Why do you need DVPO other"/>
-				<hd:item name="Extending protection"/>
 				<hd:item name="Supporting evidence"/>
 			</hd:contents>
 			<hd:resource>
@@ -13844,6 +14065,15 @@ END IF
 
 </hd:script>
 		</hd:dialog>
+		<hd:dialog name="Why do you need a PO school transfer">
+			<hd:title>School Transfer</hd:title>
+			<hd:contents>
+				<hd:item name="Why do you need PO school transfer TE"/>
+			</hd:contents>
+			<hd:resource>
+				<hd:plainText>[ADD HELP TEXT HERE]</hd:plainText>
+			</hd:resource>
+		</hd:dialog>
 		<hd:dialog name="Why do you need a SAPO" linkVariables="false">
 			<hd:title>Statement about sexual assault</hd:title>
 			<hd:contents>
@@ -13851,7 +14081,9 @@ END IF
 				<hd:item name="Why do you need a SAPO TE"/>
 			</hd:contents>
 			<hd:resource>
-				<hd:plainText>«Text spacer CO»«.b»Tips for writing your statement:«.be»«.pm»«Text spacer CO»  •  Be as specific and descriptive as possible. Put the date, names, what, when, and where. Use names rather than pronouns like “he” or “they” as much as possible. If you cannot remember the date, put the time of year the thing happened (around a holiday, winter, summer, how old was your child) or about how long ago.«.pm»  •  Focus on the legal definition of domestic violence (hits, assaults, physical harm, or fear of immediate physical harm or assault, sexual assault, or stalking).«.pm»  •  You must give specifics. Putting things like “my husband is verbally and physically abusive to me,” or “he threatened to kill me,” does not help. The judge will not know what that means. Describe what «Other party name first TE» does (hit, kick, shove, slap) that is abusive. What did «Other party name first TE» say when s/he threatened you? Do not just say you were afraid. Say what you were afraid would happen to you or your child and why. If you got hurt, explain how the injury happened. Did the police come? What did they do? The more detail you can give, the better.</hd:plainText>
+				<hd:plainText>[NEED TO EDIT WITH MORE SA SPECIFIC TIPS]
+
+«Text spacer CO»«.b»Tips for writing your statement:«.be»«.pm»«Text spacer CO»  •  Be as specific and descriptive as possible. Put the date, names, what, when, and where. Use names rather than pronouns like “he” or “they” as much as possible. If you cannot remember the date, put the time of year the thing happened (around a holiday, winter, summer, how old was your child) or about how long ago.«.pm»  •  Focus on the legal definition of domestic violence (hits, assaults, physical harm, or fear of immediate physical harm or assault, sexual assault, or stalking).«.pm»  •  You must give specifics. Putting things like “my husband is verbally and physically abusive to me,” or “he threatened to kill me,” does not help. The judge will not know what that means. Describe what «Other party name first TE» does (hit, kick, shove, slap) that is abusive. What did «Other party name first TE» say when s/he threatened you? Do not just say you were afraid. Say what you were afraid would happen to you or your child and why. If you got hurt, explain how the injury happened. Did the police come? What did they do? The more detail you can give, the better.</hd:plainText>
 			</hd:resource>
 		</hd:dialog>
 		<hd:textFormat name="LIKE THIS" value="LIKE THIS"/>
@@ -13945,7 +14177,7 @@ END IF
 			<hd:choice>Amer.Indian/ Alaskan Native</hd:choice>
 			<hd:choice>Asian</hd:choice>
 			<hd:choice>Black</hd:choice>
-			<hd:choice>Hispanic/ LatinX</hd:choice>
+			<hd:choice>Hispanic/ Latino/a/x</hd:choice>
 			<hd:choice>Multi-Racial</hd:choice>
 			<hd:choice>Native Hawaiian/ Pac.Islander</hd:choice>
 			<hd:choice>White</hd:choice>
@@ -13955,7 +14187,7 @@ END IF
 			<hd:choice>Amer.Indian/Alaskan Native</hd:choice>
 			<hd:choice>Asian</hd:choice>
 			<hd:choice>Black</hd:choice>
-			<hd:choice>Hispanic/LatinX</hd:choice>
+			<hd:choice>Hispanic/Latino/a/x</hd:choice>
 			<hd:choice>Multi-Racial</hd:choice>
 			<hd:choice>Native Hawaiian/Pac.Islander</hd:choice>
 			<hd:choice>White</hd:choice>
@@ -14457,6 +14689,29 @@ END IF
 			<hd:choice>he</hd:choice>
 			<hd:choice>she</hd:choice>
 			<hd:choice>they</hd:choice>
+		</hd:multipleChoiceFormat>
+		<hd:multipleChoiceFormat name="roommates/spouse (or ex)/domestic partner (or ex)/">
+			<hd:choice>roommates</hd:choice>
+			<hd:choice>spouse (or ex)</hd:choice>
+			<hd:choice>domestic partner (or ex)</hd:choice>
+			<hd:choice>dating relationship (or ex)</hd:choice>
+			<hd:choice>joint parents</hd:choice>
+			<hd:choice>parent</hd:choice>
+			<hd:choice>step-parent</hd:choice>
+			<hd:choice>grandparent</hd:choice>
+			<hd:choice>in-law</hd:choice>
+			<hd:choice>blood relatives</hd:choice>
+		</hd:multipleChoiceFormat>
+		<hd:multipleChoiceFormat name="spouse (or ex)/domestic partner (or ex)/dating rel">
+			<hd:choice>spouse (or ex)</hd:choice>
+			<hd:choice>domestic partner (or ex)</hd:choice>
+			<hd:choice>dating relationship (or ex)</hd:choice>
+			<hd:choice>joint parents</hd:choice>
+			<hd:choice>parent</hd:choice>
+			<hd:choice>step-parent</hd:choice>
+			<hd:choice>grandparent</hd:choice>
+			<hd:choice>in-law</hd:choice>
+			<hd:choice>blood relatives</hd:choice>
 		</hd:multipleChoiceFormat>
 		<hd:multipleChoiceFormat name="state postal codes">
 			<hd:choice>WA</hd:choice>
