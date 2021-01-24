@@ -5203,72 +5203,16 @@ END IF // Other kids to protect TF
 			</hd:localVariables>
 			<hd:script>//DO NOT TRANSLATE
 ERASE User Protected Persons
-SET Counter TO 1
-SET counter2 TO 1
-REPEAT Selected children repeat
-	SET User protected person name TE[Counter] TO Selected child name CO 
-	SET User protected person birth date DA[Counter] TO Selected child birth date DA
-	SET User protected person sex TE[Counter] TO Selected child sex TE
-	SET User protected person race TE[Counter] TO Race CO(Selected child race MC, Selected child race TE)
-	SET User protected person resides with TE[Counter] TO Selected child lives with TE // was User name full CO -- Laurie to check on this
-	SET User protected person relationship user TE[Counter] TO  Selected child relationship to user CO
-	SET User protected person relationship other party TE[Counter] TO Selected child relationship to other party CO
-	IF AGE(Selected child birth date DA[Counter]) &lt; 18
-		SET User protected person minor sequence NU[Counter] TO counter2
-		INCREMENT counter2
-	END IF
-	INCREMENT Counter
-END REPEAT
-
-IF Restraints cyberstalk adult children or other MC = &quot;yes&quot;
-	REPEAT User Other Protected Persons
-		SET User protected person name TE[Counter] TO User other protected person name TE
-		SET User protected person birth date DA[Counter] TO User other protected person birth date DA
-		INCREMENT Counter
-	END REPEAT
-END IF
-
-//IF There are minor children of the relationship TF
-//	REPEAT Children Repeat 1
-//		IF User protected children MS = &quot;All&quot; OR User protected children MS = Child name full CO
-//			SET User protected person name TE[Counter] TO Child name full CO
-//			SET User protected person birth date DA[Counter] TO Child birth date DA
-//			IF ANSWERED(Child sex MC)
-//				SET User protected person sex TE[Counter] TO &quot;«Child sex MC»&quot;
-//			END IF
-//			IF ANSWERED(User child race MC)
-//				SET User protected person race TE[Counter] TO Race CO(&quot;«Child race MC»&quot;, Child race other TE)
-//			END IF
-//			SET User protected person resides with TE[Counter] TO User name full CO
-//			SET User protected person relationship user TE[Counter] TO &quot;child&quot;
-//			SET User protected person relationship other party TE[Counter] TO &quot;child&quot;
-//			INCREMENT Counter
-//		END IF
-//	END REPEAT
-//END IF
-//
-//IF User has other minor children TF
-//	REPEAT User Children 2
-//		IF User protected children MS = &quot;All&quot; OR User protected children MS = User child name full CO
-//			SET User protected person name TE[Counter] TO User child name full CO
-//			SET User protected person birth date DA[Counter] TO User child birth date DA
-//			IF ANSWERED(User child sex MC)
-//				SET User protected person sex TE[Counter] TO &quot;«User child sex MC»&quot;
-//			END IF
-//			IF ANSWERED(User child race MC)
-//				SET User protected person race TE[Counter] TO Race CO(&quot;«User child race MC»&quot;, User child race other TE)
-//			END IF
-//			SET User protected person resides with TE[Counter] TO User name full CO
-//			SET User protected person relationship user TE[Counter] TO &quot;child&quot;
-//			SET User protected person relationship other party TE[Counter] TO &quot;none&quot;
-//			INCREMENT Counter
-//		END IF
-//	END REPEAT
-//END IF
-//
-
-
-</hd:script>
+// We can only ever list one minor on the SAPO, and it is the same as the &quot;user&quot;
+IF Who protecting MC = &quot;minor&quot;
+	SET User protected person name TE[1] TO User name full CO
+	SET User protected person birth date DA[1] TO User birth date DA
+	SET User protected person sex TE[1] TO User sex MC
+	SET User protected person race TE[1] TO User race CO
+	SET User protected person resides with TE[1] TO &quot;&quot; // Is this still relevant? 
+	SET User protected person relationship user TE[1] TO  &quot;Self&quot;
+	SET User protected person relationship other party TE[1] TO Relationship between survivor and abuser TE
+END IF</hd:script>
 		</hd:computation>
 		<hd:computation name="Build model years MC CO" resultType="text">
 			<hd:localVariables>
@@ -6629,6 +6573,9 @@ ELSE
 END IF
 </hd:script>
 		</hd:computation>
+		<hd:computation name="Helper contact info one line CO" resultType="text">
+			<hd:script>Helper name full CO + &quot; &quot; </hd:script>
+		</hd:computation>
 		<hd:computation name="Helper name full CO" resultType="text">
 			<hd:defMergeProps unansweredText="________________________________"/>
 			<hd:script>//DO NOT TRANSLATE
@@ -6679,6 +6626,7 @@ ELSE // Don&apos;t need gentle exit
 	ASK Court
 	ASK Personal service
 	ASK Closing
+	Build list of protected persons other than user CO // For LEI
 	IF VALUE(Form assembly language MC) = &quot;Bilingual&quot;
 		ASSEMBLE &quot;OPAS 1 - Instrucciones.rtf /nw /stw&quot;
 		ASSEMBLE &quot;OPAS 2 - Peticion.rtf /nw /stw&quot;
@@ -6691,7 +6639,7 @@ ELSE // Don&apos;t need gentle exit
 		ASSEMBLE &quot;SAPO 1 - Instructions.rtf /nw /stw&quot;
 		ASSEMBLE &quot;SAPO 2 - Petition.rtf /nw /stw&quot;
 		ASSEMBLE &quot;SAPO 3 - Proposed Orders.rtf /nw /stw&quot;
-		//	ASSEMBLE &quot;SAPO 4 - Law Enforcement Info.hpt /nw /stw&quot;
+		ASSEMBLE &quot;SAPO 4 - Law Enforcement Info.hpt /nw /stw&quot;
 		IF Need return of service CO
 			ASSEMBLE &quot;SAPO 5 - Proof of Service.rtf /nw /stw&quot;
 		END IF
@@ -8244,7 +8192,7 @@ END IF
 </hd:script>
 		</hd:computation>
 		<hd:computation name="SAPO version CO" resultType="text">
-			<hd:script>&quot;12/31/2020-A&quot;</hd:script>
+			<hd:script>&quot;12/31/2020-B&quot;</hd:script>
 		</hd:computation>
 		<hd:computation name="School transfer appendix needed CO" resultType="trueFalse">
 			<hd:script>School transfer needed CO</hd:script>
@@ -10019,6 +9967,9 @@ ELSE IF Joint minor children count CO &gt; 0 OR (Other kids to protect TF AND Us
 	&quot;Text parent CO&quot;
 END IF 
 </hd:script>
+		</hd:computation>
+		<hd:computation name="User relationship to minor CO" resultType="text">
+			<hd:script>&quot;Self&quot; // Always &quot;self&quot; in a SAPO context</hd:script>
 		</hd:computation>
 		<hd:computation name="User separate home address CO" resultType="text">
 			<hd:script>//DO NOT TRANSLATE - PARALLEL IN TEMPLATE
