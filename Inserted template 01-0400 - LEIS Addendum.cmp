@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<hd:componentLibrary xmlns:hd="http://www.hotdocs.com/schemas/component_library/2009" version="11">
+<hd:componentLibrary xmlns:hd="http://www.hotdocs.com/schemas/component_library/2009" pointedToFile="SAPO interview.cmp" version="11">
 	<hd:preferences>
 		<hd:preference name="COMBINE_DEF_DLGS">true</hd:preference>
 		<hd:preference name="ENABLE_EDIT_ANSWER">True</hd:preference>
@@ -7,7 +7,7 @@
 		<hd:preference name="MARK_ANSWER_FIELDS">True</hd:preference>
 		<hd:preference name="MAX_REPEAT_COUNT">100</hd:preference>
 		<hd:preference name="MAX_STACK_DEPTH">100</hd:preference>
-		<hd:preference name="POINTED TO CMP"></hd:preference>
+		<hd:preference name="POINTED TO CMP">SAPO interview</hd:preference>
 		<hd:preference name="REGISTER"></hd:preference>
 		<hd:preference name="TEMPLATE_ID">3c0ba891-8d89-47b8-863f-613e8cdf35ea</hd:preference>
 	</hd:preferences>
